@@ -13,13 +13,8 @@
                         "group": [
                             {
                                 "type": "color",
-                                "label": "顶部背景",
+                                "label": "顶部背景颜色",
                                 "data": "top_background"
-                            },
-                            {
-                                "type": "color",
-                                "label": "登录注册购物车颜色",
-                                "data": "top_color"
                             }
                         ]
                     }
@@ -27,7 +22,7 @@
             },
             {
                 "title": "网站 Logo",
-                "tips": "推荐尺寸 高度<=128px",
+                "tips": "推荐尺寸 325 * 100 px",
                 "options": [
                     {
                         "group": [
@@ -39,19 +34,84 @@
                                 "type": "checkbox",
                                 "label": "显示Logo",
                                 "data": "use_logo"
-                            },
-                            {
+							},
+							{
+								"type": "link",
+                                "label": "logo跳转地址",
+                                "data": "top_logo_link,top_logo_linktype"
+							}
+                        ]
+                    }
+                ]
+			},
+			{
+                "title": "菜单按钮",
+                "options": [
+                    {
+                        "group": [
+							{
                                 "type": "color",
-                                "label": "网站名称文字",
-                                "tips": "使用网站Logo时不生效",
-                                "data": "h1_color"
-                            },
-                            {
-                                "type": "input",
-                                "text": "头部高度",
-                                "tips": "默认为70px",
-                                "data": "head_height"
+                                "label": "菜单背景颜色",
+                                "data": "top_menu_background"
+							},
+							{
+                                "type": "color",
+                                "label": "菜单图标颜色",
+                                "data": "top_menu_item_color"
                             }
+                        ]
+                    }
+                ]
+			},
+			{
+                "title": "搜索按钮和语言切换按钮",
+                "options": [
+                    {
+                        "group": [
+							{
+                                "type": "color",
+                                "label": "字体颜色",
+                                "data": "top_search_lang_color"
+							}
+                        ]
+                    }
+                ]
+			},
+			{
+                "title": "其他按钮",
+                "options": [
+                    {
+                        "group": [
+							{
+                                "type": "color",
+                                "label": "按钮一背景颜色",
+                                "data": "top_item1_background"
+							},
+							{
+                                "type": "color",
+                                "label": "按钮一字体颜色",
+                                "data": "top_item1_color"
+							},
+							{
+                                "type": "link",
+                                "label": "按钮一跳转地址",
+                                "data": "top_item1_link,top_item1_linktype"
+							},
+							{
+                                "type": "color",
+                                "label": "按钮二背景颜色",
+                                "data": "top_item2_background"
+							},
+							{
+                                "type": "color",
+                                "label": "按钮二字体颜色",
+                                "data": "top_item2_color"
+							},
+							{
+                                "type": "link",
+                                "label": "按钮二跳转地址",
+                                "data": "top_item2_link,top_item2_linktype"
+							}
                         ]
                     }
                 ]
@@ -63,15 +123,9 @@
         "settings": [
             {
                 "title": "主导航颜色设置",
-                "tips": "可在后台-<a href=\"/center/main/#/navigation\" target=\"blank\" style=\"color:#da5d5d\">导航管理</a>中设置内容和跳转链接",
                 "options": [
                     {
                         "group": [
-                            {
-                                "type": "color",
-                                "label": "导航背景",
-                                "data": "nav_background"
-                            },
                             {
                                 "type": "color",
                                 "label": "一级导航文字",
@@ -79,23 +133,37 @@
                             },
                             {
                                 "type": "color",
-                                "label": "一级导航鼠标经过效果",
-                                "data": "navLinkHover_border"
+                                "label": "导航激活状态颜色",
+                                "data": "navLink_active_color"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+	},
+	{
+        "name": "菜单导航设置",
+        "settings": [
+            {
+                "title": "菜单导航颜色设置",
+                "options": [
+                    {
+                        "group": [
+							{
+                                "type": "color",
+                                "label": "背景颜色",
+                                "data": "menu_navLink_background"
                             },
                             {
                                 "type": "color",
-                                "label": "子导航文字",
-                                "data": "navSubLink_color"
+								"label": "导航文字颜色",
+                                "data": "menu_navLink_color"
                             },
                             {
                                 "type": "color",
-                                "label": "子导航鼠标经过效果",
-                                "data": "sublink_hovercolor"
-                            },
-                            {
-                                "type": "color",
-                                "label": "子导航背景",
-                                "data": "navSub_background"
+                                "label": "鼠标悬浮时背景颜色",
+                                "data": "menu_navLink_hover_background"
                             }
                         ]
                     }
@@ -103,7 +171,6 @@
             }
         ]
     },
-
     {
         "name" : "首页",
         "type" : "title"

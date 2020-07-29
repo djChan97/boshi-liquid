@@ -3,120 +3,130 @@
 <!--[if IE 7 ]> <html class="ie7 settings-main_background"> <![endif]-->
 <!--[if IE 8 ]> <html class="ie8 settings-main_background"> <![endif]-->
 <!--[if IE 9 ]> <html class="ie9 settings-main_background"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html class="settings-main_background"><!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="settings-main_background">
+<!--<![endif]-->
+
 <head>
-    <meta charset="utf-8">
-    <link rel="preconnect" href="{{ cdn_host }}">
-    <link rel="preconnect" href="//res.wx.qq.com">
-  	<link rel="preload" href="{{ '../theme/base/0.2.0/js/base.js' | global_asset_url }}" as="script" crossorigin>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="renderer" content="webkit">
-    <title>{{ page_title }}</title>
-    <meta name="keywords" content="{{ page_keywords }}">
-    <meta name="description" content="{{ page_desc }}">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width, viewport-fit=cover">
-    <link rel="shortcut icon" href="{{ icon_image | image_url }}" type="image/x-icon">
-    {{ 'base-160225.min.css' | global_asset_url | css_tag }}
-    {{ 'yhsd-iconfont-151010.css' | global_asset_url | css_tag }}
-    {{ 'yhsd-desktop-2.4.0.min.css' | global_asset_url | css_tag }}
-    {{ 'iconfont.css' | asset_url | css_tag }}
-    {{ 'youpage.min.css' | global_asset_url | css_tag }}
-    {{ 'main.css' | asset_url | css_tag }}
-    {{ 'user.css' | asset_url | css_tag }}
-    {{ 'jquery-1.11.3.min.js' | global_asset_url | js_tag }}
-    {{ 'jquery.placeholder.js' | asset_url | js_tag }}
-    <script src="//res.wx.qq.com/open/js/jweixin-1.5.0.js"></script>
-    <script src="{{ 'reporter-0.1.0.js' | global_asset_url }}" crossorigin></script>
-    <script src="{{ 'jssdk-1.4.0.min.js' | global_asset_url }}" crossorigin></script>
-    {{ 'lazyload.min.js' | global_asset_url | js_tag }}
-    {% include 'share_info' with 'head' %}
-    {{ content_for_header }}
-  	{% include 'data' %}
+	<meta charset="utf-8">
+	<link rel="preconnect" href="{{ cdn_host }}">
+	<link rel="preconnect" href="//res.wx.qq.com">
+	<link rel="preload" href="{{ '../theme/base/0.2.0/js/base.js' | global_asset_url }}" as="script" crossorigin>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<title>{{ page_title }}</title>
+	<meta name="keywords" content="{{ page_keywords }}">
+	<meta name="description" content="{{ page_desc }}">
+	<meta name="viewport"
+		content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width, viewport-fit=cover">
+	<link rel="shortcut icon" href="{{ icon_image | image_url }}" type="image/x-icon">
+	{{ 'base-160225.min.css' | global_asset_url | css_tag }}
+	{{ 'yhsd-iconfont-151010.css' | global_asset_url | css_tag }}
+	{{ 'yhsd-desktop-2.4.0.min.css' | global_asset_url | css_tag }}
+	{{ 'iconfont.css' | asset_url | css_tag }}
+	{{ 'youpage.min.css' | global_asset_url | css_tag }}
+	{{ 'main.css' | asset_url | css_tag }}
+	{{ 'user.css' | asset_url | css_tag }}
+	{{ 'jquery-1.11.3.min.js' | global_asset_url | js_tag }}
+	{{ 'jquery.placeholder.js' | asset_url | js_tag }}
+	<script src="//res.wx.qq.com/open/js/jweixin-1.5.0.js"></script>
+	<script src="{{ 'reporter-0.1.0.js' | global_asset_url }}" crossorigin></script>
+	<script src="{{ 'jssdk-1.4.0.min.js' | global_asset_url }}" crossorigin></script>
+	{{ 'lazyload.min.js' | global_asset_url | js_tag }}
+	{% include 'share_info' with 'head' %}
+	{{ content_for_header }}
+	{% include 'data' %}
 </head>
 <body class="{{ is_mobile_agent }} {% unless settings.top_icoDark %}body-ico-white{% endunless %}">
-    <!-- 社交分享图 (300x300) -->
-      <img class="you_share_img" src="{{ share_img_url }}" alt="{{ page_title }}">
-    <!-- End 社交分享图 -->
-    <div class="settings-body_background yhsd_free_scope">
+	<!-- 社交分享图 (300x300) -->
+	<img class="you_share_img" src="{{ share_img_url }}" alt="{{ page_title }}">
+	<!-- End 社交分享图 -->
+	<div class="settings-body_background yhsd_free_scope">
+		<!-- 主导航 -->
+		<div class="boshi-main-nav settings-top_background">
+			<div class="nav-left">
+				{% if settings.use_logo %}
+				<a
+					href="{{ settings.top_logo_link }}"
+					target="{% if settings.top_logo_linktype == 1 %}_blank{% else %}_self{% endif %}"
+				>
+					<img src="{{'main-logo' | asset_url }}" alt="">
+				</a>
+				{% endif %}
+				<div class="boshi-nav-menu settings_top_menu_background">
+					<span class="settings_top_menu_item_color"></span>
+					<span class="settings_top_menu_item_color"></span>
+					<span class="settings_top_menu_item_color"></span>
+					<div class="menu-item settings_menu_navLink_background">
+						<ul>
+							{% for link in linklists['n000001'].links%}
+							<li>
+								<a class="settings_menu_navLink_color"
+									href="{% unless link.link_type == 'no_link' %}{{ link.page_url }}{% else %}javascript:void(0);{% endunless %}"
+									target="{% if link.target_type == 1 %}_blank{% else %}_self{% endif %}">{{ link.title }}</a>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="nav-right">
+				<div class="top-part">
+					<div class="left">
+						<div class="search-icon">
+							<svg t="1596008859318" class="icon settings_top_search_lang_color" viewBox="0 0 1024 1024"
+								version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2972">
+								<path
+									d="M989.952 989.952c-37.12 37.12-97.216 37.12-134.336 0l-167.68-167.68c-68.992 44.16-150.464 70.528-238.4 70.528-244.864 0-443.328-198.464-443.328-443.264S204.672 6.208 449.536 6.208c244.8 0 443.264 198.464 443.264 443.328 0 87.936-26.368 169.472-70.528 238.4l167.616 167.616c37.12 37.184 37.12 97.28 0.064 134.4zM447.68 127.872c-176.576 0-319.808 143.232-319.808 319.808 0 176.64 143.168 319.744 319.808 319.744S767.424 624.256 767.424 447.68c0.064-176.576-143.104-319.808-319.744-319.808z"
+									p-id="2973"></path>
+							</svg>
+						</div>
+						<div class="middle-line"></div>
+						<div class="lang settings_top_search_lang_color">En</div>
+					</div>
+					<div class="right">
+						<a class="btn1 settings_top_item1_background settings_top_item1_color"
+							href="{{ settings.top_item1_link }}"
+							target="{% if settings.top_item1_linktype == 1 %}_blank{% else %}_self{% endif %}"
+						>预约参观</a>
+						<a class="btn2 settings_top_item2_background settings_top_item2_color"
+							href="{{ settings.top_item2_link }}"
+							target="{% if settings.top_item2_linktype == 1 %}_blank{% else %}_self{% endif %}"
+						>申请</a>
+					</div>
+				</div>
+				<div class="bottom-part">
+					<ul>
+						{% for link in linklists.main.links%}
+						<li>
+							<a class="settings-navLink_color"
+								href="{% unless link.link_type == 'no_link' %}{{ link.page_url }}{% else %}javascript:void(0);{% endunless %}"
+								target="{% if link.target_type == 1 %}_blank{% else %}_self{% endif %}">{{ link.title }}</a>
+						</li>
+						{% endfor %}
+					</ul>
 
-        <div class="wrapper wrapper-header settings-top_background">
-            <div class=" settings-top_background">
-                <div class="header">
-                      <a id="nav_mobile" class="nav-link-mobile" href="javascript:void(0);">
-                          <span></span><span></span><span></span>
-                      </a>
-<!-- 顶部搜索 -->
-                    <a id="yhsd-header-search" href="javascript:void(0);" class="yhsd-header-search-pc yhsd-header-search header-search-ico">
-                       	<i class="iconfont"></i>
-                  	</a>
-                    <div id="yhsd-header-search-ipt" class="header-search yhsd-header-search-ipt yhsd-header-search-ipt-pc">
-                        <input class="search-ipt settings-ipt_border" type="text" placeholder="搜索全店" />
-                    </div>
-<!-- 顶部登录 -->
-                    <a id="customer-item1" class="header-link settings-top_color" href="/account/login">登录</a>
-                    <a id="customer-item2" class="header-link settings-top_color" href="/account/register">注册</a>
-
-                  	<div id="yhsd_topCart_show" class="header-cart">
-                      <i class="iconfont"></i><span class="topCart-quantity settings-top_color" id="yhsd_topCart_quantityTitle"></span>
-                    </div>
-                </div>
-<!-- .顶部购物车 -->
-                <div class="topCart settings-topCart_border" id="yhsd_topCart">
-                    <ul id="yhsd_topCart_list"></ul>
-                    <div class="topCart-summary">
-                        <p class="topCart-total settings-text_color"><span id="yhsd_topCart_quantity"></span>件商品　总计:<span class="settings-price_color">￥<span id="yhsd_topCart_totalPrice"></span></span></p>
-                        <a class="topCart-submit settings-buyBtn_color settings-buyBtn_background" href="/cart">去结算</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-<!-- 顶部logo -->
-        <div class="wrapper-logo settings-head_background">
-            <div class="settings-head_background">
-                <div class="mod logo settings-text_color">
-                    <strong>
-                        <a class="logo-link settings-h1_color" href="/">
-                            {%if settings.use_logo %}
-                            <img src="{{ 'logo' | asset_url }}" alt="{{ shop.name }}"/>
-                            {% else %}
-                            {{ shop.name }}
-                            {% endif %}
-                        </a>
-                    </strong>
-                </div>
-            </div>
-        </div>
-<!-- 顶部导航 -->
-        <div class="wrapper wrapper-nav settings-nav_background">
-            <div class="settings-nav_background">
-                <div class="nav settings-nav_background">
-                    <div class="nav-inner">
-                        {% include 'dropdown' %}
-                    </div>
-                </div>
-            </div>
-        </div>
-<!-- 主页 -->
-        <div class="main">
-          {{ content_for_layout }}
-        </div>
-
-<!-- 脚部 -->
-    {% include 'footer' %}
-    {% include 'mobile_nav' %}
-    {% include 'popup' %}
-
-    </div>
-
-    {% include 'go_top' %}
-
-    {{ 'yhsd-base-160302.min.js' | global_asset_url | js_tag }}
-    <script src="{{ 'yhsd-desktop-2.4.0.min.js' | global_asset_url }}" crossorigin></script>
-  	<script src="{{ '../theme/base/0.2.0/js/base.js' | global_asset_url }}" crossorigin></script>
-    {{ 'youpage.min.js' | global_asset_url | js_tag }}
-    {{ 'main.js' | asset_url | js_tag }}
-    {{ 'user.js' | asset_url | js_tag }}
-    {{ 'img_zoom.min.js' | global_asset_url | js_tag }}
-  	<script src="{{ '../theme/base/0.2.0/js/plugins.js' | global_asset_url }}" async crossorigin></script>
+				</div>
+			</div>
+		</div>
+		<!-- 主页 -->
+		<div class="main">
+			{{ content_for_layout }}
+		</div>
+		<!-- 脚部 -->
+		{% include 'footer' %}
+		{% include 'mobile_nav' %}
+		{% include 'popup' %}
+	</div>
+	{% include 'go_top' %}
+	{{ 'yhsd-base-160302.min.js' | global_asset_url | js_tag }}
+	<script src="{{ 'yhsd-desktop-2.4.0.min.js' | global_asset_url }}" crossorigin></script>
+	<script src="{{ '../theme/base/0.2.0/js/base.js' | global_asset_url }}" crossorigin></script>
+	{{ 'youpage.min.js' | global_asset_url | js_tag }}
+	{{ 'main.js' | asset_url | js_tag }}
+	{{ 'user.js' | asset_url | js_tag }}
+	{{ 'img_zoom.min.js' | global_asset_url | js_tag }}
+	<script src="{{ '../theme/base/0.2.0/js/plugins.js' | global_asset_url }}" async crossorigin></script>
 </body>
+
 </html>
