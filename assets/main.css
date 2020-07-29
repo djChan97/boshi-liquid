@@ -7130,3 +7130,44 @@ width: 85%;
   }
 }
 /* End 收藏功能 */
+
+/* custom */
+
+.settings_top_menu_background {
+	background-color: {{settings.top_menu_background}};
+}
+
+.settings_top_menu_item_color {
+	background-color: {{settings.top_menu_item_color}};
+}
+
+.settings_top_search_lang_color {
+	color: {{settings.top_search_lang_color}};
+	fill: {{settings.top_search_lang_color}};
+}
+
+.settings_top_item1_background {
+	background-color: {{settings.top_item1_background }};
+}
+
+.settings_top_item1_color {
+	color: {{settings.top_item1_color }};
+}
+
+.settings_top_item2_background {
+	background-color: {{settings.top_item2_background }};
+}
+
+.settings_top_item2_color {
+	color: {{settings.top_item2_color }};
+}
+
+.settings_menu_navLink_background {
+	background-color: {{settings.menu_navLink_background }};
+}
+
+.settings_menu_navLink_color {
+	color: {{settings.menu_navLink_color }};
+}
+
+/* custom end */
