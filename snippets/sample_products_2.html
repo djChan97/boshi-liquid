@@ -1,0 +1,101 @@
+<div class="sample-layout">
+    <div class="sample-main">
+    <script>
+        var products = [
+            { name: '青铜回形针吊坠', price: '99', img: "{{ 'sample_product_3' | asset_url }}"},
+            { name: '复古连环挂坠', price: '89', img: "{{ 'sample_product_5' | asset_url }}"},
+            { name: '青铜复古挂饰（多种类）', price: '12', img: "{{ 'sample_product_1' | asset_url }}"},
+        ];
+        var temp = '<li><div class="grid-item-a--wrap"><a class="proList-img settings-proPic_border" href="{{ url }}" target="_blank" title="{{ product.name }}"><img class="lazyload" src="{#img#}" data-src="{#img#}" alt="{{ product.name }}" /></a><a class="proList-img-mask settings-proPic_border" href="{{ url }}" target="_blank" title="{{ product.name }}"></a></div><a class="proList-name txt-overflow settings-proTitle_color txt-overflow" href="{{ url }}" title="{{ product.name }}" target="_blank">{{ product.name }}</a><div class="proList-desc"><span class="proList-price settings-price_color">￥{#price#}.00</span></div></li>';
+        var html = '';
+        for(var i = 0, len = products.length; i < len; i++) {
+            var item = products[i];
+            html += temp.replace(new RegExp('{#name#}', 'g'), item.name).replace(new RegExp('{#price#}', 'g'), item.price).replace(new RegExp('{#img#}', 'g'), item.img);
+        }
+        html += '';
+        document.write(html);
+    </script>
+    </div>
+    <div class="sample-mask"></div>
+    <div class="sample-modal">
+        <div class="sample-modal-text">你看到的是主题虚拟展示的商品，添加商品后，将不再显示，快去后台添加商品吧！</div>
+        <div><a class="sample-modal-btn" href="/admin/main/#/productedit?id=new">添加商品</a></div>
+    </div>
+</div>
+<style>
+.sample-layout {
+    position: relative;
+}
+.sample-layout:hover .sample-mask {
+    opacity: .5;
+    filter:Alpha(opacity=50);
+    background-color: #fff;;
+}
+.sample-layout .proList-name{
+    text-align: center;
+    padding-top: 10px;
+    font-weight: 600;
+}
+.sample-layout:hover .sample-modal {
+    opacity: 1;
+    filter:Alpha(opacity=100);
+    margin-top: 10%;
+}
+.sample-mask {
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+.sample-modal {
+    opacity: 0;
+    filter:Alpha(opacity=0);
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -60px;
+    margin-left: -207px;;
+    width: 414px;
+    height: 204px;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 3px;
+    text-align: center;
+    z-index: 2;
+}
+.sample-modal-text {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: center;
+    padding: 32px 55px 32px;
+}
+.sample-modal-btn {
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+    color: #fff;
+    font-size: 18px;
+    background-color: #54AD74;
+    border-radius: 3px;
+    padding: 14px 48px;
+    display: inline-block;
+}
+.sample-modal-btn:hover {
+    opacity: .8;
+    filter:Alpha(opacity=800);
+}
+</style>
+<!--[if lt IE 7 ]>
+<style>
+.sample-modal {
+    background-color: #000;
+    margin-top: -160px;
+}
+</style>
+<![endif]-->

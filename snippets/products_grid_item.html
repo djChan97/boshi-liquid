@@ -1,0 +1,22 @@
+{% capture collection_handle %}{{ products_grid_item }}{% endcapture %}
+{% capture url %}{% if collection_handle != "" and collection_handle != "all" %}/collections/{{ products_grid_item }}{{ product.page_url }}{% else %}{{ product.page_url }}{% endif %}{% endcapture %}
+<li class="grid-item">
+  <div class="grid-item--box settings-proGridItem_background">
+    <div class="grid-item-a--wrap">
+      <a class="grid-item-a settings-proGridItemImg_background resize--line" href="{{ url }}"  title="{{ product.name }}">
+         <img src="{{ product.feature_image | product_image_url}}" />
+      </a>
+    </div>
+    <div class="grid-item-text-wrap">
+    <div class="grid-item-text">
+      <div class="grid-item-text-name settings-proTitle_color">{{ product.name }}</div>
+    </div>
+    {% if product.short_desc != '' %}
+    <span class="proList-short_desc settings-desc_color txt-overflow">{{ product.short_desc }}</span>
+    {% endif %}
+    <div class="grid-item-buy settings-proGridItem_background clearfix">
+      <span class="settings-price_color grid-item-buy-price">￥ {{ product.price | money_with_decimal }}</span>
+    </div>
+    </div>
+  </div>
+</li>

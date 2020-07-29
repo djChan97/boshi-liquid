@@ -1,0 +1,18 @@
+<div class="wrapper wrapper-proList">
+  <div class="cont">
+    <div class="mod proList">
+      <div class="proList-inner">
+        {% if products.size == 0 %}
+            <div class="emptyTips settings-main_border settings-text_color" style="display:block">抱歉~我们找不到对应的商品，请您继续逛逛吧。</div>
+            <style>.filter_simple{display:none}</style>
+        {% else %}
+          <ul class="proList-ul clearfix proList-count-{{ settings.list_productlist_count }} lazyload_scope">
+            {% for product in products %}
+            {% include 'product_grid_item' with collection.handle %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div><!-- .m-active -->

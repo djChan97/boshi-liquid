@@ -1,0 +1,16 @@
+{% if discount.handle %}
+
+<x-component is="theme-base"></x-component>
+<!-- 基础库 3.0 会将`<x-component>`元素初始化为`is`属性所指定的组件；ThemeBase 组件有路由功能，会根据 URL 显示不同路由下的内容 -->
+
+{% else %}
+
+<div class="wrapper i-base">
+  <div class="cont">
+    <div class="mod">
+      <x-component is="sk-discount"></x-component>
+    </div>
+  </div>
+</div>
+
+{% endif %}

@@ -1,0 +1,9 @@
+{% capture content %}
+  {% if shop.close_desc != '' %}
+    {{ shop.close_desc }}
+  {% else %}
+    对不起，网站打烊了，客官请再等等。
+  {% endif %}
+{% endcapture %}
+
+{% include 'sys_mod' with content %}

@@ -1,0 +1,199 @@
+<div class="wrapper">
+    <div class="cont">
+        <div class="mod breadcrumb posts-list-breadcrumb">
+            <div class="breadcrumb-inner settings-text_color">
+                <a class="settings-link_color" href="/" title="{{ shop.name | escape }}">首页</a><span class="breadcrumb-split">&gt;</span>
+                {% if post_dir %}
+                    <a class="settings-link_color" href="/posts" title="所有博客">所有博客</a><span class="breadcrumb-split">&gt;</span><span class="breadcrumb-current">{{post_dir.name}}</span>
+                {% elsif post_tag %}
+                    <a class="settings-link_color" href="/posts" title="所有博客">所有博客</a><span class="breadcrumb-split">&gt;</span><span class="breadcrumb-current"># {{blog_tag.tag_name}}</span>
+                {% else %}
+                    <span class="breadcrumb-current">所有博客</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 页面标题 -->
+{% if blog_tag %}
+<div class="wrap-blog">
+  <div class="row mod">
+    <div class="breadcrumb breadcrumb--blogs settings-tinge_color">
+    <a class="breadcrumb-item settings-tinge_color" href="/blogs" title="博客列表">博客归档</a><span class="breadcrumb-split settings-tinge_color">&nbsp;&gt;&nbsp;</span><span class="breadcrumb-item settings-desc_color">#{{ blog_tag.name }}</span>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<!-- 轻博客作者信息 -->
+{% if blog_author %}
+<div class="wrap-blog">
+  <div class="row mod">
+     <div class="blog_cont-top clearfix">
+        <a class="blog_cont-top-back settings-blogDesc_color" href="/blogs" title="返回博客列表"><span class="blog_cont-back-sign">&lt;&lt;</span>返回博客列表</a>
+      </div>
+    <!-- 作者信息 -->
+    <div class="blog_author">
+      <div class="blog_author-avatar">
+        <img class="blog_author-avatar-src" alt="{{ blog_author.avatar.alt }}" src="{{ blog_author.avatar | product_image_url: 212, 212 }}" title="{{ blog_author.name }}_img" >
+      </div>
+      <div class="blog_author-name settings-desc_color" title="{{ blog_author.name }}">{{ blog_author.name }}</div>
+      <div class="blog_author-count settings-desc_color">文章数量：{{ blogs.size }}</div>
+      {% if blog_author.weibo_url != '' or blog_author.douban_url != '' or blog_author.renren_url != '' or blog_author.weixin_name != ''%}
+        {% capture social_class %}blog_author-social{% endcapture %}
+      {% else %}
+        {% capture social_class %}blog_author-social--empty{% endcapture %}
+      {% endif %}
+      <div class="{{social_class}}">
+        {% if blog_author.weibo_url != '' %}
+          <a class="iconfont icon-color-weibo blog_author-social-link blog_author-social-link--weibo" title="{{ blog_author.name }}的微博" href="{{ blog_author.weibo_url }}" target="_blank">&#xe627;</a>
+        {% endif %}
+        {% if blog_author.douban_url != '' %}
+          <a class="iconfont icon-color-douban blog_author-social-link blog_author-social-link--douban" title="{{ blog_author.name }}的豆瓣" href="{{ blog_author.douban_url }}" target="_blank">&#xe60c;</a>
+        {% endif %}
+        {% if blog_author.renren_url != '' %}
+          <a class="iconfont icon-color-renren blog_author-social-link blog_author-social-link--renren" title="{{ blog_author.name }}的人人" href="{{ blog_author.renren_url }}" target="_blank">&#xe60d;</a>
+        {% endif %}
+        {% if blog_author.weixin_name != '' %}
+          <a id="blogs_social_wechat" data-wechatname="{{ blog_author.weixin_name }}" data-wechatqrcode="{{ blog_author.weixin_file.src }}" class="iconfont icon-color-wechat blog_author-social-link blog_author-social-link--wechat settings-desc_color" href="javascript:void(0);" title="{{ blog_author.name }}的微信">&#xe600;</a>
+          <script>
+            if(window.$){
+              $(document).ready(function(){
+                var oWechatLink = $('#blogs_social_wechat');
+                var sWechat_name = oWechatLink.attr('data-wechatname');
+                var sWechat_qrcode = oWechatLink.attr('data-wechatqrcode');
+                var sWechat_html = '';
+                if(sWechat_qrcode){
+                  sWechat_html = '<img width="84%" src="' + sWechat_qrcode + '" alt="' + sWechat_name + '" />';
+                }
+                // 预加载优化
+                var oPreloadWechat = new Image();
+                oPreloadWechat.src = sWechat_qrcode;
+                oWechatLink.on('click', function(){
+                  if(window.Popup){
+                      Popup.alert('', '<div style="text-align:center; padding-top:60px;">' + sWechat_html + '<div style="line-height:32px;font-size:16px;margin-top:8px;">微信添加朋友</div><div style="line-height:32px;font-size:16px;font-weight:700">' + sWechat_name + '</div></div>');
+                  } else {
+                    alert('微信添加朋友：' + sWechat_name);
+                  }
+                });
+              });
+            }
+          </script>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if blogs.size == 0 %}
+<div class="wrap-blog">
+  <div class="row mod">
+    <!-- <div class="tips tips- -pro_list settings-contBg_border settings-contBg_background settings-text_color">暂无内容</div> -->
+    {% include 'sample_blogs' %}
+  </div>
+</div>
+{% else %}
+<!-- 轻博客列表 -->
+<div class="wrap-blog">
+  <div class="row mod">
+    <!-- PC -->
+    <div class="blogs_list-grid settings-blogs_color clearfix">
+      {% for blog in blogs %}
+        {% case blog.type %}
+        <!-- 文章  -->
+        {% when 0 %}
+        <div class="blogs_list-item--wrap">
+          <div class="blogs_list-item settings-blogs_background">
+
+            <div class="blogs_list-item--inner">
+              <div class="blogs_list-item--box blogs_list-item--box_border">
+                <a class="blogs_list-item--a blogs_list-item-article {% unless blog.content_capture %}resize--line{% endunless %}" title="{{ blog.title }}" href="{{ blog.handle | blog_url : blog_author.name, blog_tag.name }}">
+                  {% unless blog.title == '' %}
+                    <h3 class="blogs_list-item-article-title settings-blogsListTextShowy_color">{{ blog.title}}</h3>
+                  {% endunless %}
+                  {% if blog.content_capture %}
+                    <p class="blogs_list-item-article-cont">{{ blog.content_capture }}</p>
+                  {% endif %}
+                  <i></i>
+                </a>
+              </div>
+            </div>
+            <div class="blogs_list-item-info settings-blogs_border">
+              <span class="blogs_list-item-info-author"><a class="blogs_list-item-info-author-link" href="/blogs?author={{ blog.blog_author.name | url_escape }}" title="{{ blog.blog_author.name }}"><img class="blogs_list-item-info-author-avatar" alt="{{ blog.blog_author.avatar.alt }}" src="{{ blog.blog_author.avatar | product_image_url: 80, 80 }}" title="{{ blog.blog_author.name }}_img"></a><a class="blogs_list-item-info-author-name settings-blogsDesc_color" href="/blogs?author={{ blog.blog_author.name | url_escape }}" title="{{ blog.blog_author.name }}">{{ blog.blog_author.name }}</a></span>
+              <span class="blogs_list-item-info-time settings-blogsDescdate_color"><i>·</i>{{ blog.post_at | date: "%F" }}</span>
+            </div>
+          </div>
+         
+        </div>
+        <!-- 图片 -->
+        {% when 1 %}
+        <div class="blogs_list-item--wrap">
+          <div class="blogs_list-item settings-blogs_background">
+            <div class="blogs_list-item--inner">
+              <div class="blogs_list-item--box">
+                <a class="blogs_list-item--a blogs_list-item-image resize--line lazyload_scope" title="{{ blog.title }}" href="{{ blog.handle | blog_url : blog_author.name, blog_tag.name }}">
+                  {% for image in blog.images limit:1 %}
+                  <img class="blogs_list-item-image-view  lazyload" src="{{ 'blank.gif' | global_asset_url }}" data-src="{{image | image_url : 400, 400, "c" }}" alt="{{image.alt}}" >
+                  {% endfor %}
+                  <i></i>
+                </a>
+              </div>
+            </div>
+            <div class="blogs_list-item-info settings-blogs_border">
+              <span class="blogs_list-item-info-author"><a class="blogs_list-item-info-author-link" href="/blogs?author={{ blog.blog_author.name | url_escape }}" title="{{ blog.blog_author.name }}"><img class="blogs_list-item-info-author-avatar" alt="{{ blog.blog_author.avatar.alt }}" src="{{ blog.blog_author.avatar | product_image_url: 80, 80 }}" title="{{ blog.blog_author.name }}_img"></a><a class="blogs_list-item-info-author-name settings-blogsDesc_color" href="/blogs?author={{ blog.blog_author.name | url_escape }}" title="{{ blog.blog_author.name }}">{{ blog.blog_author.name }}</a></span>
+              <span class="blogs_list-item-info-time settings-blogsDescdate_color"><i>·</i>{{ blog.post_at | date: "%F" }}</span>
+            </div>
+          </div>
+        </div>
+        <!-- 音乐 -->
+        {% when 2 %}
+        <div class="blogs_list-item--wrap">
+          <div class="blogs_list-item settings-blogs_background">
+            <div class="blogs_list-item--inner">
+              <div class="blogs_list-item--box">
+                <a class="blogs_list-item--a blogs_list-item-music resize--line lazyload_scope" title="{{ blog.title }}" href="{{ blog.handle | blog_url : blog_author.name, blog_tag.name }}" >
+                  <img class="blogs_list-item-music-bg_cover lazyload" src="{{ 'blank.gif' | global_asset_url }}" data-src="{{ blog.music_cover_url }}" alt="{{ blog.music_name }}">
+                  <i></i>
+                </a>
+              </div>
+            </div>
+            <div class="blogs_list-item-info settings-blogs_border">
+              <span class="blogs_list-item-info-author"><a class="blogs_list-item-info-author-link" href="/blogs?author={{ blog.blog_author.name | url_escape }}" title="{{ blog.blog_author.name }}"><img class="blogs_list-item-info-author-avatar" alt="{{ blog.blog_author.avatar.alt }}" src="{{ blog.blog_author.avatar | product_image_url: 80, 80 }}" title="{{ blog.blog_author.name }}_img"></a><a class="blogs_list-item-info-author-name settings-blogsDesc_color" href="/blogs?author={{ blog.blog_author.name | url_escape }}" title="{{ blog.blog_author.name }}">{{ blog.blog_author.name }}</a></span>
+              <span class="blogs_list-item-info-time settings-blogsDescdate_color"><i>·</i>{{ blog.post_at | date: "%F" }}</span>
+            </div>
+          </div>
+        </div>
+        <!-- 视频 -->
+        {% when 3 %}
+        <div class="blogs_list-item--wrap">
+          <div class="blogs_list-item settings-blogs_background">
+            <div class="blogs_list-item--inner">
+              <div class="blogs_list-item--box">
+                <a class="blogs_list-item--a blogs_list-item-video resize--line" title="{{ blog.title }}" href="{{ blog.handle | blog_url : blog_author.name, blog_tag.name }}" style="background-image: url({{ blog.video_cover_url }});">
+                  <i></i>
+                </a>
+              </div>
+            </div>
+            <div class="blogs_list-item-info settings-blogs_border">
+              <span class="blogs_list-item-info-author"><a class="blogs_list-item-info-author-link" href="/blogs?author={{ blog.blog_author.name | url_escape }}" title="{{ blog.blog_author.name }}"><img class="blogs_list-item-info-author-avatar" alt="{{ blog.blog_author.avatar.alt }}" src="{{ blog.blog_author.avatar | product_image_url: 80, 80 }}" title="{{ blog.blog_author.name }}_img"></a><a class="blogs_list-item-info-author-name settings-blogsDesc_color" href="/blogs?author={{ blog.blog_author.name | url_escape }}" title="{{ blog.blog_author.name }}">{{ blog.blog_author.name }}</a></span>
+              <span class="blogs_list-item-info-time settings-blogsDescdate_color"><i>·</i>{{ blog.post_at | date: "%F" }}</span>
+            </div>
+          </div>
+        </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+    <!-- End PC -->
+  </div>
+</div>
+{% endif %}
+
+{% include 'products_paginate' %}
+
+
+<style>
+  .nav {
+    background: none;
+  }
+</style>

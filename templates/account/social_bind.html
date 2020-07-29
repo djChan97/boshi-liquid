@@ -1,0 +1,6 @@
+{% dynamic_layout 'theme' | 'mobile' %}
+<script>
+    window.YhsdSocialBindForm = {{ form | json }}
+    window.YhsdSocialRigisterStyle = {{ shop.social_register_style}};
+</script>
+<div id="content_for_layout" class="yhsd-base"></div>

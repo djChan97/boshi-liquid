@@ -1,0 +1,13 @@
+{% capture content %}
+网站还没开张哦，请联系站长获取访问密码。<br>
+<br>
+<form style="width: 300px; margin: 0 auto;" action="/protecting" method="POST">
+<input class="account_input-form-input settings-formInpit_border settings-formInpit_color settings-formInpit_background" type="password" name="password" placeholder="网站密码">
+<input class="account_input-form-submit settings-formBtn_color settings-formBtn_background" type="submit" value="提交">
+{% for error in form.errors %}
+  <div class="account_input-form-err settings-textErr_color"><span class="iconfont account_input-form-err-icon">&#xe606;</span>{{ error }}</div>
+{% endfor %}
+</form>
+{% endcapture %}
+
+{% include 'sys_mod' with content %}

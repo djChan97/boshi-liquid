@@ -1,0 +1,17 @@
+{% case situation.unselect.sort.sort_selected %}
+  {% when 'price_asc' %}
+    {% capture price_type %}active_up{% endcapture %}
+    {% capture price_href %}{{ situation.unselect.sort.price_desc }}{% endcapture %}
+  {% when 'price_desc' %}
+    {% capture price_type %}active_down{% endcapture %}
+    {% capture price_href %}{{ situation.unselect.sort.price_asc }}{% endcapture %}
+  {% else %}
+    {% capture price_href %}{{ situation.unselect.sort.price_desc }}{% endcapture %}
+{% endcase %}
+
+<div class="pro_list_filter-order clearfix">
+  <div class="pro_list_filter-pro-item-name">排序</div>
+  <div class="pro_list_filter-order-item">
+    <a class="pro_list_filter-order-item-each pro_list_filter-order-item-time settings-filterSelect_background settings-filterSelect_color {% if situation.unselect.sort.sort_selected == 'sale_desc' %}active{% endif %}" href="{{ situation.unselect.sort.sale_desc }}">销量<i class=iconfont>&#xe620;</i></a><a class="pro_list_filter-order-item-each pro_list_filter-order-item-price settings-filterSelect_background settings-filterSelect_color {{ price_type }}" href="{{ price_href }}">价格<span class="iconfont pro_list_filter-order-item-price-up settings-filterSelectActiveSign2_color"><i class=iconfont>&#xe61e;</i></span><span class="iconfont pro_list_filter-order-item-price-down settings-filterSelectActiveSign2_color"><i class=iconfont>&#xe621;</i></span></a><a class="pro_list_filter-order-item-each pro_list_filter-order-item-time settings-filterSelect_background settings-filterSelect_color {% if situation.unselect.sort.sort_selected == 'date_desc' %}active{% endif %}" href="{{ situation.unselect.sort.date_desc }}">上架时间<i class=iconfont>&#xe620;</i></a>
+  </div>
+</div>

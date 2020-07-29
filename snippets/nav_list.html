@@ -1,0 +1,32 @@
+<!-- 一级菜单 -->
+<ul id="side-nav-link" class="side-nav-link">
+  {% for link in linklists.main.links%}
+  <li class="{% if link.links.size > 0 %}side-nav-link-has_sub{% endif %} side-nav-link-each">
+    <a data-linkid="link-{{ link.id }}" class="link-{{ link.id }} settings-sideLink_color settings-sideLinkHover_color" href="{% unless link.link_type == 'no_link' %}{{ link.page_url }}#link-{{link.id}}{% else %}javascript:void(0);{% endunless %}" {%if link.target_type == 1%} target="_blank" {% endif %}>{{ link.title }}</a>{% if link.links.size > 0 %}<a data-linkid="link-{{ link.id }}" href="javascript:void(0);" class="iconfont link-{{ link.id }} side-nav-link-sign settings-sideLink_color settings-sideLinkHover_color"></a>{% endif %}
+  </li>
+  <!-- 二级菜单 -->
+    {% if link.links.size > 0 %}
+    <li>
+    <ul class="link-{{ link.id }}-sub side-nav-link-sub_list">
+      {% for sub_link in link.links %}
+      <li class="{% if link.links.size > 0 %}side-nav-link-has_sub{% endif %} side-nav-link-each">
+        <a data-linkid="link-{{ sub_link.id }}" class="link-{{ sub_link.id }} settings-sideLink_color settings-sideLinkHover_color" href="{% unless sub_link.link_type == 'no_link' %}{{ sub_link.page_url }}#link-{{sub_link.id}}{% else %}javascript:void(0);{% endunless %}" {%if sub_link.target_type == 1%} target="_blank" {% endif %}>{{ sub_link.title }}</a>{% if sub_link.links.size > 0 %}<a data-linkid="link-{{ sub_link.id }}" href="javascript:void(0);" class="iconfont link-{{ sub_link.id }} side-nav-link-sign settings-sideLink_color settings-sideLinkHover_color"></a>{% endif %}
+      </li>
+        <!-- 三级菜单 -->
+        {% if sub_link.links.size > 0 %}
+        <li>
+        <ul class="link-{{ sub_link.id }}-sub side-nav-link-sub_list settings-sideLinkSub_background">
+          {% for sub_sub_link in sub_link.links %}
+          <li class="side-nav-link-each">
+            <a data-linkid="link-{{ sub_sub_link.id }}" class="link-{{ sub_sub_link.id }} settings-sideLink_color settings-sideLinkHover_color" href="{% unless sub_sub_link.link_type == 'no_link' %}{{ sub_sub_link.page_url }}#link-{{sub_sub_link.id}}{% else %}javascript:void(0);{% endunless %}" {%if sub_sub_link.target_type == 1%} target="_blank" {% endif %}>{{ sub_sub_link.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        </li>
+        {% endif%}
+      {% endfor %}
+    </ul>
+    </li>
+    {% endif%}
+  {% endfor %}
+</ul>

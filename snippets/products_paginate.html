@@ -1,0 +1,7 @@
+{% if pagination.pages > 0 %}
+<div class="wrap">
+  <div class="row mod">
+    <div class="pro_list_pagination">{% for part in pagination.parts %}{% if part.is_link %}<a class="pro_list_pagination-item settings-btn_color settings-proGridItemBtnHover_color settings-proGridItemBtnHover_border settings-proGridItemBtnHover_background {% if pagination.current_page == part.title %}active{% endif %}" href="{{ part.url }}">{{ part.title }}</a>{% else %}<span class="pro_list_pagination-dot">...</span>{% endif %}{% endfor %}</div>
+  </div>
+</div>
+{% endif %}

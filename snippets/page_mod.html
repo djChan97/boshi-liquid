@@ -1,0 +1,63 @@
+{% capture page_type %}{{ page_mod }}{% endcapture %}
+
+{% if page_type == 'page_index' %}
+  {% assign page_snippets = pages[settings.index_welcome_page].snippets %}
+{% else %}
+  {% assign page_snippets = page.snippets %}
+{% endif %}
+
+<div class="wrapper">
+    <div class="cont">
+        <div class="mod breadcrumb post-breadcrumb">
+            <div class="breadcrumb-inner settings-text_color txt-overflow">
+                <a class="settings-link_color" href="/" title="{{ shop.name | escape }}">首页</a><span class="breadcrumb-split">&gt;</span>
+                    <div class="settings-link_color">{{ page.title }}</div>
+        </div>
+    </div>
+  </div>
+  {% if page.version == 1 %}
+  {% for page_snippet in page_snippets %}
+    {% if page_snippet.type == 0 %}
+    <div class="wrap">
+      <div class="custom_cont settings-contBg_background">
+        <div class="row mod">
+          <div class="custom_doc lazyload_scope">
+            {{ page_snippet.content | content_html }}
+          </div>
+        </div>
+        {% else %}
+          {% if page_snippet.products.size != 0 %}
+            <div class="row mod">
+              <div class="custom_pro_list">
+                <ul class="pro_list-grid clearfix lazyload_scope">
+                  {% for product in page_snippet.products %}
+                    {% include 'products_grid_item' %}
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  {% else %}
+        <div class="wrapper">
+            <div class="cont">
+                <div class="mod">
+                    {% if is_mobile_agent == 'is_mobile' and page.use_mobile_content  %}
+											{{ page.mobile_content_html }}
+										{% else %}
+											{{ page.content_html }}
+										{% endif %}
+                </div>
+            </div>
+        </div>
+      {% endif %}
+<style>
+@media screen and (max-width: 768px) {
+.custom_cont{
+margin: 0
+}
+}
+</style>

@@ -1,0 +1,1879 @@
+[
+    {
+        "name" : "头部",
+        "type" : "title"
+    },
+    {
+        "name": "顶部设置",
+        "settings": [
+            {
+                "title": "顶部",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "顶部背景",
+                                "data": "top_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "登录注册购物车颜色",
+                                "data": "top_color"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "网站 Logo",
+                "tips": "推荐尺寸 高度<=128px",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "logo"
+                            },
+                            {
+                                "type": "checkbox",
+                                "label": "显示Logo",
+                                "data": "use_logo"
+                            },
+                            {
+                                "type": "color",
+                                "label": "网站名称文字",
+                                "tips": "使用网站Logo时不生效",
+                                "data": "h1_color"
+                            },
+                            {
+                                "type": "input",
+                                "text": "头部高度",
+                                "tips": "默认为70px",
+                                "data": "head_height"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "主导航设置",
+        "settings": [
+            {
+                "title": "主导航颜色设置",
+                "tips": "可在后台-<a href=\"/center/main/#/navigation\" target=\"blank\" style=\"color:#da5d5d\">导航管理</a>中设置内容和跳转链接",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "导航背景",
+                                "data": "nav_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "一级导航文字",
+                                "data": "navLink_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "一级导航鼠标经过效果",
+                                "data": "navLinkHover_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "子导航文字",
+                                "data": "navSubLink_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "子导航鼠标经过效果",
+                                "data": "sublink_hovercolor"
+                            },
+                            {
+                                "type": "color",
+                                "label": "子导航背景",
+                                "data": "navSub_background"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+
+    {
+        "name" : "首页",
+        "type" : "title"
+    },
+    {
+        "name": "轮播大图",
+        "settings": [
+            {
+                "title": "显示设置",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "checkbox",
+                                "text": "是否显示轮播",
+                                "label": "显示",
+                                "data": "index_slide_show"
+                            },
+                            {
+                                "type": "select",
+                                "text": "图片切换效果",
+                                "data": "index_slide_fade",
+                                "options":[
+                                    {
+                                        "label": "淡入淡出",
+                                        "value": true
+                                    },
+                                    {
+                                        "label": "左右滑动",
+                                        "value": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "轮播大图1",
+                "tips": "推荐图片尺寸 1210x605px",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "index_slide_1"
+                            },
+                            {
+                                "type": "checkbox",
+                                "text": "是否显示",
+                                "label": "显示",
+                                "data": "index_slide_1_show"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片链接",
+                                "data": "index_slide_1_link,index_slide_1_linktype"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "轮播大图2",
+                "tips": "推荐图片尺寸 1210x605px",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "index_slide_2"
+                            },
+                            {
+                                "type": "checkbox",
+                                "text": "是否显示",
+                                "label": "显示",
+                                "data": "index_slide_2_show"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片链接",
+                                "data": "index_slide_2_link,index_slide_2_linktype"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "轮播大图3",
+                "tips": "推荐图片尺寸 1210x605px",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "index_slide_3"
+                            },
+                            {
+                                "type": "checkbox",
+                                "text": "是否显示",
+                                "label": "显示",
+                                "data": "index_slide_3_show"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片链接",
+                                "data": "index_slide_3_link,index_slide_3_linktype"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "轮播大图4",
+                "tips": "推荐图片尺寸 1210x605px",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "index_slide_4"
+                            },
+                            {
+                                "type": "checkbox",
+                                "text": "是否显示",
+                                "label": "显示",
+                                "data": "index_slide_4_show"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片链接",
+                                "data": "index_slide_4_link,index_slide_4_linktype"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "轮播大图5",
+                "tips": "推荐图片尺寸 1210x605px",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "index_slide_5"
+                            },
+                            {
+                                "type": "checkbox",
+                                "text": "是否显示",
+                                "label": "显示",
+                                "data": "index_slide_5_show"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片链接",
+                                "data": "index_slide_5_link,index_slide_5_linktype"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "轮播大图6",
+                "tips": "推荐图片尺寸 1210x605px",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "index_slide_6"
+                            },
+                            {
+                                "type": "checkbox",
+                                "text": "是否显示",
+                                "label": "显示",
+                                "data": "index_slide_6_show"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片链接",
+                                "data": "index_slide_6_link,index_slide_6_linktype"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "焦点按钮颜色",
+                "tips": "轮播图下方焦点按钮",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "按钮颜色",
+                                "data": "indexslide_button_background"
+                            }, 
+                            {
+                                "type": "color",
+                                "label": "当前帧按钮颜色",
+                                "data": "indexslide_button_active_background"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "文字引导条1",
+        "settings": [
+
+            {
+                "title": "引导条1",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "input",
+                                "text": "引导条1内容",
+                                "data": "indexCustom_doc_1_text"
+                            },
+                            {
+                                "type": "color",
+                                "label": "引导条1字体颜色",
+                                "data": "indexCustom_1_text_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "引导条1背景颜色",
+                                "data": "indexCustom_1_background"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "图文展示模块",
+        "settings": [
+            {
+                "title": "显示设置",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "checkbox",
+                                "text": "是否显示",
+                                "label": "显示",
+                                "data": "wrapper_imagearticle"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "图文模块1",
+                "options": [
+
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "tips": "图片 推荐尺寸 290x290px",
+                                "data": "imagearticle_1"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片链接",
+                                "data": "imagearticle_1_link,imagearticle_1_linktype"
+                            },
+                            {
+                                "type": "input",
+                                "text": "图片遮罩层标题",
+                                "tips": "遮罩背景色与了解更多按钮颜色相同",
+                                "data": "imagearticle_1-img-mask-name"
+                            },
+                            {
+                                "type": "color",
+                                "label": "图片遮罩层标题颜色",
+                                "data": "imagearticle_1-img-mask-name_color"
+                            },
+                            {
+                                "type": "input",
+                                "text": "图片遮罩层描述",
+                                "data": "imagearticle_1-img-mask-price"
+                            },
+                            {
+                                "type": "color",
+                                "label": "图片遮罩层描述颜色",
+                                "tips": "--------------右侧文案--------------",
+                                "data": "imagearticle_1-img-mask-price_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "文案背景颜色",
+                                "data": "wrapper-imagearticle-article_1-bgColor"
+                            },
+                            {
+                                "type": "input",
+                                "text": "文案标题",
+                                "data": "imagearticle_1_title_text"
+                            },
+                            {
+                                "type": "color",
+                                "label": "标题颜色",
+                                "data": "indexCustom_1_background"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "文案正文",
+                                "data": "imagearticle_1_desc_text"
+                            },
+                            {
+                                "type": "color",
+                                "label": "正文颜色",
+                                "data": "imagearticle_1_desc_color"
+                            },
+                            {
+                                "type": "input",
+                                "text": "了解更多按钮文案",
+                                "tips": "跳转链接与图片相同",
+                                "data": "imagearticle_more1_text"
+                            },
+                            {
+                                "type": "color",
+                                "label": "了解更多按钮颜色",
+                                "data": "imagearticle_1_link_color"
+                            }
+
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "图片模块2",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "tips": "图片 推荐尺寸 590x290px",
+                                "data": "imagearticle_1_bigimg"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片链接",
+                                "data": "imagearticle_1_2_link,imagearticle_1_2_linktype"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "图文模块3",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "tips": "图片 推荐尺寸 800x410px",
+                                "data": "imagearticle_3"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片链接",
+                                "tips": "--------------右侧文案--------------",
+                                "data": "imagearticle_band_link,imagearticle_band_linktype"
+                            },
+                            {
+                                "type": "color",
+                                "label": "文案背景颜色",
+                                "data": "wrapper_imagearticle_article_band"
+                            },
+                            {
+                                "type": "input",
+                                "text": "文案标题",
+                                "data": "imagearticle_band_title_text"
+                            },
+                            {
+                                "type": "color",
+                                "label": "标题颜色",
+                                "data": "imagearticle_band_title_color"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "文案正文",
+                                "data": "imagearticle_3_desc_text"
+                            },
+                            {
+                                "type": "color",
+                                "label": "正文颜色",
+                                "data": "imagearticle_band_desc_color"
+                            },
+                            {
+                                "type": "input",
+                                "text": "了解更多按钮文案",
+                                "tips": "跳转链接与图片相同",
+                                "data": "imagearticle_more3_text"
+                            },
+                            {
+                                "type": "color",
+                                "label": "了解更多按钮颜色",
+                                "data": "imagearticle_3_link_color"
+                            }
+
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "图片模块4",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "tips": "图片 推荐尺寸 590x290px",
+                                "data": "imagearticle_2_bigimg"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片链接",
+                                "data": "imagearticle_2_2_link,imagearticle_2_2_linktype"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "图文模块5",
+                "options": [
+
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "文案背景颜色",
+                                "data": "wrapper-imagearticle-article_2-bgColor"
+                            },
+                            {
+                                "type": "input",
+                                "text": "文案标题",
+                                "data": "imagearticle_2_title_text"
+                            },
+                            {
+                                "type": "color",
+                                "label": "标题颜色",
+                                "data": "imagearticle_2_title_color"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "文案正文",
+                                "data": "imagearticle_2_desc_text"
+                            },
+                            {
+                                "type": "color",
+                                "label": "正文颜色",
+                                "data": "imagearticle_2_desc_color"
+                            },
+                            {
+                                "type": "input",
+                                "text": "了解更多按钮文案",
+                                "tips": "跳转链接与图片相同",
+                                "data": "imagearticle_more2_text"
+                            },
+                            {
+                                "type": "color",
+                                "label": "了解更多按钮颜色",
+                                "tips": "--------------右侧图片--------------",
+                                "data": "imagearticle_2_link_color"
+                            },
+
+                            {
+                                "type": "image",
+                                "tips": "图片 推荐尺寸 290x290px",
+                                "data": "imagearticle_2"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片链接",
+                                "data": "imagearticle_2_link,imagearticle_2_link"
+                            },
+                            {
+                                "type": "input",
+                                "text": "图片遮罩层标题",
+                                "tips": "遮罩背景色与了解更多按钮颜色相同",
+                                "data": "imagearticle_2-img-mask-name"
+                            },
+                            {
+                                "type": "color",
+                                "label": "图片遮罩层标题颜色",
+                                "data": "imagearticle_2-img-mask-name_color"
+                            },
+                            {
+                                "type": "input",
+                                "text": "图片遮罩层描述",
+                                "data": "imagearticle_2-img-mask-price"
+                            },
+                            {
+                                "type": "color",
+                                "label": "图片遮罩层描述颜色",
+                                "data": "imagearticle_2-img-mask-price_color"
+                            }
+
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "自定义商品列表模块",
+        "settings": [
+
+            {
+                "title": "自定义商品列表模块",
+                "options": [
+                    {
+                        "group": [
+
+                            {
+                                "type": "checkbox",
+                                "text": "是否显示",
+                                "label": "显示",
+                                "data": "index_show_welcome_page_3"
+                            },
+                            {
+                                "type": "input",
+                                "text": "标题",
+                                "data": "indexCustom_1_title"
+                            },
+                            {
+                                "type": "color",
+                                "label": "标题颜色",
+                                "data": "indexCustom_1_title_color"
+                            },
+                            {
+                                "type": "page",
+                                "text": "自定义商品列表",
+                                "tips": "可在后台-<a href=\"/center/main/#/pagenew\" target=\"blank\" style=\"color:#da5d5d\">自定义页面</a>-<span style=\"color:#da5d5d\">页面块</span>中插入商品列表",
+                                "data": "index_welcome_page_3"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "文字引导条2",
+        "settings": [
+
+            {
+                "title": "引导条2",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "input",
+                                "text": "引导条2内容",
+                                "data": "indexCustom_doc_3_text"
+                            },
+                            {
+                                "type": "color",
+                                "label": "引导条2字体颜色",
+                                "data": "indexCustom_3_text_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "引导条2背景颜色",
+                                "data": "indexCustom_3_background"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "四图文模块",
+        "settings": [
+             {
+                "title": "颜色设置",
+                "options": [
+
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "标题颜色",
+                                "data": "title-show-each-color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "正文颜色",
+                                "data": "des-show-each-color"
+                            }
+
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "图文模块1",
+                "options": [
+
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "tips": "图片1 推荐尺寸 565x235px",
+                                "data": "index_picshow_1"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片1链接",
+                                "data": "index_pic_1_link,index_pic_1_linktype"
+                            },
+                            {
+                                "type": "input",
+                                "text": "文案1标题",
+                                "data": "title-show-each_1"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "文案1正文",
+                                "data": "des-show-each_1"
+                            }
+
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "图文模块2",
+                "options": [
+
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "tips": "图片2 推荐尺寸 565x235px",
+                                "data": "index_picshow_2"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片2链接",
+                                "data": "index_pic_2_link,index_pic_2_linktype"
+                            },
+                            {
+                                "type": "input",
+                                "text": "文案2标题",
+                                "data": "title-show-each_2"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "文案2正文",
+                                "data": "des-show-each_2"
+                            }
+
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "图文模块3",
+                "options": [
+
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "tips": "图片3 推荐尺寸 565x235px",
+                                "data": "index_picshow_3"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片3链接",
+                                "data": "index_pic_3_link,index_pic_3_linktype"
+                            },
+                            {
+                                "type": "input",
+                                "text": "文案3标题",
+                                "data": "title-show-each_3"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "文案3正文",
+                                "data": "des-show-each_3"
+                            }
+
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "图文模块4",
+                "options": [
+
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "tips": "图片4 推荐尺寸 565x235px",
+                                "data": "index_picshow_4"
+                            },
+                            {
+                                "type": "link",
+                                "text": "图片4链接",
+                                "data": "index_pic_4_link,index_pic_4_linktype"
+                            },
+                            {
+                                "type": "input",
+                                "text": "文案4标题",
+                                "data": "title-show-each_4"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "文案4正文",
+                                "data": "des-show-each_4"
+                            }
+
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "服务提供模块",
+        "settings": [
+             {
+                "title": "显示设置",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "checkbox",
+                                "text": "是否显示轮播",
+                                "label": "显示",
+                                "data": "index_show_service"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "服务1",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "tips": "图片1 推荐尺寸 42x42px",
+                                "data": "icon1"
+                            },
+                            {
+                                "type": "input",
+                                "text": "服务1标题",
+                                "data": "index-service-inner-each-txt_1"
+                            },
+                            {
+                                "type": "color",
+                                "label": "服务1字体颜色",
+                                "data": "indexService_1_title_color"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "服务2",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "tips": "图片2 推荐尺寸 42x42px",
+                                "data": "icon2"
+                            },
+                            {
+                                "type": "input",
+                                "text": "服务2标题",
+                                "data": "index-service-inner-each-txt_2"
+                            },
+                            {
+                                "type": "color",
+                                "label": "服务2字体颜色",
+                                "data": "indexService_2_title_color"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "服务3",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "tips": "图片3 推荐尺寸 42x42px",
+                                "data": "icon3"
+                            },
+                            {
+                                "type": "input",
+                                "text": "服务3标题",
+                                "data": "index-service-inner-each-txt_3"
+                            },
+                            {
+                                "type": "color",
+                                "label": "服务3字体颜色",
+                                "data": "indexService_3_title_color"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "服务4",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "tips": "图片4 推荐尺寸 42x42px",
+                                "data": "icon4"
+                            },
+                            {
+                                "type": "input",
+                                "text": "服务4标题",
+                                "data": "index-service-inner-each-txt_4"
+                            },
+                            {
+                                "type": "color",
+                                "label": "服务4字体颜色",
+                                "data": "indexService_4_title_color"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+
+    {
+        "name" : "底部",
+        "type" : "title"
+    },
+    {
+        "name": "底部导航",
+        "settings": [
+            {
+                "title": "底部导航模版选择",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "navigation",
+                                "text": "选择模板",
+                                "tips": "出于美观考虑，只显示模板中的前三个菜单<br>可在后台-<a href=\"/center/main/#/navigation\" target=\"blank\" style=\"color:#da5d5d\">导航管理</a>中设置内容和跳转链接",
+                                "data": "footer_nav_id"
+                            }
+                        ]     
+                    }
+                ]
+            },
+            {
+                "title": "底部导航上半部分颜色设置",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "上半部背景颜色",
+                                "data": "footerBar_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "一级导航文字颜色",
+                                "data": "footerNavLink_1_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "一级导航鼠标经过颜色",
+                                "data": "footerNavLinkHover_1_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "二级导航文字颜色",
+                                "data": "footerNavLink_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "二级导航鼠标经过颜色",
+                                "data": "footerNavLinkHover_color"
+                            }
+
+                        ]     
+                    }
+                ]
+            },
+            {
+                "title": "二维码设置",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "checkbox",
+                                "text": "是否显示二维码",
+                                "label": "显示",
+                                "data": "use_QRCodes"
+                            },
+                            {
+                                "type": "image",
+                                "tips": "推荐尺寸 140x140px 保存后生效",
+                                "data": "footerImgShow_2"
+                            },
+                            {
+                                "type": "input",
+                                "text": "二维码说明1",
+                                "data": "footerImgTextShow_1"
+                            },
+                            {
+                                "type": "image",
+                                "tips": "推荐尺寸 140x140px 保存后生效",
+                                "data": "footerImgShow_1"
+                            },
+                            {
+                                "type": "input",
+                                "text": "二维码说明2",
+                                "data": "footerImgTextShow_2"
+                            }
+                        ]     
+                    }
+                ]
+            },
+            {
+                "title": "底部导航下半部分设置",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "下半部背景颜色",
+                                "data": "footerBar2_background"
+                            }
+
+                        ]     
+                    }
+                ]
+            }, 
+            {
+                "title": "版权信息",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "textarea",
+                                "text": "版权信息",
+                                "data": "footer_text"
+                            },
+                            {
+                                "type": "color",
+                                "label": "版权信息文字颜色",
+                                "data": "footerSimpleNavCop_color"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "支付图标",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "支付图标颜色",
+                                "data": "footerSimpleNavPay_color"
+                            },
+                            {
+                                "type": "checkbox",
+                                "label": "显示微信支付",
+                                "data": "footer_payment_wechat"
+                            },
+                            {
+                                "type": "checkbox",
+                                "label": "显示支付宝支付",
+                                "data": "footer_payment_alipay"
+                            },
+                            {
+                                "type": "checkbox",
+                                "label": "显示百度钱包支付",
+                                "data": "footer_payment_baifubao"
+                            },
+                            {
+                                "type": "checkbox",
+                                "label": "显示财付通支付",
+                                "data": "footer_payment_tenpay"
+                            },
+                            {
+                                "type": "checkbox",
+                                "label": "显示快钱支付",
+                                "data": "footer_payment_99bill"
+                            },
+                            {
+                                "type": "checkbox",
+                                "label": "显示货到付款",
+                                "data": "footer_payment_offline"
+                            },
+                            {
+                                "type": "checkbox",
+                                "label": "显示银行卡支付",
+                                "data": "footer_payment_card"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "安全认证",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "checkbox",
+                                "text": "显示安全认证",
+                                "label": "显示",
+                                "data": "icp_link_show"
+                            },
+                            {
+                                "type": "input",
+                                "text": "认证链接-左",
+                                "data": "icp_link_1"
+                            },
+                            {
+                                "type": "input",
+                                "text": "认证链接-中",
+                                "data": "icp_link_2"
+                            },
+                            {
+                                "type": "input",
+                                "text": "认证链接-右",
+                                "data": "icp_link_3"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name" : "商品",
+        "type" : "title"
+    },
+    {
+        "name": "列表展示设置",
+        "settings": [
+            {
+                "title": "首页展示虚拟商品1",
+                "description": "",
+                "tips": "在未添加任何商品时才有效",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "checkbox",
+                                "data": "show_sample_1",
+                                "label": "展示虚拟商品1"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "首页展示虚拟商品2",
+                "description": "",
+                "tips": "在未添加任何商品时才有效",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "checkbox",
+                                "data": "show_sample_2",
+                                "label": "展示虚拟商品1"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "商品列表页设置",
+                "tips": "部分效果需保存后生效",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "input",
+                                "text": "商品列表页总个数",
+                                "tips": "最多可设置每页100个",
+                                "data": "page_size",
+                                "attr": {
+                                    "type": "number",
+                                    "max": "100",
+                                    "min": "1"
+                                }
+                            },
+                            {
+                                "type": "color",
+                                "label": "商品项背景颜色",
+                                "data": "proGridItem_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "商品图背景颜色",
+                                "data": "proGridItemImg_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "商品标题文字",
+                                "data": "proTitle_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "商品价格",
+                                "data": "price_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "商品原价",
+                                "data": "orgprice_color"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "【PC】商品过滤器设置",
+                "tips": "部分效果需保存后生效",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "checkbox",
+                                "text": "是否显示PC商品过滤器",
+                                "label": "显示",
+                                "data": "filterWide_show"
+                            },
+                            {
+                                "type": "color",
+                                "label": "文字颜色",
+                                "data": "filterWide_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "标题颜色",
+                                "data": "filterWideTitle_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "边框颜色",
+                                "data": "filterWide_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "底色",
+                                "data": "filterWide_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "商品筛选器颜色",
+                                "data": "filtrate_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "商品筛选器选中文字",
+                                "data": "filterWideSelect_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "商品筛选器选中底色",
+                                "data": "filterWideSelect_background"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "【移动】商品过滤器设置",
+                "tips": "部分效果需保存后生效",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "checkbox",
+                                "text": "是否显示移动端商品过滤器",
+                                "label": "显示",
+                                "data": "list_filter_show"
+                            },
+                            {
+                                "type": "color",
+                                "label": "普通文字",
+                                "data": "filter_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "整体边框",
+                                "data": "filter_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "整体底色",
+                                "data": "filter_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "下拉边框",
+                                "data": "filterSelect_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "下拉底色",
+                                "data": "filterSelect_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "下拉悬浮底色",
+                                "data": "filterSelectHover_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "下拉文字",
+                                "data": "filterSelect_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "下拉悬浮文字",
+                                "data": "filterSelectHover_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "下拉符号颜色",
+                                "data": "filterSelectSign_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "移动端过滤器排序符号颜色",
+                                "data": "filterSelectActiveSign_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "移动端过滤器排序符号选中颜色",
+                                "data": "filterSelectActiveSign2_color"
+                            }
+
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "详情展示设置",
+        "settings": [
+            {
+                "title": "降价通知",
+                "options": [
+                    {
+                    "group": [
+                        {
+                        "type": "checkbox",
+                        "label": "显示降价通知",
+                        "data": "showPriceNotice"
+                        }
+                    ]
+                    }
+                ]
+            },
+            {
+                "title": "库存和销量",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "checkbox",
+                                "label": "显示库存",
+                                "data": "pro_showStock"
+                            },
+                            {
+                                "type": "checkbox",
+                                "label": "显示已售出",
+                                "data": "pro_showSale"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "商品属性标签正常状态",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "文字颜色",
+                                "data": "optionUnSelected_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "边框颜色",
+                                "data": "optionUnSelected_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "背景颜色",
+                                "data": "optionUnSelected_background"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "商品属性标签悬浮状态",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "文字颜色",
+                                "data": "optionUnSelectedHover_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "边框颜色",
+                                "data": "optionUnSelectedHover_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "背景颜色",
+                                "data": "optionUnSelectedHover_background"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "商品属性标签选中状态",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "文字颜色",
+                                "data": "optionSelected_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "边框颜色",
+                                "data": "optionSelected_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "背景颜色",
+                                "data": "optionSelected_background"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "商品属性标签不可选状态",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "文字颜色",
+                                "data": "optionDisabled_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "边框颜色",
+                                "data": "optionDisabled_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "背景颜色",
+                                "data": "optionDisabled_background"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "购买按钮",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "按钮底色",
+                                "data": "buyBtn_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "边框颜色",
+                                "data": "buyBtn_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "文字颜色",
+                                "data": "buyBtn_color"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "添加商品提示框",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "提示框底色",
+                                "data": "addSucc_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "提示框边框色",
+                                "data": "addSucc_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "提示框文字色",
+                                "data": "addSucc_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "框内按钮底色",
+                                "data": "addSuccBtn_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "框内按钮文字色",
+                                "data": "addSuccBtn_color"
+                            }
+
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+
+    {
+        "name" : "博客/文章/登录注册/购物车",
+        "type" : "title"
+    },
+    {
+        "name": "颜色",
+        "settings": [
+            {
+                "title": "基本颜色",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "主体背景颜色",
+                                "data": "main_background"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "博客",
+                "options": [
+                    {
+                        "group": [
+
+                            {
+                                "type": "checkbox",
+                                "tips": "在未添加任何博客时才有效",
+                                "data": "sample_blogs",
+                                "label": "展示虚拟博客"
+                            },
+                            {
+                                "type": "color",
+                                "label": "博客列表页文字颜色",
+                                "data": "blogs_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "博客列表页作者文字颜色",
+                                "data": "blogsDesc_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "博客列表页时间颜色",
+                                "data": "blogsDescdate_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "博客列表页列表项底色",
+                                "data": "blogs_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "博客内容页文字",
+                                "data": "blog_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "博客内容页作者",
+                                "data": "blogDesc_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "博客内容页发表时间",
+                                "data": "blogTinge_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "博客内容页边框",
+                                "data": "blog_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "博客内容页底色",
+                                "data": "blog_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "博客内容页按钮文字",
+                                "data": "blogBtn_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "博客内容页按钮边框",
+                                "data": "blogBtn_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "博客内容页按钮底色",
+                                "data": "blogBtn_background"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "文章",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "文章页面背景色",
+                                "data": "post_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "文章列表目录背景色",
+                                "data": "post_dir_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "文章标签背景色",
+                                "data": "post_tag_background"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "登陆与注册",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "背景色",
+                                "tips": "保存后生效",
+                                "data": "post_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "提示文字颜色",
+                                "data": "formPage_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "链接颜色",
+                                "tips": "注册，忘记密码，直接登录",
+                                "data": "formPageDesc_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "注册页未选中账户类型底色",
+                                "tips": "登录页为账户密码底色",
+                                "data": "formItem_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "注册页未选中账户类型文字",
+                                "tips": "登录页为账户密码图标",
+                                "data": "form_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "错误提示文字",
+                                "tips": "账号和密码填写错误时显示",
+                                "data": "formErr_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "注册表单边框",
+                                "data": "form_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "输入框文字",
+                                "tips": "登录页保存后生效",
+                                "data": "formInpit_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "输入框边框",
+                                "data": "formInpit_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "输入框底色",
+                                "data": "formInpit_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "表单按钮文字",
+                                "data": "formBtn_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "表单按钮底色",
+                                "data": "formBtn_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "按钮颜色",
+                                "tips": "如注册、登录页面的按钮",
+                                "data": "mainBtn_background"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "购物车",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "color",
+                                "label": "顶部购物车边框",
+                                "tips": "保存后生效",
+                                "data": "post_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "购物车文字颜色",
+                                "data": "text_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "商品属性描述文字颜色",
+                                "tips": "如颜色材质（同详情页）",
+                                "data": "desc_color"
+                            },
+                            {
+                                "type": "color",
+                                "label": "购物车详情页表格底色",
+                                "data": "table_background"
+                            },
+                            {
+                                "type": "color",
+                                "label": "购物车详情页表格边框",
+                                "tips": "保存后生效",
+                                "data": "table_border"
+                            },
+                            {
+                                "type": "color",
+                                "label": "链接文字",
+                                "tips": "清空购物车与删除",
+                                "data": "link_color"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name" : "高级",
+        "type" : "title"
+    },
+    {
+        "name": "社交/在线客服",
+        "settings": [
+            {
+                "title": "社交",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "checkbox",
+                                "label": "开启社交分享",
+                                "data": "share_box"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "在线客服",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "checkbox",
+                                "label": "是否显示",
+                                "data": "online_service_show"
+                            },
+                            {
+                                "type": "input",
+                                "text": "QQ号码",
+                                "data": "online_service_qq"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "登录注册须知",
+                "options": [
+                    {
+                    "group": [
+                        {
+                        "type": "checkbox",
+                        "label": "是否显示",
+                        "data": "showTreatyNotice"
+                        },
+                        {
+                        "type": "textarea",
+                        "text": "须知信息",
+                        "data": "treatyContnet"
+                        },
+                        {
+                        "type": "input",
+                        "text": "未同意时候提示信息",
+                        "data": "treatyTips"
+                        }
+                    ]
+                    }
+                ]
+            }
+        ]
+    }
+]

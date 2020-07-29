@@ -1,0 +1,406 @@
+<!-- 首页轮播图开始 -->
+{% if settings.index_slide_show %}
+<div class="wrapper wrapper-slide">
+  <div class="slide-inner settings-block_background">                
+    <div class="slide-cnt" id="slides">
+      {% if settings.index_slide_1_show %}
+      <a class="slide-link" href="{{ settings.index_slide_1_link }}" {%if settings.index_slide_1_linktype == 1%} target="_blank" {% endif %}style="background: center center no-repeat transparent; background-image: url({{ 'index_slide_1' | asset_url }}); background-size: cover;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ 'index_slide_1' | asset_url }}',sizingMethod='scale');">
+      </a>
+      {% endif %}
+      {% if settings.index_slide_2_show %}
+      <a class="slide-link" href="{{ settings.index_slide_2_link }}" {%if settings.index_slide_2_linktype == 1%} target="_blank" {% endif %} style="background: center center no-repeat transparent; background-image: url({{ 'index_slide_2' | asset_url }}); background-size: cover;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ 'index_slide_2' | asset_url }}',sizingMethod='scale');">
+      </a>
+      {% endif %}
+      {% if settings.index_slide_3_show %}
+      <a class="slide-link" href="{{ settings.index_slide_3_link }}" {%if settings.index_slide_3_linktype == 1%} target="_blank" {% endif %} style="background: center center no-repeat transparent; background-image: url({{ 'index_slide_3' | asset_url }}); background-size: cover;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ 'index_slide_3' | asset_url }}',sizingMethod='scale');">
+      </a>
+      {% endif %}
+      {% if settings.index_slide_4_show %}
+      <a class="slide-link" href="{{ settings.index_slide_4_link }}" {%if settings.index_slide_4_linktype == 1%} target="_blank" {% endif %} style="background: center center no-repeat transparent; background-image: url({{ 'index_slide_4' | asset_url }}); background-size: cover;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ 'index_slide_4' | asset_url }}',sizingMethod='scale');">
+      </a>
+      {% endif %}
+      {% if settings.index_slide_5_show %}
+      <a class="slide-link" href="{{ settings.index_slide_5_link }}" {%if settings.index_slide_5_linktype == 1%} target="_blank" {% endif %} style="background: center center no-repeat transparent; background-image: url({{ 'index_slide_5' | asset_url }}); background-size: cover;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ 'index_slide_5' | asset_url }}',sizingMethod='scale');">
+      </a>
+      {% endif %}
+      {% if settings.index_slide_6_show %}
+      <a class="slide-link" href="{{ settings.index_slide_6_link }}" {%if settings.index_slide_6_linktype == 1%} target="_blank" {% endif %} style="background: center center no-repeat transparent; background-image: url({{ 'index_slide_6' | asset_url }}); background-size: cover;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ 'index_slide_6' | asset_url }}',sizingMethod='scale');">
+      </a>
+      {% endif %}
+      <a href="javascript:void(0);" id="slides_prev" class="slidesjs-previous slidesjs-navigation">
+        <span class="slidesjs-bg"><i class="iconfont "></i></span>
+      </a>
+      <a href="javascript:void(0);" id="slides_next" class="slidesjs-next slidesjs-navigation">
+        <span class="slidesjs-bg"><i class="iconfont"></i></span>
+      </a>
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-- 首页轮播图结束 -->
+
+<!--文字修饰1-->
+<div class="index-indexCustom settings-proList_background">
+  <div class="index-notice settings-mobi_divLine_border settings-indexCustom_1_border settings-indexCustom_1_background" id="index-notice">
+    <p class="settings-indexCustom_1_text_color">{{ settings.indexCustom_doc_1_text }}</p>
+  </div>
+</div>
+
+<!-- 图文展示开始 -->
+{% if settings.wrapper_imagearticle %}
+<div class="wrapper wrapper-imagearticle clearfix">
+  <div class="wrapper-cont">
+    
+    <!-- 水晶之恋2 -->
+    <div class="wrapper-fix">
+      <div class="imageartice_l">
+        <div class="artice_l_l">
+          <a href="{{ settings.imagearticle_1_link }}" {%if settings.imagearticle_1_linktype == 1%} target="_blank" {% endif %}>
+            <img src="{{ 'imagearticle_1' | asset_url }}" alt="{{ settings.imagearticle_1_img.name }}"/>
+            <div class="articel_hover">
+              <div class="articel_inner">
+                <p class="articel_p">{{settings.imagearticle_1-img-mask-name}}</p>
+                <span class="articel_s">{{settings.imagearticle_1-img-mask-price}}</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="artice_l_r">
+          <h2 class="artice_title">{{ settings.imagearticle_1_title_text }}</h2>
+          <div class="articel_desc">{{ settings.imagearticle_1_desc_text }}</div>
+          <a class="articel_link" href="{{ settings.imagearticle_1_link }}" {%if settings.imagearticle_1_linktype == 1%} target="_blank" {% endif %}>{{settings.imagearticle_more1_text }}</a>
+        </div>
+      </div>
+      <a class="imageartice_r" href="{{ settings.imagearticle_1_2_link }}" {%if settings.imagearticle_1_2_linktype == 1%} target="_blank" {% endif %}>
+        <img src="{{ 'imagearticle_1_bigimg' | asset_url }}" alt="{{ settings.imagearticle_1_bigimg.name }}"/>
+      </a>
+    </div>
+    <!--品牌故事-->
+    <div class="wrapper-imagearticle-box-band">
+      <div class="wrapper-imagearticle wrapper-imagearticle-band clearfix">
+        <div  class="wrapper-imagearticle_band">
+          <div class="wrapper-imagearticle-link-wrapper-band">   
+            <a class="wrapper-imagearticle-link-band" href="{{ settings.imagearticle_band_link }}" {%if settings.imagearticle_band_linktype == 1%} target="_blank" {% endif %}>
+              <img src="{{ 'imagearticle_3' | asset_url }}" alt="{{ settings.imagearticle_3_img.name }}"/>
+            </a>
+          </div>
+          <div class="wrapper-imagearticle-article_band settings-imagearticle-article_band_bgcolor">
+            <h2 class="imagearticle_band-title settings-imagearticle_band_title_color">{{ settings.imagearticle_band_title_text }}</h2>
+            <div class="desc imagearticle_band-desc settings-imagearticle_band_desc_color">{{ settings.imagearticle_3_desc_text }}</div>
+            <a class="imagearticle_1-title settings-imagearticle_3_link_color" href="{{ settings.imagearticle_band_link }}" {%if settings.imagearticle_band_linktype == 1%} target="_blank" {% endif %}>{{ settings.imagearticle_more2_text }}</a>               
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--五环之歌-->
+    <div class="wrapper-imagearticle-box">
+      <div class="wrapper-imagearticle clearfix">
+        <div class="wrapper-imagearticle_2-img">
+          <div class="wrapper-imagearticle-link-wrapper">
+            <a class="wrapper-imagearticle-link" href="{{ settings.imagearticle_2_2_link }}" {%if settings.imagearticle_2_2_linktype == 1%} target="_blank" {% endif %}>
+              <img src="{{ 'imagearticle_2_bigimg' | asset_url }}" alt="{{ settings.imagearticle_2_img.name }}"/>
+            </a>
+
+          </div>
+        </div>
+        <div class="wrapper-imagearticle_2">
+          <div class="wrapper-imagearticle-article_2">
+            <h2 class="imagearticle_2-title settings-imagearticle_2_title_color">{{ settings.imagearticle_2_title_text }}</h2>
+            <div class="desc imagearticle_2-desc settings-imagearticle_2_desc_color">{{ settings.imagearticle_2_desc_text }}</div>
+            <a class="imagearticle_1-title settings-imagearticle_2_link_color" href="{{ settings.imagearticle_2_link }}" {%if settings.imagearticle_2_linktype == 1%} target="_blank" {% endif %} target="_blank" title="">{{ settings.imagearticle_more3_text }}</a>
+          </div>
+          <div class="wrapper-imagearticle-link-wrapper">
+            <a class="wrapper-imagearticle-link" href="{{ settings.imagearticle_2_link }}" {%if settings.imagearticle_2_linktype == 1%} target="_blank" {% endif %}>
+              <img src="{{ 'imagearticle_2' | asset_url }}" alt="{{ settings.imagearticle_2_img.name }}"/>
+            </a>
+            <a class="imagearticle_2-img-mask settings-proPic_border" href="{{ settings.imagearticle_2_link }}" {%if settings.imagearticle_2_linktype == 1%} target="_blank" {% endif %} target="_blank" title="">
+            <div class="imagearticle_2-img-mask-content">
+              <p class="imagearticle_2-img-mask-name txt-overflow settings-proTitle_color txt-overflow">{{settings.imagearticle_2-img-mask-name}}</p>
+              <div class="proList-desc">
+                <span class="proList-price">{{settings.imagearticle_2-img-mask-price}}</span>      
+              </div>
+            </div>
+              </a>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-- 图文展示结束 -->
+<!-- 自定义页面三开始，商品展示1 -->
+{% if settings.index_show_welcome_page_3 %}
+{% if pages[settings.index_welcome_page_3].version == 1 %}
+{% for page_snippet in pages[settings.index_welcome_page_3].snippets %}
+
+<div class="prolist-head">
+  <h4 class="prolist-indexCustom_title settings-indexCustom_1_title_color">{{ settings.indexCustom_1_title }}</h4>
+</div>
+
+    {% if page_snippet.type == 0 %}
+    <div class="wrapper wrapper-customPage">
+    <div class="cont">
+        <div class="mod customPage lazyload_scope">
+        {{ page_snippet.content | content_html }}
+        </div>
+    </div>
+    </div>
+    {% else %}
+
+<div class="wrapper wrapper-proList">
+  <div class="wrapper-cont">
+    <div class="proList">
+      <div class="proList-inner">
+        {% if page_snippet.products.size != 0 %}
+        <ul class="proList-ul proList-ul-index clearfix proList-count-{{ settings.list_productlist_count }} lazyload_scope">
+          {% for product in page_snippet.products %}
+          {% include 'product_grid_item'%}
+          {% endfor %}
+        </ul>
+       
+        <span class='proList-ul-btns proList-ul-prev settings-proListulprevnext_color settings-proListulprevnexthover_color settings-proListulprevnext_background settings-proListulprevnexthover_background'>
+          <i class="iconfont">&#xe61a;</i>
+        </span>
+        <span class='proList-ul-btns proList-ul-next settings-proListulprevnext_color settings-proListulprevnexthover_color settings-proListulprevnext_background settings-proListulprevnexthover_background'>
+          <i class="iconfont">&#xe61b;</i>
+        </span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endfor %}
+{% else %}
+<div class="wrapper">
+  <div class="cont">
+    <div class="mod">
+      {% if is_mobile_agent == 'is_mobile' and  pages[settings.index_welcome_page_3].use_mobile_content %} 
+      {{  pages[settings.index_welcome_page_3].mobile_content_html }}
+      {% else %}
+      {{  pages[settings.index_welcome_page_3].content_html }} 
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endif %}
+<!-- 自定义页面三结束 ，商品展示1-->
+
+<!--文字修饰3-->
+<div class="index-indexCustom settings-proList_background">
+  <div class="index-notice settings-mobi_divLine_border settings-indexCustom_3_border settings-indexCustom_3_background" id="index-notice">
+    <p class="settings-indexCustom_3_text_color">{{ settings.indexCustom_doc_3_text }}</p>
+  </div>
+</div>
+<!--文字修饰3结束-->
+
+<!--宣传图片展示-->
+<div class="wrapper wrapper-picshow">
+  <div class="cont100">
+    <div class=" picshow">
+      <div class="picshow-inner">
+        <div class="picshow-inner-list clearfix lazyload_scope">
+          <a class="pic-show-each" href="{{ settings.index_pic_1_link }}" {%if settings.index_pic_1_linktype == 1%} target="_blank" {% endif %}>
+            <div class="pic-show-each-img-1">
+              <img class="index_picshow-img lazyload" src="{{ 'blank.gif' | global_asset_url }}" data-src="{{ 'index_picshow_1' | asset_url }}" alt="{{settings.index_pic_1_text}}" />
+            </div>
+            <h3 class="title-show-each settings-title-show-each-color">{{ settings.title-show-each_1 }}</h3>
+            <p class="des-show-each settings-des-show-each-color">{{ settings.des-show-each_1 }}</p>
+          </a>
+          <a class="pic-show-each" href="{{ settings.index_pic_2_link }}" {%if settings.index_pic_2_linktype == 1%} target="_blank" {% endif %}>
+            <div class="pic-show-each-img-2">
+              <img class=" index_picshow-img lazyload" src="{{ 'blank.gif' | global_asset_url }}" data-src="{{ 'index_picshow_2' | asset_url }}" alt="{{settings.index_pic_2_text}}" />
+            </div>
+            <h3 class="title-show-each settings-title-show-each-color">{{ settings.title-show-each_2 }}</h3>
+            <p class="des-show-each settings-des-show-each-color">{{ settings.des-show-each_2 }}</p>
+          </a>
+          <a class="pic-show-each" href="{{ settings.index_pic_3_link }}" {%if settings.index_pic_3_linktype == 1%} target="_blank" {% endif %}>
+            <div class="pic-show-each-img-3">
+              <img class=" index_picshow-img lazyload" src="{{ 'blank.gif' | global_asset_url }}" data-src="{{ 'index_picshow_3' | asset_url }}" alt="{{settings.index_pic_3_text}}" />
+            </div>
+            <h3 class="title-show-each settings-title-show-each-color">{{ settings.title-show-each_3}}</h3>
+            <p class="des-show-each settings-des-show-each-color">{{ settings.des-show-each_3 }}</p>
+          </a>
+          <a class="pic-show-each" href="{{ settings.index_pic_4_link }}" {%if settings.index_pic_4_linktype == 1%} target="_blank" {% endif %}>
+            <div class="pic-show-each-img-4">
+              <img class=" index_picshow-img lazyload" src="{{ 'blank.gif' | global_asset_url }}" data-src="{{ 'index_picshow_4' | asset_url }}" alt="{{settings.index_pic_3_text}}" />
+            </div>
+            <h3 class="title-show-each settings-title-show-each-color">{{ settings.title-show-each_4 }}</h3>
+            <p class="des-show-each settings-des-show-each-color">{{ settings.des-show-each_4 }}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--店家承诺，运费，服务-开始-->
+{% if settings.index_show_service %}
+<div class="wrapper wrapper-service">
+  <div class="index-service">
+    <ul class="index-service-inner">
+      <li class="index-service-inner-each">
+        <img src="{{ 'icon1' | asset_url }}" alt="" />
+        <span class="index-service-inner-each-txt settings-serviceColor1">{{ settings.index-service-inner-each-txt_1 }}</span>
+      </li>
+      <li class="index-service-inner-each">
+        <img src="{{ 'icon2' | asset_url }}" alt="" />
+        <span class="index-service-inner-each-txt settings-serviceColor2">{{ settings.index-service-inner-each-txt_2 }}</span>
+      </li>
+      <li class="index-service-inner-each">
+        <img src="{{ 'icon3' | asset_url }}" alt="" />
+        <span class="index-service-inner-each-txt settings-serviceColor3">{{ settings.index-service-inner-each-txt_3 }}</span>
+      </li>
+      <li class="index-service-inner-each">   
+        <img src="{{ 'icon4' | asset_url }}" alt="" /> 
+        <span class="index-service-inner-each-txt settings-serviceColor4">{{ settings.index-service-inner-each-txt_4 }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+{% endif %}
+<!--店家承诺，运费，服务-结束-->
+{% if settings.index_slide_show %}
+
+{% assign bIndexSlide1 = false %}
+
+{% if settings.index_slide_1_show and settings.index_slide_2_show %}
+{% assign bIndexSlide1 = true %}
+{% endif %}
+
+{% assign bIndexSlide2 = false %}
+
+{% if settings.index_slide_2_show and settings.index_slide_3_show %}
+{% assign bIndexSlide2 = true %}
+{% endif %}
+
+{% assign bIndexSlide3 = false %}
+
+{% if settings.index_slide_1_show and settings.index_slide_3_show %}
+{% assign bIndexSlide3 = true %}
+{% endif %}
+
+{% assign bIndexSlide4 = false %}
+
+{% if settings.index_slide_1_show or settings.index_slide_3_show or settings.index_slide_2_show %}
+{% assign bIndexSlide4 = true %}
+{% endif %}
+
+<script>
+  // 首页商品列表按钮
+  $(document).ready(function(){
+    
+    
+    
+    function proListSlide(proListUl){
+       var oList = proListUl,
+        oListLi = oList.children('li');
+    var prevBtn = $('.proList-ul-prev');
+    var nextBtn = $('.proList-ul-next');
+    var theSizeofOListLi = oListLi.size();
+    var  marginLeft=oList.width()*0.01266
+    if($(document).width() > 768){
+      var theLastTranslate3dNum = (theSizeofOListLi - 4) * -304.357;
+      // 初始化显示
+      var addTranslate3dNum = 0;
+          oList.css({'margin-left' : addTranslate3dNum + 'px'});
+      
+      // 下一个按钮
+      nextBtn.click(function() {
+        if(addTranslate3dNum > theLastTranslate3dNum){
+          addTranslate3dNum += -marginLeft;
+          $(this).parent().children('.proList-ul').css({'margin-left' : addTranslate3dNum + 'px'});
+        }
+      });
+
+      // 上一个按钮
+      prevBtn.click(function() {
+         console.log(addTranslate3dNum);
+        if(addTranslate3dNum < 0){
+          addTranslate3dNum -= -marginLeft;
+          $(this).parent().children('.proList-ul').css({'margin-left' : addTranslate3dNum + 'px'}); 
+        }          
+      });  
+      
+    };
+    if($(document).width() <= 768){
+      var theLastTranslate3dNum = (theSizeofOListLi - 2) * -51.675;
+      // 初始化显示
+      var addTranslate3dNum = 0;
+      $(this).parent().children('.proList-ul').css({'margin-left' : addTranslate3dNum + '%'});
+      // 下一个按钮
+      nextBtn.click(function() {
+        if(addTranslate3dNum > theLastTranslate3dNum){
+          addTranslate3dNum += -51.675;
+          $(this).parent().children('.proList-ul').css({'margin-left' : addTranslate3dNum + '%'});
+        }
+      });
+
+      // 上一个按钮
+      prevBtn.click(function() {
+        if(addTranslate3dNum < 0){
+          addTranslate3dNum -= -51.675;
+          $(this).parent().children('.proList-ul').css({'margin-left' : addTranslate3dNum + '%'}); 
+        }          
+      });  
+     };
+    }
+    proListSlide($('.proList-ul').eq(0));
+    proListSlide($('.proList-ul').eq(1));
+  });
+</script>
+{{ 'jquery.slides.min.js' | asset_url | js_tag }}
+<script>
+  $(function(){
+   {% if bIndexSlide1 or bIndexSlide2 or bIndexSlide3 %}
+    $("#slides").slidesjs({
+      width:"2000",
+      height:"1000",
+      play: {
+        active: true,
+        // [boolean] Generate the play and stop buttons.
+        // You cannot use your own buttons. Sorry.
+        effect: {% if settings.index_slide_fade %}"fade"{% else %}"slide"{% endif %},
+                          // [string] Can be either "slide" or "fade".
+                          interval: 5000,
+                          // [number] Time spent on each slide in milliseconds.
+                          auto: true,
+                          // [boolean] Start playing the slideshow on load.
+                          swap: false,
+                          // [boolean] show/hide stop and play buttons
+                          pauseOnHover: true,
+                          // [boolean] pause a playing slideshow on hover
+                          restartDelay: 2500
+                          // [number] restart delay on inactive slideshow
+                          },
+                          navigation: {
+                          active: false,
+                          effect: {% if settings.index_slide_fade %}"fade"{% else %}"slide"{% endif %}
+                          },
+                          pagination:{
+                          active: true
+                          }
+                          });
+     {% else %}
+     $('#slides_prev').hide();
+      $('#slides_next').hide();
+      $('#slides').show();
+      // 如果只设置一个轮播图
+      {% if bIndexSlide4 %}
+      var theWidthOfPhone = $(document.body).width();// 获取窗口宽度
+       var theHeightOfslides =  theWidthOfPhone *0.5625;// 按比例设置轮播图框的高度
+       $('#slides').css('height',theHeightOfslides + 'px');
+       // 当窗口宽度发生变化时
+       $(window).resize(function() {
+         var theWidthOfPhone = $(document.body).width();
+         var theHeightOfslides =  theWidthOfPhone *0.5625;
+         $('#slides').css('height',theHeightOfslides + 'px');
+       });
+       {% endif %}
+       {% endif %}
+       });
+</script>
+{% endif %}

@@ -1,0 +1,67 @@
+<div class="wrapper">
+    <div class="cont">
+        <div class="mod breadcrumb post-breadcrumb">
+            <div class="breadcrumb-inner settings-text_color txt-overflow">
+                <a class="settings-link_color" href="/" title="{{ shop.name | escape }}">首页</a><span class="breadcrumb-split">&gt;</span>
+                    <a class="settings-link_color" href="/posts" title="所有文章">所有文章</a><span class="breadcrumb-split">&gt;</span><span class="breadcrumb-current">{{post.title}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper" style="background:#fff;margin-bottom:20px">
+    <div class="cont post-cont">
+        <div class="mod clearfix">
+            <div class="post-wrapper">
+                <div class="pageTitle">
+                    <h2 class="settings-text_color">
+                        {{post.title}}
+                    </h2>
+                </div>
+                <div class="post">
+                    <div class="post-info settings-desc_color">
+                        <span class="post-info-publish_at">{{ post.publish_at | date: "%Y-%m-%d %R" }}</span>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;
+                        <span class="post-info-dirs">
+                            目录：
+                            {% for dir in post.dirs %}
+                            <a class="settings-desc_color" href="/posts?dir_id={{dir.id}}">{{dir.name}}</a>{% unless dir == post.dirs.last %}、{%endunless%}
+                            {% endfor %}
+                        </span>
+                    </div>
+                    <div class="post-content settings-main_border">
+                        {{ post.content }}
+                    </div>
+                    <div class="post-bottom">
+                        <div class="posts-item-tags">
+                            {% for tag in post.tags %}
+                                <a href="/posts?tag_id={{ tag.id }}" class="posts-item-tags-tag settings-post_desc_color">
+                                    <span class="posts-item-tags-tag-icon"></span>
+                                    {{ tag.name }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                        {% if settings.share_box %}
+                            {% include 'share_box' %}
+                        {% endif %}
+                      	{% include 'favorite' with 'post'  %}
+                    </div>
+                </div>
+            </div>
+            <div class="post-side">
+                <div class="post-re-wrapper">
+                    <div class="post-re-heading settings-text_color">
+                        <span>最新文章</span>
+                    </div>
+                    <div class="post-re-list settings-main_border" id="post-re-list">
+                        <div class="post-re-list-tip settings-desc_color">正在加载...</div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .settings-body_background{background-color:{{ settings.post_background }}}
+</style>

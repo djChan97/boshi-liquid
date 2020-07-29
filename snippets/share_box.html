@@ -1,0 +1,29 @@
+<div class="sharewrap clearfix">
+    <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_more" data-cmd="more"></a></div>
+  </div>
+  
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdSnsKey": {
+          "tsina": "0"
+        },
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": ["mshare","qzone","tsina","weixin","renren","tqq","tqf","douban","sqq","t163","meilishuo","mogujie","diandian","huaban","duitang","youdao","mail","copy"],
+        "bdPic": "",
+        "bdStyle": "1",
+        "bdSize":"16"
+      },
+      "share": {}
+    };
+    
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='{{ '../lib/share_bd/0.0.1/js/share_box.js' | global_asset_url }}'];
+  
+    {% include 'share_info' %}
+  
+    window._bd_share_config.common.bdText = "{{ share_title }}{% if share_desc %} - {{ share_desc | strip_newlines }}{% endif %}";
+    window._bd_share_config.common.bdPic  = {% if share_img_url %}'http:{{ share_img_url }}'{% else %}null{% endif %};
+  </script>
+  
+  

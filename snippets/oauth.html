@@ -1,0 +1,33 @@
+<div class="account-oauth">
+  <h3 class="account-oauth-title">使用社交账号登录</h3>
+  <div class="account-oauth-list clearfix">
+    {% if shop.enable_weibo_login %}
+    <a class="iconfont icon-color-weibo account-oauth-icon account-oauth-weibo" href="{{shop.weibo_login_url}}">&#xe622;</a>
+    {% endif %}
+    {% if shop.enable_qq_login %}
+    <a class="iconfont icon-color-qq account-oauth-icon account-oauth-qq" href="{{shop.qq_login_url}}">&#xe602;</a>
+    {% endif %}
+    {% if shop.enable_renren_login %}
+    <a class="iconfont icon-color-renren account-oauth-icon account-oauth-renren" href="{{shop.renren_login_url}}">&#xe60d;</a>
+    {% endif %}
+    {% if shop.enable_netease_login %}
+    <a class="iconfont icon-color-netease account-oauth-icon account-oauth-netease" href="{{shop.netease_login_url}}">&#xe60e;</a>
+    {% endif %}
+    {% if shop.enable_douban_login %}
+    <a class="iconfont icon-color-douban account-oauth-icon account-oauth-douban" href="{{shop.douban_login_url}}">&#xe60c;</a>
+    {% endif %}
+    {% if shop.enable_weixin_login %}
+    <a class="iconfont icon-color-wechat account-oauth-icon account-oauth-wechat" href="{{shop.weixin_login_url}}">&#xe600;</a>
+    {% endif %}
+    <div class="ie_clearfix"></div>
+  </div>
+</div>
+
+<!-- 添加 From 参数 -->
+<script>
+  $(document).ready(function() {
+    $('.account-oauth-list > a').each(function(index, elm) {
+      elm.href = elm.href + '&from=' + location.protocol + '//' + location.hostname + '/';
+    });
+  });
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="{{ cdn_host }}">
+    <link rel="preconnect" href="//res.wx.qq.com">
+  	<link rel="preload" href="{{ '../theme/base/0.2.0/js/base.js' | global_asset_url }}" as="script" crossorigin>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>{{ page_title }}</title>
+    <meta name="keywords" content="{{ page_keywords }}">
+    <meta name="description" content="{{ page_desc }}">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <link rel="shortcut icon" href="{{ icon_image | image_url }}" type="image/x-icon">
+    {{ 'base-160225.min.css' | global_asset_url | css_tag }}
+    {{ 'yhsd-iconfont-151010.css' | global_asset_url | css_tag }}
+    {{ 'yhsd-mobi-2.3.0.min.css' | global_asset_url | css_tag }}
+    {{ 'youpage.min.css' | global_asset_url | css_tag }}
+    {{ 'main.css' | asset_url | css_tag }}
+    {{ 'user.css' | asset_url | css_tag }}
+    {{ 'iconfont.css' | asset_url | css_tag }}
+    {{ 'jquery-1.11.3.min.js' | global_asset_url | js_tag }}
+    <script src="//res.wx.qq.com/open/js/jweixin-1.5.0.js"></script>
+    <script src="{{ 'reporter-0.1.0.js' | global_asset_url }}" crossorigin></script>
+    <script src="{{ 'jssdk-1.4.0.min.js' | global_asset_url }}" crossorigin></script>
+    {{ 'lazyload.min.js' | global_asset_url | js_tag }}
+    {{ content_for_header }}
+  	{% include 'data' %}
+</head>
+<body>
+    {{ content_for_layout }}
+    <script src="{{ 'yhsd-mobi-2.3.0.min.js' | global_asset_url }}" crossorigin></script>
+  	<script src="{{ '../theme/base/0.2.0/js/base.js' | global_asset_url }}" crossorigin></script>
+    {{ 'youpage.min.js' | global_asset_url | js_tag }}
+    {{ 'main.js' | asset_url | js_tag }}
+    {{ 'user.js' | asset_url | js_tag }}
+    {{ 'img_zoom.min.js' | global_asset_url | js_tag }}
+  	<script src="{{ '../theme/base/0.2.0/js/plugins.js' | global_asset_url }}" async crossorigin></script>
+</body>
+</html>

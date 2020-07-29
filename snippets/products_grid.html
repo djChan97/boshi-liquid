@@ -1,0 +1,77 @@
+{% capture page_type %}{{ products_grid }}{% endcapture %}
+
+{% if page_type == 'page_custom' %}
+  {% assign products = page_snippet.products %}
+{% endif %}
+
+{% if products.size == 0 %}
+<div class="tips tips--pro_list settings-contBg_border settings-contBg_background settings-text_color">抱歉~我们找不到对应的商品，请您继续逛逛吧。</div>
+<style>.filter_simple{display:none}</style>
+{% else %}
+<div class="pro_list">
+  <ul class="pro_list-grid clearfix lazyload_scope">
+    {% for product in products %}
+      {% include 'products_grid_item' with collection.handle %}
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if page_type != 'page_custom' %}
+<script>
+  $(document).ready(function(){
+
+    // 商品筛选
+      $('.dropkick').each(function(index, elem) {
+        var _elem = $(elem);
+        var urlData = {};
+        _elem.find('option').each(function(index, elem) {
+          var _OptElem = $(elem);
+          urlData[_OptElem.attr('value')] = _OptElem.data('url');
+        });
+        if ($('.ie6').length == 0 && $('.ie7').length == 0 && $('.ie8').length == 0 && !($('body').hasClass('is_mobile'))){
+          _elem.dropkick({
+            change: function() {
+              var value = this.value
+              if (value != 0) {
+                location.href = urlData[value];
+              };
+            }
+          });
+        } else {
+          _elem.change(function(e) {
+            var value = $(e.currentTarget).val()
+            if (value != 0) {
+              location.href = urlData[value];
+            };
+          });
+        }
+      });
+
+    // 筛选显示开关
+    $('#pageTitle-filter').click(function(){
+      var _elem = $('#pro_list_filter');
+      var _textElem = $('#pageTitle-filter-text');
+      if (_elem.hasClass('active')) {
+        _elem.removeClass('active');
+        _textElem.text('显示筛选');
+        _elem.slideUp();
+      } else {
+        _elem.addClass('active');
+        _textElem.text('收起筛选');
+        _elem.slideDown();
+      }
+    });
+  });
+  // 列表的第1 5 9 ...个商品 margin-left：0
+		$(document).ready(function(){
+		  var liIndex;
+		  var i = 0;
+		  while(i < 999){
+		    liIndex = 4*i;
+		    $(".proList-item").eq(liIndex).css("margin-left","0");
+		    i++;
+		  }
+		});
+		</script>
+{% endif %}

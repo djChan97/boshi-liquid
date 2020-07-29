@@ -1,0 +1,139 @@
+{% capture products_filter_type %}{{ products_filter }}{% endcapture %}
+
+{% if situation.unselect.vendors.size > 0 or situation.unselect.types.size > 0 or situation.unselect.options.size > 0 or situation.selected.size > 0 %}
+
+
+{% if products_filter_type == 'wide' %}
+  <div class="pro_filter_wide">
+  {% if situation.selected.size > 0 %}
+    <a class="underline pro_filter_wide-selected-clear settings-desc_color" href="/products" title="清除条件">清除条件</a>
+    {% for item in situation.selected %}
+      <div class="txt_ellipsis pro_filter_wide-selected-item settings-filterWideSelect_color settings-filterWideSelect_background">{{ item.name }}</span><a class="iconfont pro_filter_wide-selected-item-close" href="{{ item.url }}" title="清除{{ item.name }}">&#xe603;</a></div>
+    {% endfor %}
+  {% endif %}
+  {% if products.size > 1 %}
+    <div class="pro_filter_wide-list settings-filterWide_background">
+       {% if page_type != 'pro_search' %}
+        {% include 'filter_simple' %}
+      {% endif %}
+      {% if situation.unselect.vendors.size > 0 %}
+        <div class="pro_filter_wide-list-item">
+          <div class="pro_filter_wide-list-item-title settings-filterWide_border txt_ellipsis">品牌
+            <a class="iconfont icon-unfold pro_filter_wide-list-item-title-on_off" href="javascrip:void(0);" title="品牌开关">
+            </a>
+          </div>
+          <div class="pro_filter_wide-list-item-list settings-filterWide_border">
+            {% for item in situation.unselect.vendors %}
+            <a class="pro_filter_wide-list-item-list-each settings-filterWide_color txt_ellipsis" href="{{ item.url }}" title="{{ item.name }}">{{ item.name }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+      {% if situation.unselect.types.size > 0 %}
+        <div class="pro_filter_wide-list-item">
+          <div class="pro_filter_wide-list-item-title settings-filterWide_border txt_ellipsis">类别<a class="iconfont icon-unfold pro_filter_wide-list-item-title-on_off" href="javascrip:void(0);" title="品牌开关"></a></div>
+          <div class="pro_filter_wide-list-item-list settings-filterWide_border">
+            {% for item in situation.unselect.types %}
+            <a class="pro_filter_wide-list-item-list-each settings-filterWide_color txt_ellipsis" href="{{ item.url }}" title="{{ item.name }}">{{ item.name }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+      {% if situation.unselect.options.size > 0 %}
+        {% for temp_option in situation.unselect.options %}
+          <div class="pro_filter_wide-list-item">
+            <div class="pro_filter_wide-list-item-title settings-filterWide_border txt_ellipsis">{{ temp_option.name }}<a class="iconfont icon-unfold pro_filter_wide-list-item-title-on_off" href="javascrip:void(0);" title="品牌开关"></a></div>
+            <div class="pro_filter_wide-list-item-list settings-filterWide_border">
+              {% for item in temp_option.values %}
+              <a class="pro_filter_wide-list-item-list-each settings-filterWide_color txt_ellipsis" href="{{ item.url }}" title="{{ item.name }}">{{ item.name }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  {% endif %}
+  </div>
+{% else %}
+  {% if situation.selected.size > 0 %}
+  <div class="clearfix pro_list_filter-selected settings-filter_border">
+    <div class="pro_list_filter-selected-title">已选条件：</div>
+    <div class="pro_list_filter-selected-list--wrap">
+      <div class="pro_list_filter-selected-list clearfix">
+        {% for item in situation.selected %}
+        <div class="pro_list_filter-selected-list-item">{{ item.name }}<a class="iconfont pro_list_filter-selected-list-item-close settings-desc_color" href="{{ item.url }}" title="清除{{ item.name }}">&#xe603;</a></div>
+        {% endfor %}
+        <div class="ie_clearfix"></div>
+      </div>
+    </div>
+    <a class="pro_list_filter-selected-clear settings-desc_color" href="/products" title="清除条件">清除条件</a>
+    <div class="ie_clearfix"></div>
+  </div>
+  {% endif %}
+  {% if products.size > 1 %}
+  <div class="clearfix pro_list_filter-pro">
+    {% if situation.unselect.vendors.size > 0 %}
+    <div class="pro_list_filter-pro--grid">
+      <div class="pro_list_filter-pro-item">
+        <div class="pro_list_filter-pro-item-name">品牌</div>
+        <select class="pro_list_filter-pro-item-select settings-filterSelect_color dropkick">
+          <option value="0">不限</option>
+          {% for item in situation.unselect.vendors %}
+          <option value="{{ forloop.index }}" data-url="{{ item.url }}">{{ item.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    {% endif %}
+    {% if situation.unselect.types.size > 0 %}
+    <div class="pro_list_filter-pro--grid">
+      <div class="pro_list_filter-pro-item">
+        <div class="pro_list_filter-pro-item-name">类别</div>
+        <select class="pro_list_filter-pro-item-select settings-filterSelect_color dropkick">
+          <option value="0">不限</option>
+          {% for item in situation.unselect.types %}
+          <option value="{{ forloop.index }}" data-url="{{ item.url }}">{{ item.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    {% endif %}
+    {% if situation.unselect.options.size > 0 %}
+      {% for temp_option in situation.unselect.options %}
+      <div class="pro_list_filter-pro--grid">
+        <div class="pro_list_filter-pro-item">
+          <div class="pro_list_filter-pro-item-name">{{ temp_option.name }}</div>
+          <select class="pro_list_filter-pro-item-select settings-filterSelect_color dropkick">
+            <option value="0">不限</option>
+            {% for item in temp_option.values %}
+            <option value="{{ forloop.index }}" data-url="{{ item.url }}">{{ item.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+    <div class="ie_clearfix"></div>
+  </div>
+  <div class="pro_list_filter-pro--border settings-filter_border"></div>
+  {% endif %}
+{% endif %}
+
+
+{% endif %}
+
+<script>
+  $('.pro_filter_wide-list-item').each(function(index, elem) {
+    var _elem = $(elem);
+    var _list = _elem.find('.pro_filter_wide-list-item-list');
+    _elem.find('.pro_filter_wide-list-item-title-on_off').click(function(e) {
+      e.preventDefault();
+      _list.slideToggle(360);
+      _elem.toggleClass('active')
+    });
+    if (index == 0) {
+      _list.slideToggle(360);
+      _elem.toggleClass('active')
+    }
+  })
+</script>

@@ -1,0 +1,117 @@
+{% assign favorite_include_type = favorite %}
+
+{% if favorite_include_type == 'product' %}
+  {% assign favorite_id_type = 0 %}
+  {% assign favorite_id = product.id %}
+{% elsif favorite_include_type == 'post' %}
+  {% assign favorite_id_type = 1 %}
+  {% assign favorite_id = post.id %}
+{% endif %}
+
+<div class="x-favorite">
+  <button id="x-favorite-btn" class="x-favorite-btn"><svg class="x-favorite-btn_icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M987.282286 369.737143q0 12.580571-14.848 27.428571l-207.433143 202.313143 49.152 285.696q0.585143 4.022857 0.585143 11.410286 0 11.995429-5.997714 20.260571t-17.408 8.265143q-10.825143 0-22.820571-6.875429l-256.585143-134.875429-256.585143 134.875429q-12.580571 6.875429-22.820571 6.875429-11.995429 0-17.993143-8.265143t-5.997714-20.260571q0-3.437714 1.170286-11.410286l49.152-285.696-208.018286-202.313143q-14.262857-15.433143-14.262857-27.428571 0-21.138286 32.036571-26.258286l286.866286-41.691429 128.585143-260.022857q10.825143-23.405714 28.013714-23.405714t28.013714 23.405714l128.585143 260.022857 286.866286 41.691429q32.036571 5.12 32.036571 26.258286z"></path></svg><span id="x-favorite-btn_text" class="x-favorite-btn_text">收藏</span></button>
+</div>
+
+<script>
+  yhsd.ready(function(sdk) {
+    var $btn = $('#x-favorite-btn')
+    var $btnText = $('#x-favorite-btn_text')
+    var nFavoriteID = {{ favorite_id }}
+    var nFavoriteIDType = {{ favorite_id_type }}
+    var nCheckID = null
+
+    var _fnAdd = function () {
+      sdk.favorite.create({
+        favorite_id: nFavoriteID,
+        id_type: nFavoriteIDType
+      }, function(data){
+        if (data.res.code === 200) {
+          $btnText.text('已收藏')
+          $btn.addClass('i-on')
+          nCheckID = data.res.id
+        } else {
+          alert(data.res.message || '收藏失败')
+        }
+      });
+    }
+    var _fnDel = function (_nID) {
+      sdk.favorite.delete({
+        id: _nID
+      }, function(data){
+        if (data.res.code === 200) {
+          $btnText.text('收藏')
+          $btn.removeClass('i-on')
+          nCheckID = null
+        } else {
+          alert(data.res.message || '取消失败')
+        }
+      });
+    }
+    var _fnCheck = function () {
+      sdk.favorite.check({
+        favorite_id: nFavoriteID,
+        id_type: nFavoriteIDType
+      }, function(data){
+        if (data.res.code === 200) {
+          nCheckID = data.res.id
+          if (nCheckID || nCheckID === 0) {
+            $btnText.text('已收藏')
+            $btn.addClass('i-on')
+          }
+        }
+      });
+    }
+    
+    setTimeout(function () {
+      if (window.$account) {
+        _fnCheck()
+      }
+    }, 500)
+
+    $btn.on('click', function (evt) {
+      if (window.$account) {
+        if (nCheckID || nCheckID === 0) {
+          _fnDel(nCheckID)
+        } else {
+          _fnAdd()
+        }
+      } else {
+        alert('请先登录')
+      }
+    })
+  });
+</script>
+
+<style>
+  .x-favorite {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .x-favorite-btn {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 0;
+  }
+  .x-favorite-btn_icon {
+    display: inline-block;
+    margin: 0 3px 0 0;
+    fill: #9b9b9b;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+  }
+  .x-favorite-btn.i-on .x-favorite-btn_icon {
+    fill: #f55;
+  }
+  .x-favorite-btn_text {
+    display: inline-block;
+    font-size: 12px;
+    color: #777;
+    vertical-align: middle;
+  }
+</style>
+ 

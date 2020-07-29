@@ -1,0 +1,60 @@
+<div class="wrapper wrapper-mobile_nav" id="mobile_menu">
+  <div class="cont">
+    <div class="mobile_nav">
+ 	<!-- -->     
+      <div class="mobile_nav_menu settings-nav_background">
+		    <!--<a id="yhsd-header-search" href="javascript:void(0);" class="header-search-ico">
+                       	<i class="iconfont"></i>
+        </a>
+        <div id="yhsd-header-search-ipt" class="header-search">
+            <input class="search-ipt settings-ipt_border" type="text" placeholder="搜索全店" />
+        </div>-->
+        <!-- 一级菜单 -->
+        <ul class="nav-link clearfix">
+          {% for link in linklists.main.links%}
+          <li class="a {% if link.links.size > 0 %}side-nav-link-has_sub{% endif %}">
+            <a class="txt-overflow settings-navLink_color" href="{{ link.page_url }}">{{ link.title }}</a>
+            {% if link.links.size > 0 %}
+            <span data-linkid="link-{{ link.id }}" class="icon_down link-{{ link.id }} side-nav-link-sign settings-nav_text_color settings-sideLinkHover_color"><svg t="1515394578735" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1982" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256"><defs><style type="text/css"></style></defs><path d="M492.8 697.6c19.2 12.8 44.8 6.4 57.6-6.4l332.8-300.8c19.2-19.2 19.2-44.8 0-57.6-19.2-12.8-51.2-12.8-70.4 0L512 601.6 211.2 332.8C192 320 160 320 140.8 332.8c-6.4 6.4-12.8 19.2-12.8 32 0 6.4 6.4 19.2 12.8 25.6l339.2 300.8c6.4 6.4 6.4 6.4 12.8 6.4z" p-id="1983"></path></svg></span>
+            {% endif %}
+            </li>
+            <!-- 二级菜单 -->
+            {% if link.links.size > 0 %}
+          <li>
+              <ul class="nav-sublink side-nav-link-sub_list">
+                {% for sub_link in link.links %}
+                <li class="side-nav-link-has_sub">
+                  <a class="settings-navLink_color txt-overflow" href="{{ sub_link.page_url }}">{{ sub_link.title }}</a>
+                  {% if sub_link.links.size > 0 %}
+                            <span data-linkid="link-{{ sub_link.id }}"
+                                class="icon_down link-{{ sub_link.id }} side-nav-link-sign settings-nav_text_color settings-sideLinkHover_color"><svg t="1515394578735" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1982" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256"><defs><style type="text/css"></style></defs><path d="M492.8 697.6c19.2 12.8 44.8 6.4 57.6-6.4l332.8-300.8c19.2-19.2 19.2-44.8 0-57.6-19.2-12.8-51.2-12.8-70.4 0L512 601.6 211.2 332.8C192 320 160 320 140.8 332.8c-6.4 6.4-12.8 19.2-12.8 32 0 6.4 6.4 19.2 12.8 25.6l339.2 300.8c6.4 6.4 6.4 6.4 12.8 6.4z" p-id="1983"></path></svg></span>{% endif %}
+                  {% unless sub_link.links.size == 0 %}
+                  </li>
+                <li>
+                  	<ul class="nav-endlink setting-main_border side-nav-link-sub_list">
+                    {% for sub_sub_link in sub_link.links %}
+                      	<li>
+                        	<a class="settings-navLink_color txt-overflow" href="{{ sub_sub_link.page_url }}">{{ sub_sub_link.title }}</a>
+                      	</li>
+                    {% endfor %}
+                  	</ul>
+                </li>
+                  {% endunless %}
+                
+                {% endfor %}
+              </ul>
+          </li>
+            {% endif %}
+          
+          {% endfor %}
+        </ul>
+         <div class="mobi-loginsubmit">
+        	<a class="mobi-side-account-left settings-side_border settings-sideLink_color settings-sideLinkHover_color" href="/account/login">登录</a>
+          <a class="mobi-side-account-right settings-sideLink_color settings-sideLinkHover_color" href="/account/register">注册</a>
+        </div>
+      </div>
+      <div class="mobile_nav_bg" id="mobile_bg"></div>
+ 	<!-- -->  
+    </div>
+  </div>
+</div>

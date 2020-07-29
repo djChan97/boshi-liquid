@@ -1,0 +1,97 @@
+{% capture share_include_type %}{{ share_info }}{% endcapture %}
+
+<!-- 社交分享信息 -->
+{% if share_image.image_id %}
+  {% assign share_img_url = share_image | image_url %}
+{% elsif share_image.src and share_image.size >= 1 %}
+  {% assign share_img_url = share_image.src %}
+{% else %}
+  {% assign share_img_url = 'share_img' | asset_url %}
+{% endif %}
+
+{% if share_include_type == 'head' %}
+  <meta property="og:title" content="{{ page_title }}" />
+  <meta property="og:description" content="{{ page_desc }}" />
+  <meta property="og:image" content="{{ share_img_url }}" />
+  <script>
+    (function () {
+      var hasWxSDK = ({{ shop.enable_weixin_sdk }}) || false
+
+      if (hasWxSDK && window.wx && /micromessenger/i.test(window.navigator.userAgent)) {
+        window.yhsdWxShare = {
+          info: {
+            title: '{{ page_title }}',
+            desc: '{{ page_desc | strip_newlines }}',
+            link: location.href,
+            imgUrl: 'https:{{ share_img_url }}',
+            success: function () {},
+            cancel: function () {}
+          },
+          setInfo: function (oInfo) {
+            this.info = oInfo
+          },
+          init: function () {
+            yhsd.ready(function () {
+              $.ajax({
+                url: '/api/v1/third_api/weixin_signature',
+                method: 'GET',
+                dataType: 'json',
+                data: {
+                  url: location.href
+                }
+              }).done(function(res) {
+                if (res.code === 200) {
+                  var fnShare = function (type) {
+                    // 留给后面做特殊处理
+                    return yhsdWxShare.info
+                  }
+                  wx.config({
+                    debug: false,
+                    appId: res.config.appid,
+                    timestamp: res.config.timestamp,
+                    nonceStr: res.config.noncestr,
+                    signature: res.config.signature,
+                    jsApiList: [
+                      "onMenuShareTimeline",
+                      "onMenuShareAppMessage",
+                      "onMenuShareQQ",
+                      "onMenuShareQZone"
+                    ]
+                  })
+                  wx.ready(function () {
+                    wx.onMenuShareTimeline(fnShare("timeline"))
+                    wx.onMenuShareAppMessage(fnShare("frends"))
+                    wx.onMenuShareQQ(fnShare("qq"))
+                    wx.onMenuShareQZone(fnShare("qzone"))
+                    // wx.checkJsApi({
+                    //    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareQZone'], // 需要检测的 JS 接口列表
+                    //    success: function(res) {
+                    //      // alert(JSON.stringify(res))
+                    //      // 以键值对的形式返回，可用的 api 值 true，不可用为 false
+                    //      // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+                    //   }
+                    // })
+                  })
+                  // wx.error(function(res){
+                  //   alert(JSON.stringify(res))
+                  //   // config 信息验证失败会执行 error 函数，如签名过期导致验证失败，具体错误信息可以打开 config 的 debug 模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+                  // })
+                }
+              });
+            });
+          }
+        }
+        window.yhsdWxShare.init()
+      }
+    })()
+  </script>
+{% else %}
+  {% if share_title == null or share_title == '' %}
+    {% assign share_title = page_title %}
+  {% endif %}
+
+  {% if share_desc == null or share_desc == '' %}
+    {% assign share_desc = page_desc %}
+  {% endif %}
+{% endif %}
+<!-- End 社交分享信息 -->

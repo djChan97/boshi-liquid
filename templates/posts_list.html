@@ -1,0 +1,148 @@
+<div class="wrapper">
+    <div class="cont">
+        <div class="mod breadcrumb posts-list-breadcrumb">
+            <div class="breadcrumb-inner settings-text_color">
+                <a class="settings-link_color" href="/" title="{{ shop.name | escape }}">首页</a><span class="breadcrumb-split">&gt;</span>
+                {% if post_dir %}
+                    <a class="settings-link_color" href="/posts" title="所有文章">所有文章</a><span class="breadcrumb-split">&gt;</span><span class="breadcrumb-current">{{post_dir.name}}</span>
+                {% elsif post_tag %}
+                    <a class="settings-link_color" href="/posts" title="所有文章">所有文章</a><span class="breadcrumb-split">&gt;</span><span class="breadcrumb-current"># {{post_tag.tag_name}}</span>
+                {% else %}
+                    <span class="breadcrumb-current">所有文章</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper" style="background:#fff">
+    <div class="cont post-list-cont">
+        <div class="mod clearfix">
+            <div class="post-wrapper">
+                <div class="pageTitle txt-overflow">
+                    <h2 class="settings-text_color">
+                        {% if post_dir %}
+                            {{post_dir.name}}
+                        {% elsif post_tag %}
+                            # {{post_tag.tag_name}}
+                        {% else %}
+                            所有文章
+                        {% endif %}
+                    </h2>
+                </div>
+                <div class="post">
+                    {% if posts.size == 0 %}
+                        <p class="settings-text_color">
+                            暂无文章
+                        </p>
+                    {% else %}
+                        {% for post in posts %}
+                            <div class="posts-item settings-main_border lazyload_scope">
+                                <a href="{{ post.page_url }}" class="posts-item-left">
+                                    <img src="{{ 'blank.gif' | global_asset_url }}" data-src="{{ post.cover_image | post_image_url: 204, 144 }}" alt="{{ post.cover_image.alt }}">
+                                </a>
+                                <div class="posts-item-body">
+                                    <div class="posts-item-publish_at settings-post_desc_color">
+                                        {{ post.publish_at | date: "%Y-%m-%d %R" }}
+                                    </div>
+                                    <h3 class="posts-item-heading">
+                                        <a href="{{ post.page_url }}" class="settings-text_color">
+                                            {{ post.title }}
+                                        </a>
+                                    </h3>
+                                    <p class="posts-item-summary settings-post_desc_color">
+                                        {{ post.summary }}
+                                    </p>
+                                    <div class="posts-item-tags">
+                                        {% for tag in post.tags %}
+                                            <a href="/posts?tag_id={{ tag.id }}" class="posts-item-tags-tag settings-post_desc_color">
+                                                <span class="posts-item-tags-tag-icon"></span>
+                                                {{ tag.name }}
+                                            </a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        {% include 'products_paginate' %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="post-side">
+                <div class="post-dirs-wrapper">
+                    <div class="post-dirs-heading settings-text_color">
+                        <span>文章目录</span>
+                    </div>
+                    <ul class="post-dirs-list settings-main_border" id="post-dirs-list">
+                        <li class="post-dir-1 settings-main_border {% unless post_dir %}active{% endunless %}">
+                            <a href="/posts" class="post-dir-1-box settings-text_color">
+                                <span class="post-dir-dot"></span>所有文章
+                            </a>
+                        </li>
+                        {% for dir_1 in all_dirs %}
+                        <li class="post-dir-1 settings-main_border {% if dir_1.id == post_dir.id %}active{% endif %}">
+                            <a href="/posts?dir_id={{dir_1.id}}" class="post-dir-1-box settings-text_color">
+                                <span class="post-dir-dot"></span>{{dir_1.name}}
+                                {% if dir_1.sub_dir.size > 0 %}
+                                <div class="post-dir-btn">
+                                    <i class="main-ico main-ico-down"></i>
+                                    <i class="main-ico main-ico-up"></i>
+                                </div>
+                                {% endif %}
+                            </a>
+                            {% if dir_1.sub_dir.size > 0 %}
+                            <ul class="post-dirs-sub-list">
+                                {% for dir_2 in dir_1.sub_dir %}
+                                <li class="post-dir-2 settings-main_border {% if dir_2.id == post_dir.id %}active{% endif %}">
+                                    <a href="/posts?dir_id={{dir_2.id}}" class="post-dir-2-box settings-main_border settings-text_color">
+                                        <span class="post-dir-dot"></span>{{dir_2.name}}
+                                        {% if dir_2.sub_dir.size > 0 %}
+                                        <div class="post-dir-btn">
+                                            <i class="main-ico main-ico-down"></i>
+                                            <i class="main-ico main-ico-up"></i>
+                                        </div>
+                                        {% endif %}
+                                    </a>
+                                    {% if dir_2.sub_dir.size > 0 %}
+                                    <ul class="post-dirs-sub-sub-list">
+                                        {% for dir_3 in dir_2.sub_dir %}
+                                        <li class="post-dir-3 {% if dir_3.id == post_dir.id %}active{% endif %}">
+                                            <a href="/posts?dir_id={{dir_3.id}}" class="post-dir-3-box settings-text_color">
+                                                <span class="post-dir-dot"></span>{{dir_3.name}}
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="post-tags-wrapper">
+                    <div class="post-tags-heading settings-main_border settings-text_color">
+                        <span>文章标签</span>
+                    </div>
+                    <div class="post-tags-cloud">
+                        {% if post_dir or post_tag or posts.size > 0 %}
+                            {% for tag in all_tags %}
+                                <a href="/posts?tag_id={{tag.tag_id}}"
+                                    class="post-tags-cloud-item settings-post_desc_color {% if tag.tag_name == post_tag.tag_name %}active{% endif %}"
+                                >{{tag.tag_name}}</a>
+                            {% endfor %}
+                        {% else %}
+                            <small class="settings-text_color">暂无标签</small>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .settings-body_background{background-color:{{ settings.post_background }}}
+</style>

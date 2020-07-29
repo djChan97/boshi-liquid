@@ -1,0 +1,14 @@
+{% capture page_type %}{{ blog_info }}{% endcapture %}
+<div class="blog_cont-info settings-main_border">
+  <span class="blog_cont-info-author">
+    <a class="blog_cont-info-author-link" href="/blogs?author={{ blog.blog_author.name | url_escape }}" title="{{ blog.blog_author.name }}"><img class="blog_cont-info-author-avatar" alt="{{ blog.blog_author.avatar.alt }}" src="{{ blog.blog_author.avatar | product_image_url: 64, 64 }}" title="{{ blog.blog_author.name }}_img"></a><a class="blog_cont-info-author-name settings-text_color" href="/blogs?author={{ blog.blog_author.name | url_escape }}" title="{{ blog.blog_author.name }}">{{ blog.blog_author.name }}</a>
+  </span>
+  {% if page_type == 'blog' %}
+  <div class="blog_cont-info-time--share settings-blog_desc_color">
+    <div class="blog_cont-info-time-date">{{ blog.post_at | date: "%F %R" }}</div>
+    <div class="blog_cont-info-time-share">{% include 'share_box' %}</div>
+  </div>
+  {% else %}
+    <span class="blog_cont-info-time settings-blog_desc_color">{{ blog.post_at | date: "%F %R" }}</span>
+  {% endif %}
+</div>

@@ -1,0 +1,17 @@
+{% if pagination.previous %}
+  {% capture prev_url %}{{ pagination.previous.url }}{% endcapture %}
+{% else %}
+  {% capture prev_url %}javascript:void(0);{% endcapture %}
+{% endif %}
+
+{% if pagination.next %}
+  {% capture next_url %}{{ pagination.next.url }}{% endcapture %}
+{% else %}
+  {% capture next_url %}javascript:void(0);{% endcapture %}
+{% endif %}
+
+<div class="filter_simple clearfix">
+  <div class="filter_simple-btn">{% include 'filter' %}</div>
+  <div class="filter_simple-pagination">{% if pagination.previous %}<a class="iconfont filter_simple-pagination-btn filter_simple-pagination-prev settings-filterSelect_background settings-filterSelect_color" href="{{ prev_url }}">&#xe60e;</a>{% endif %}{% if pagination.next %}<a class="iconfont filter_simple-pagination-btn filter_simple-pagination-next settings-filterSelect_background settings-filterSelect_color" href="{{ next_url }}">&#xe614;</a>{% endif %}</div>
+  <div class="filter_simple-total settings-tinge_color">共 <span class="settings-desc_color">{{ pagination.items }}</span> 个商品</div>
+</div>

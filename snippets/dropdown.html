@@ -1,0 +1,32 @@
+<!-- 一级菜单 -->
+<ul id="top-nav-link" class="nav-link clearfix">
+  {% for link in linklists.main.links%}
+  <li>
+    <a class="txt-overflow settings-navLink_color settings-nav_border settings-navLinkHover_border" id="navlink_{{ link.id }}" href="{% unless link.link_type == 'no_link' %}{{ link.page_url }}{% else %}javascript:void(0);{% endunless %}" {%if link.target_type == 1%} target="_blank" {% endif %}>{{ link.title }}</a>
+    <!-- 二级菜单 -->
+    {% if link.links.size > 0 %}
+    <div class="secondmenu nav-sublink">
+    	<i class="nav-sublink-triangle"></i>
+      <ul class="secondmenu" id="navlink_{{ link.id }}_sub">
+        {% for sub_link in link.links %}
+        <li class="secondmenuli settings-navSub_background settings-navSub_border">
+          <a class="secondmenudes settings-navSubLink_color" id="navlink_{{ link.id }}_sub_{{ sub_link.id }}" href="{% unless sub_link.link_type == 'no_link' %}{{ sub_link.page_url }}{% else %}javascript:void(0);{% endunless %}" {%if sub_link.target_type == 1%} target="_blank" {% endif %}>{{ sub_link.title }}</a>
+          {% unless sub_link.links.size == 0 %}
+          {% endunless %}
+          <!-- 三级菜单 -->
+          
+
+              <ul class="thirdmenu">
+                {% for sub_sub_link in sub_link.links %}
+                  <li class="thirdmenuli settings-navSub_background settings-navSub_border">
+                  <a class="thirdmenudes settings-navSubLink_color" id="navlink_{{ link.id }}_sub_{{ sub_link.id }}_sub_{{ sub_sub_link.id }}" href="{% unless sub_sub_link.link_type == 'no_link' %}{{ sub_sub_link.page_url }}{% else %}javascript:void(0);{% endunless %}" {%if sub_sub_link.target_type == 1%} target="_blank" {% endif %}>{{ sub_sub_link.title }}</a>
+                  </li>
+                {% endfor %}  
+              </ul>       
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </li>{% endfor %}
+</ul>

@@ -1,0 +1,53 @@
+<div id="go_top" class="clearfix go_top">
+  {% if settings.online_service_show %}
+  <a class="iconfont go_top-service" href="http://wpa.qq.com/msgrd?v=3&amp;uin={{settings.online_service_qq}}&amp;site=qq&amp;menu=yes" title="联系客服" target="_blank"><i class="iconfont"></i></a>
+  {% endif %}
+  <a id="go_top-go" class="iconfont go_top-go"><i class="iconfont"></i></a>
+</div>
+
+<script>
+  (function(){
+
+    // 滚动监听
+    var _elem = $(document);    // 滚动条所在元素
+    var elem  = _elem[0]
+    var _eTop = $('#go_top');   // Top 元素
+    var _bodyOrHtml = $('body');
+
+    // 兼容性
+    if(navigator.userAgent.indexOf('Trident') > -1 || navigator.userAgent.indexOf('Firefox') > -1) {
+      _elem = $(window)
+      elem  = _elem[0]
+      _bodyOrHtml = $('html')
+    }
+
+    // 显示处理
+    var eventFn = function(e) {
+      if (_elem.scrollTop() >= 1) {
+        _eTop.fadeIn();
+      } else {
+        _eTop.fadeOut();
+      }
+    };
+
+    // 绑定滚动事件
+    _elem.scroll(eventFn);
+
+    // 判断页面
+    var isIndex = false;
+    if ($('.index').size() > 0) {
+      isIndex = true;
+    };
+    var isMobile = $('body').hasClass('is_mobile')
+
+    // Top 按钮 绑定
+    $('#go_top-go').click(function(e) {
+      e.preventDefault();
+      if (isIndex && !isMobile) {
+        wheel.set(1);
+      } else {
+        $('html, body').animate({scrollTop:0}, 618);
+      }
+    });
+  })();
+</script>

@@ -1,0 +1,255 @@
+<div class="cont">
+  <div class="row pro_mod">
+    <div class="breadcrumb pro_breadcrumb settings-desc_color">
+      <a class="breadcrumb-item settings-desc_color" href="/" title="{{ shop.name | escape }}">首页</a><span class="breadcrumb-split">&nbsp;&gt;&nbsp;</span>{% if collection %}<a class="breadcrumb-item settings-desc_color" href="{{ collection.url }}" title="{{ collection.name | escape }}">{{ collection.name }}</a>{% else %}<a class="breadcrumb-item settings-desc_color" href="/products" title="所有商品">所有商品</a>{% endif %}<span class="breadcrumb-split">&nbsp;&gt;&nbsp;</span><span class="breadcrumb-current">{{ product.name }}</span>
+    </div>
+    <div class="pro_cont settings-pro_color settings-contBg_background">
+
+      <div class="pro_detail clearfix">
+        <div class="pro-detail-gallery pro_detail-gallery">
+          <div class="pro-detail-gallery-main pro_detail-gallery-main">
+            <div class="pro_detail-gallery-main--slide">
+              <a class="pro_detail-gallery-main-img resize--line" href="{{ product.feature_image | product_image_url }}" data-zoom-image="{{ product.feature_image | product_image_url }}">
+                <img class="pro_detail-gallery-main-img-src" src="{{ product.feature_image | product_image_url: 474, 474}}" alt="{% if product.feature_image.alt == '' %}{{ product.name }}{% else %}{{ product.feature_image.alt }}{% endif %}" />
+              </a>
+              {% for image in product.images %}
+              {% if image.image_id != product.feature_image.image_id %}
+              <a class="pro_detail-gallery-main-img resize--line" href="{{ image | product_image_url}}" data-zoom-image="{{ image | product_image_url }}">
+                <img class="pro_detail-gallery-main-img-src" src="{{ image | product_image_url}}" alt="{% if image.alt == '' %}{{ product.name }}-{{ forloop.index }}{% else %}{{ image.alt }}{% endif %}" />
+              </a>
+              {% endif %}
+              {% endfor %}
+            </div>
+            <div class="pro_detail-gallery-main-button resize--center">
+              <!--JS Add - <a class="pro_detail-gallery-main-button-each settings-proMiniBtn_border active" href="javascript:void(0);"></a> -->
+            </div>
+          </div>
+          <div class="pro_detail-gallery-list">
+            <div class="pro-detail-gallery-list pro_detail-gallery-list-box"></div>
+          </div>
+          <div class="pro-detail-gallery-other">
+            {% if settings.share_box %}
+              {% assign share_image = product.feature_image %}
+              {% include 'share_box' %}
+            {% endif %}
+            {% include 'favorite' with 'product'  %}
+          </div>
+        </div>
+        
+        <!-- 产品规格选择 start -->
+        <div class="pro_detail--info you_comment-target-stat" id="yhsd_variantSelector" data-variantId="0">
+          <x-component is="sk-product-info"></x-component>
+      </div>
+      <!-- 产品规格选择 end -->
+    </div>
+      <x-component is="sk-product-pin-join"></x-component><!-- 旧组件，主题更新参考请忽略 -->
+      <x-component is="sk-product-info-pintuan-join"></x-component>
+      <x-component is="sk-product-info-presell-tips"></x-component>
+    <div class="pro_desc settings-contBg_background settings-contBg_border">
+      <div class="pro_desc-cont lazyload_scope you_comment-target-list you_comment-target-tab">
+        {% if product.content %}
+        {{ product.content | content_html }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{{ 'baguettebox.css' | asset_url | css_tag }}
+{{ 'baguettebox.js' | asset_url | js_tag }}
+{{ 'elevate_zoom.min.js' | asset_url | js_tag }}
+{{ 'jquery.qrcode.min.js' | asset_url | js_tag }}
+<script>
+  // 当前商品数据
+  window.CurrentProduct = {{ product | json }};
+
+  $(document).ready(function() {
+    yhsd.ready(function(jssdk) { 
+      // 绑定图片切换
+      $('.pro_detail-gallery-main-img').each(function(index, elem) {
+        var _elem = $(elem)
+        var imgSrc = _elem.attr('href');
+        var newItem = $('<a class="pro_detail-gallery-list-box-item" href="javascript:void(0);"><img class="pro_detail-gallery-list-box-item-src" src="' + jssdk.util.getProductUrl(imgSrc, 82, 82) + '" /></a>');
+        newItem.on('mouseenter click', function(e){
+          $('.pro_detail-gallery-main-img').css('display','none');
+          _elem.css('display','block');
+          e.preventDefault();
+        });
+        $('.pro_detail-gallery-list-box').append(newItem);
+      });
+
+      var _miniImgs = $('.pro_detail-gallery-list-box-item');
+      var _prev = $('#pro_detail-gallery-list-prev');
+      var _next = $('#pro_detail-gallery-list-next');
+      // 图片列表按钮函数
+      var btnPrevFn = function(e) {
+        _miniImgs.filter('.hide').last().removeClass('hide');
+        if (_miniImgs.filter('.hide').size() == 0) {
+          _prev.removeClass('active');
+        }
+        if (_miniImgs.not('.hide').size() > 4) {
+          _next.addClass('active');
+        }
+      }
+      var btnNextFn = function(e) {
+        _miniImgs.not('.hide').first().addClass('hide');
+        if (_miniImgs.filter('.hide').size() > 0) {
+          _prev.addClass('active');
+        }
+        if (_miniImgs.not('.hide').size() < 5) {
+          _next.removeClass('active');
+        }
+      }
+      // 图片列表按钮事件绑定
+      $('#pro_detail-gallery-list-prev').click(function(e) {
+        btnPrevFn();
+        e.preventDefault();
+      });
+      $('#pro_detail-gallery-list-next').click(function(e) {
+        btnNextFn();
+        e.preventDefault();
+      });
+
+      btnPrevFn(); 
+    })
+  });
+
+
+  // LightBox 设置（解决 IE7-8 BUG 用 setTimeout）
+  setTimeout(function() {
+    try {
+      baguetteBox.run('.pro_detail-gallery-main', {
+        captions: true,       // true|false - Display image captions
+        buttons: 'auto',      // 'auto'|true|false - Display buttons
+        async: false,         // true|false - Load files asynchronously
+        preload: 2,           // [number] - How many files should be preloaded from current image
+        animation: 'slideIn'  // 'slideIn'|'fadeIn'|false - Animation type
+      });
+    } catch(err) {
+      $('.pro_detail-gallery-main-img').on('click',function(e) {
+        e.preventDefault();
+      });
+      delete Array.prototype.filter;
+      delete Array.prototype.forEach;
+    }
+  }, 0);
+
+  // 判断橱窗图片宽高
+  $(document).ready(function(){
+    $(".pro_detail-gallery-main-img-src").each(function(){
+      if($(".pro_detail-gallery-main-img-src").width() == $(".pro_detail-gallery-main-img-src").height()){
+        $(".pro_detail-gallery-main-img-src").css("width","100%");
+      }      
+    });
+  });
+
+  // 鼠标放大镜
+  $(document).ready(function() {
+    var env, elevateZoomOpt, setElevateZoom;
+    env = {
+      ie8: !document.addEventListener
+    }
+    bIsMobile = $('body').hasClass('is_mobile');
+    if (!bIsMobile && !env.ie8) {
+      elevateZoomOpt = {
+        zoomWindowWidth: 566,
+        zoomWindowHeight: 566 - 1,
+        zoomWindowOffetx: 10,
+        zoomWindowOffety: 0,
+        zoomEnabled: true,
+        borderSize: 1,
+        borderColour: "#ccc",
+        lensBorderColour: "#aaa",
+        cursor: "crosshair"
+      }
+      elevateZoomOpt.onZoomedImageLoaded = function() {
+        var size = $('.zoomWindowContainer .zoomWindow').css('background-size').replace(/px/g, '').split(' ');
+        if (size[0] <= elevateZoomOpt.zoomWindowWidth || size[1] <= elevateZoomOpt.zoomWindowHeight) {
+          $('.zoomContainer').remove();
+        }
+      }
+      setElevateZoom = function() {
+        $('.zoomContainer').remove();
+        $('.pro_detail-gallery-main-img:visible').elevateZoom(elevateZoomOpt);
+      }
+      yhsd.ready(function(sdk){
+        sdk.events.subscribe('variantSelector.featureImage', function(){
+          setElevateZoom();
+        });
+      });
+      setTimeout(function(){
+        $('.pro_detail-gallery-list-box-item').on('mouseenter', function(evt) {
+          setElevateZoom();
+        });
+        setElevateZoom();
+      }, 500);
+    };
+  });
+
+  // 自动生成二维码
+  // 兼容IE8
+  var _html = $('html');
+  if(_html.hasClass('ie8')){
+    $('#pro_qrcode').qrcode({
+      render: "table",
+      text: location.href,
+      width:100,height:100
+    });
+  }
+  // 其他浏览器
+  jQuery('#pro_qrcode').qrcode({ render: "canvas",width:100,height:100,correctLevel:0,text:location.href});
+
+
+</script>
+
+<style>
+  .zoomContainer {
+    z-index: 999;
+    pointer-events: none;
+  }
+</style>
+<style>
+.sk-product-info[data-com="SkProductInfo"] .s-name{
+  color:{{settings.proTitle_color}} ;
+}
+.sk-product-info[data-com="SkProductInfo"].s-desc{
+  color:{{settings.desc_color}} ;
+}
+.sk-product-info[data-com="SkProductInfo"] .sk-product_info-buttons .s-item,
+.sk-product-info[data-com="SkProductInfo"] .s-item .s-tag{
+  background-color: {{ settings.buyBtn_background }} ;
+  color: {{ settings.buyBtn_color }} ;
+  border-color: {{ settings.buyBtn_background }} ;
+}
+.sk-product-info[data-com="SkProductInfo"] .s-button,
+.sk-product-info[data-com="SkProductInfo"] .sk-product_info-buttons .s-tuan,
+.sk-product-info[data-com="SkProductInfo"] .s-only-buy,
+.sk-product-info[data-com="SkProductInfo"] .s-dd .s-label{
+  background-color: {{ settings.buyBtn_background }} ;
+  color: {{ settings.buyBtn_color }} ;
+  border-color: {{ settings.buyBtn_background }} ;
+}
+.sk-product-info[data-com="SkProductInfo"] .s-button:hover{
+  background-color: {{ settings.buyBtn_background }} ;
+  color: {{ settings.buyBtn_color }};
+   border-color: {{ settings.buyBtn_background }} ;
+}
+.sk-product-info[data-com="SkProductInfo"] .sk-product_info-seckill-bar,
+.sk-product-info[data-com="SkProductInfo"] .sk-product_info-limit-bar,
+.sk-product-info[data-com="SkProductInfo"] .sk-product_info-seckill-bar,
+.sk-product-info[data-com="SkProductInfo"] .sk-product_info-presell-bar{
+  background-color: {{ settings.buyBtn_background }} ;
+}
+.sk-product-info[data-com="SkProductInfo"] .s-event_price .su-currency{
+  color: {{ settings.buyBtn_color }} ;
+}
+.sk-product-info[data-com="SkProductInfo"] .s-event_price,
+.sk-product-info[data-com="SkProductInfo"] .s-weixin_price,
+.sk-product-info[data-com="SkProductInfo"] .s-dd .su-currency,
+.sk-product-info[data-com="SkProductInfo"] .dd .su-currency{
+  color: {{ settings.buyBtn_background }} ;
+}
+.sk-product-info[data-com="SkProductInfo"] .s-cont .s-price .dd .price{
+  color: {{ settings.buyBtn_background }} ;
+}
+</style>

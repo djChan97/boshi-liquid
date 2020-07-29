@@ -1,0 +1,132 @@
+{% capture page_type %}{{ products_list_mod }}{% endcapture %}
+
+{% if page_type == 'pro_search' %}{% assign products = search.products %}{% endif %}
+
+{{ 'dropkick.css' | asset_url | css_tag }}
+{{ 'dropkick.js' | asset_url | js_tag }}
+
+<div class="pro_list_wrap {% if page_type == 'pro_discount' %} discount_page{% endif%}">
+  <div class="row mod">
+    <div class="breadcrumb settings-tinge_color">
+      {% case page_type %}
+        {% when 'pro_list' %}
+          <a class="breadcrumb-item settings-tinge_color" href="/" title="{{ shop.name | escape }}">首页</a><span class="breadcrumb-split settings-tinge_color">&nbsp;&gt;&nbsp;</span><span class="breadcrumb-item settings-desc_color">所有商品</span>
+          {% capture page_type_name %}所有商品{% endcapture %}
+        {% when 'pro_type' %}
+          <a class="breadcrumb-item settings-tinge_color" href="/" title="{{ shop.name | escape }}">首页</a><span class="breadcrumb-split settings-tinge_color">&nbsp;&gt;&nbsp;</span><a class="breadcrumb-item settings-desc_color" href="/products/" title="所有商品">所有商品</a><span class="breadcrumb-split">&nbsp;&gt;&nbsp;</span><span class="breadcrumb-item settings-desc_color">{{ type.name }}</span>
+          {% capture page_type_name %}{{ type.name }}{% endcapture %}
+        {% when 'pro_vendor' %}
+          <a class="breadcrumb-item settings-tinge_color" href="/" title="{{ shop.name | escape }}">首页</a><span class="breadcrumb-split settings-tinge_color">&nbsp;&gt;&nbsp;</span><a class="breadcrumb-item settings-desc_color" href="/products/" title="所有商品">所有商品</a><span class="breadcrumb-split">&nbsp;&gt;&nbsp;</span><span class="breadcrumb-item settings-desc_color">{{ vendor.name }}</span>
+          {% capture page_type_name %}{{ vendor.name }}{% endcapture %}
+        {% when 'pro_discount' %}
+          <div class="breadcrumb-item discount-title settings-tinge_color">{{ discount.name }}</div>
+          {% case  discount.discount_type %}
+      
+          {% when 'amount_off' %}
+            
+          {% for active_amount in discount.details %}
+          <span class="breadcrumb-item discount-item settings-tinge_color">满{{ active_amount.active_amount| money }}元 减{{ active_amount.discount_amount| money }}元</span>
+          {% endfor %}
+      
+          {% when 'percent_off' %}
+            
+          {% for active_amount in discount.details %}
+          <span class="breadcrumb-item discount-item settings-tinge_color">满{{ active_amount.active_amount | money }}元 打{{ active_amount.discount_percent  | divided_by: 10.0 }}折</span>
+          {% endfor %}
+      
+          {% when 'coupon' %}
+
+          {% for active_amount in discount.details %}
+          <span class="breadcrumb-item discount-item settings-tinge_color">满{{ active_amount.active_amount | money }}元 赠送{{ active_amount.coupon_discount_amount| money  }}元优惠券</span>
+          {% endfor %}
+
+          {% when 'free_shipping' %}
+
+          {% for active_amount in discount.details %}
+            {% if active_amount.active_amount == 0  %}
+            <span class="breadcrumb-item discount-item settings-tinge_color">全场享受免邮促销</span>
+            {% else %}
+            <span class="breadcrumb-item discount-item settings-tinge_color">满{{ active_amount.active_amount | money }}元 享受免邮促销</span>
+            {% endif %}
+          {% endfor %}
+
+        {% endcase %}
+        {% when 'pro_search' %}
+          <a class="breadcrumb-item settings-tinge_color" href="/" title="{{ shop.name | escape }}">首页</a><span class="breadcrumb-split settings-tinge_color">&nbsp;&gt;&nbsp;</span><span class="breadcrumb-item settings-desc_color">搜索 "{{ search.terms | escape}}" 的结果</span>
+          {% capture page_type_name %}{{ search.terms }}{% endcapture %}
+      {% endcase %}
+      <label class="pro_list_filter-order-item-each pro_list_filter-order-item-check settings-filter_color" onclick="window.location.href='{{ situation.unselect.stock_avail.url }}'"><input class="pro_list_filter-order-item-check-input" type="checkbox" {% if situation.unselect.stock_avail.stock_selected == 1 %} checked {% endif %}/>仅显示有货</label>
+    </div>
+  </div>
+</div>
+<div class="pro_list_wrap wide_hide">
+  {% if products.size != 0 %}
+  {% if page_type != 'pro_search' %}
+  <div class="row mod">
+    <div class="pageTitle txt_ellipsis clearfix settings-desc_color">
+      <h2 class="pageTitle-title">{{page_type_name}}</h2>
+      <a id="pageTitle-filter" class="pageTitle-filter settings-desc_color" href="javascript:void(0);" title="筛选开关"><span class="iconfont pageTitle-filter-icon">&#xe60a;</span><span id="pageTitle-filter-text">显示筛选</span></a>
+      <div class="pageTitle-count settings-tinge_color">共 <span class="settings-desc_color">{{ pagination.items }}</span> 个商品</div>
+      <div class="ie_clearfix"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div id="pro_list_filter" class="pro_list_filter settings-filter_background settings-filter_color">
+      <div class="mod">
+        {% if settings.list_filter_show %}
+        {% include 'products_filter' %}
+        {% endif %}
+        {% include 'filter' %}
+      </div>
+    </div>
+    <div class="pageTitle_count_mobi settings-tinge_color">共 <span class="settings-desc_color">{{ pagination.items }}</span> 个商品</div>
+  </div>
+  {% endif %}
+  {% endif %}
+</div>
+
+<!-- 判断 PC 端是否显示商品过滤器 -->
+{% if settings.filterWide_show %}
+  {% if products.size > 1 or situation.selected.size > 0 %}
+    {% if situation.unselect.vendors.size > 0 or situation.unselect.types.size > 0 or situation.unselect.options.size > 0 or situation.selected.size > 0 %}
+      {% capture filterWide_show %}{{settings.filterWide_show}}{% endcapture %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+<div class="pro_list_wrap">
+  <div class="row mod clearfix {% if filterWide_show %}pro_list_page--show_side{% endif %}">
+    <div class="pro_list_page-side">
+      {% include 'products_filter' with 'wide' %}
+    </div>
+    <div class="pro_list_page-main">
+      {% include 'products_grid' %}
+    </div>
+  </div>
+</div>
+
+{% include 'products_paginate' %}
+
+
+<style>
+  .nav {
+    background: none;
+  }
+</style>
+
+<script>
+  $(document).ready(function() {
+    if($('body').hasClass('is_mobile')) {
+      var _elem = $('#pro_list_filter');
+      var _textElem = $('#pageTitle-filter-text');
+      _elem.removeClass('active');
+      _textElem.text('显示筛选');
+      _elem.slideUp();
+    };
+    if($('body').width()<769){
+      $('.pro_list_page-main').width($('.pro_list_page--show_side').width());
+  }else{
+    $('.pro_list_page-main').width($('body').width() - 235);
+  };
+  })
+</script>

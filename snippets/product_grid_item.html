@@ -1,0 +1,25 @@
+{% capture collection_handle %}{{ product_grid_item }}{% endcapture %}
+{% capture url %}{% if collection_handle != "" and collection_handle != "all" %}/collections/{{ product_grid_item }}{{ product.page_url }}{% else %}{{ product.page_url }}{% endif %}{% endcapture %}
+<li class="prolist-li">
+	<div class="grid-item">
+	    <div class="grid-item-a--wrap">
+		  <a class="proList-img settings-proPic_border" href="{{ url }}" target="_blank" title="{{ product.name }}">
+		     <img src="{{ product.feature_image | product_image_url: 290, 290 }}" />
+		  </a>
+		</div>
+		<div class="proList-alltext clearfix">
+		  <a class="proList-name txt-overflow settings-proTitle_color txt-overflow" href="{{ url }}" title="{{ product.name }}" target="_blank">{{ product.name }}</a>
+		  <div class="proList-desc">
+		    {% if product.short_desc != '' %}
+		    <span class="proList-short_desc settings-desc_color txt-overflow">{{ product.short_desc }}</span>
+		    {% endif %}
+            <div class="pro-price">
+             <span class="proList-price settings-price_color">￥{{ product.price | money_with_decimal }}</span>
+		    {% if product.compare_price_max > product.price %}
+		    <del class="proList-origPrice settings-orgprice_color">{{ product.compare_price_max | money_with_decimal }}</del>
+		    {% endif %}
+            </div>
+		  </div>
+		</div>
+    </div>
+</li>
