@@ -1,5 +1,22 @@
-
-
 /* 用户自定义 CSS */
 
+/* reset */
 
+body {
+	max-width: none;
+}
+
+@media screen and (max-width: 1200px) {
+	body {
+		min-width: 1200px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	body {
+		min-width: auto;
+		width: 100%;
+	}
+}
+
+/* reset end */
