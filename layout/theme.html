@@ -27,6 +27,7 @@
 	{{ 'youpage.min.css' | global_asset_url | css_tag }}
 	{{ 'main.css' | asset_url | css_tag }}
 	{{ 'user.css' | asset_url | css_tag }}
+	{{ 'mainNav-custom.css' | asset_url | css_tag }}
 	{{ 'jquery-1.11.3.min.js' | global_asset_url | js_tag }}
 	{{ 'jquery.placeholder.js' | asset_url | js_tag }}
 	<script src="//res.wx.qq.com/open/js/jweixin-1.5.0.js"></script>
@@ -37,6 +38,7 @@
 	{{ content_for_header }}
 	{% include 'data' %}
 </head>
+
 <body class="{{ is_mobile_agent }} {% unless settings.top_icoDark %}body-ico-white{% endunless %}">
 	<!-- 社交分享图 (300x300) -->
 	<img class="you_share_img" src="{{ share_img_url }}" alt="{{ page_title }}">

@@ -101,6 +101,7 @@ body {
 	display: block;
   }
   .boshi-main-nav > .nav-right {
+	flex-shrink: 0;
 	display: flex;
 	flex-direction: column;
 	height: 100%;
