@@ -20,3 +20,178 @@ body {
 }
 
 /* reset end */
+
+/* index - gardenCharacter */
+.wrapper-gardenCharacter{
+	width: 100%;
+	height: 989px;
+}
+.wrapper-content{
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 151px 0 167px;
+}
+.gardenCharacter-top{
+	display: flex;
+	justify-content: space-between;
+}
+.gardenCharacter-top .intro .title{
+	color: #002A58;
+	font-size: 38px;
+	font-family:SourceHanSansCN;
+	font-weight:500;
+	margin-bottom: 39px;
+}
+.gardenCharacter-top .intro .desc{
+	font-size:16px;
+	font-family:SourceHanSansCN;
+	font-weight:300;
+	color:rgba(0,42,88,1);
+	line-height:36px;
+}
+.gardenCharacter-top .top-box{
+	background-color: #fff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	display: flex;
+	margin-top: 119px;
+}
+.gardenCharacter-top .top-box .gardenCharacter-bottom-box{
+	width: 338px;
+	height: 266px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.gardenCharacter-top .top-box .gardenCharacter-bottom-box>h5{
+	margin: 37px 0 15px;
+}
+.gardenCharacter-top .top-box .gardenCharacter-bottom-box>p{
+	font-size:15px;
+	font-family:SourceHanSansCN;
+	font-weight:400;
+	color:rgba(128,128,128,1);
+	padding: 0 70px;
+	text-align: center;
+}
+.gardenCharacter-top .gardenCharacter-bottom-box h5{
+	font-size:28px;
+	font-family:SourceHanSansCN;
+	font-weight:400;
+	color:rgba(0,42,88,1);
+}
+.gardenCharacter-bottom{
+	width: 100%;
+	height: 266px;
+	border-radius: 5px;
+	border-top-right-radius: 0px;
+	background-color: #fff;
+	display: flex;
+}
+.gardenCharacter-bottom .gardenCharacter-bottom-box{
+	width: 338px;
+	height: 266px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.gardenCharacter-bottom .gardenCharacter-bottom-box>h5{
+	margin: 37px 0 15px;
+	font-size:26px;
+	font-family:SourceHanSansCN;
+	font-weight:400;
+	color:rgba(0,42,88,1);
+}
+.gardenCharacter-bottom .gardenCharacter-bottom-box>p{
+	font-size:14px;
+	font-family:SourceHanSansCN;
+	font-weight:400;
+	color:rgba(128,128,128,1);
+	line-height:22px;
+	padding: 0 70px;
+	text-align: center;
+}
+/* index - gardenCharacter index */
+
+/* index-video */
+.index-video{
+	width: 100%;
+	height: 989px;
+}
+.index-video video{
+	width: 100%;
+	height: 100%;
+}
+/* index-video end */
+
+
+/* index-course */
+.index-course{
+	width: 100%;
+	height: auto;
+	background-color: #f5f5f7;
+	padding-top: 104px;
+}
+.index-course .index-course-title{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.index-course .index-course-title h5{
+	font-size:38px;
+	font-family:SourceHanSansCN;
+	font-weight:500;
+	color:rgba(0,42,88,1);
+	
+}
+.index-course .index-course-title>p{
+	font-size:16px;
+	font-family:SourceHanSansCN;
+	font-weight:300;
+	color:rgba(0,42,88,1);
+	line-height:30px;
+	width: 571px;
+	margin: 38px 0 114px;
+	text-align: center;
+}
+.index-course-box{
+	max-width: 1400px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+.index-course-list{
+	width: 419px;
+	height: 496px;
+	border-bottom: 4px solid #f8465a;
+	background-color: #fff;
+	position: relative;
+}
+.index-course-list .intro{
+	padding: 0 37px 0 30px;
+}
+.index-course-list .intro h5{
+	font-size:26px;
+	font-family:SourceHanSansCN;
+	font-weight:500;
+	color:rgba(0,42,88,1);
+	margin: 41px 0 42px;
+	text-align: center;
+}
+.index-course-list .intro p{
+	font-size:16px;
+	font-family:SourceHanSansCN;
+	font-weight:400;
+	color:rgba(128,128,128,1);
+	line-height:30px;
+	padding-right: 40px;
+}
+.index-course-list .intro img{
+	position: absolute;
+	right: 37px;
+	bottom: 30px;
+}
+/* index-course end */
