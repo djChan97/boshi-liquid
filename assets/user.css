@@ -183,3 +183,81 @@ body {
   }
 
 /* main nav end */
+
+
+/* footer */
+
+.boshi-footer-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  }
+  .boshi-footer-wrapper > .footer-top {
+	margin-top: 100px;
+	display: flex;
+  }
+  .boshi-footer-wrapper > .footer-top > a {
+	align-self: flex-start;
+  }
+  .boshi-footer-wrapper > .footer-top > a > img {
+	vertical-align: top;
+  }
+  .boshi-footer-wrapper > .footer-top > .footer-nav {
+	margin-left: 150px;
+	margin-right: 120px;
+  }
+  .boshi-footer-wrapper > .footer-top > .footer-nav > ul {
+	display: flex;
+  }
+  .boshi-footer-wrapper > .footer-top > .footer-nav > ul > li:not(:last-child) {
+	margin-right: 50px;
+  }
+  .boshi-footer-wrapper > .footer-top > .footer-nav > ul > li > .item-wrapper > a {
+	font-size: 14px;
+	font-weight: 600;
+	display: block;
+  }
+  .boshi-footer-wrapper > .footer-top > .footer-nav > ul > li > .item-wrapper > .sub-link-wrapper {
+	margin-top: 28px;
+  }
+  .boshi-footer-wrapper > .footer-top > .footer-nav > ul > li > .item-wrapper > .sub-link-wrapper > ul > li:not(:last-child) {
+	margin-bottom: 10px;
+  }
+  .boshi-footer-wrapper > .footer-top > .footer-nav > ul > li > .item-wrapper > .sub-link-wrapper > ul > li > a {
+	font-size: 14px;
+	display: block;
+  }
+  .boshi-footer-wrapper > .footer-top > .footer-address {
+	align-self: flex-start;
+	width: 200px;
+  }
+  .boshi-footer-wrapper > .footer-top > .footer-address > .address {
+	font-weight: 550;
+	font-size: 14px;
+  }
+  .boshi-footer-wrapper > .footer-top > .footer-address > .phone-number {
+	font-size: 15px;
+	margin-top: 10px;
+	font-family: Montserrat;
+	font-weight: 600;
+  }
+  .boshi-footer-wrapper > .footer-line {
+	margin-top: 50px;
+	margin-bottom: 20px;
+	width: 100%;
+	height: 2px;
+  }
+  .boshi-footer-wrapper > .footer-info {
+	width: 100%;
+	margin-bottom: 50px;
+	display: flex;
+	justify-content: space-between;
+  }
+  .boshi-footer-wrapper > .footer-info > .left {
+	margin-left: 39.5%;
+  }
+  .boshi-footer-wrapper > .footer-info > .right {
+	margin-right: 15%;
+  }
+
+/* foorer end */
