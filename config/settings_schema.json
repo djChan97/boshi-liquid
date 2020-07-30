@@ -382,6 +382,36 @@
         ]
     },
     {
+        "name": "加入我们",
+        "settings": [
+
+            {
+                "title": "相关设置",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "input",
+                                "text": "标题",
+                                "data": "index_join_title"
+                            },
+                            {
+                                "type": "input",
+                                "text": "内容",
+                                "data": "index_join_desc"
+                            },
+                            {
+                                "type": "link",
+                                "text": "查看更多链接",
+                                "data": "index_join_link,index_join_link_linktype"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "name": "文字引导条1",
         "settings": [
 
