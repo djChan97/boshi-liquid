@@ -7170,4 +7170,24 @@ width: 85%;
 	color: {{settings.menu_navLink_color }};
 }
 
+.settings_footer_background {
+	background-color: {{settings.footer_background}};
+}
+
+.settings_footer_phone_address_color {
+	color: {{settings.footer_phone_address_color}};
+}
+
+.settings_footer_copy_right_color {
+	color: {{settings.footer_copy_right_color}};
+}
+
+.settings_footer_item_color {
+	color: {{settings.footer_item_color}};
+}
+
+.settings_footer_line_color {
+	background-color: {{settings.footer_line_color}};
+}
+
 /* custom end */

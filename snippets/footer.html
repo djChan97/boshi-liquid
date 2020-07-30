@@ -1,88 +1,57 @@
-<div class="wrap_full settings-footerBar_background">
-  <div class="row">
-<!--     { if is_mobile_agent != 'is_mobile' } -->
-<div class="footer">
-    <div class="footer--inner clearfix">
-      {% if settings.use_QRCodes %}
-    	 <div class="footer-QRCodes-wrap footer-QRCodes-mobile">
-        <div class="footer-QRCodes-wrap footer-img1">
-          <p class="settings-footer_textshow_color settings-footer_textshowhover_color">{{settings.footerImgTextShow_1}}</p>
-          <div class="footer-QRCodes">
-              <img src="{{ 'footerImgShow_1' | asset_url }}" alt="{{ QRCodes.name }}"/>
-          </div>
-        </div>
-        <div class="footer-QRCodes-wrap footer-img2">
-           <p class="settings-footer_textshow_color settings-footer_textshowhover_color">{{settings.footerImgTextShow_2}}</p>
-          <div class="footer-QRCodes">
-              <img src="{{ 'footerImgShow_2' | asset_url }}" alt="{{ QRCodes.name }}"/>
-          </div>
-        </div>
-        </div>
-      {% endif %}
-        <div class="footer-nav--wrap mobiledisplay">
-          <div class="footer-nav settings-footerBar_color">
-            <div class="footer-nav-list-wrap">
-              {% for link in linklists[settings.footer_nav_id].links limit:3%}<dl class="footer-nav-list settings-footerNavText_color">
-                <dt class="footer-nav-list-each footer-nav-list-each--title">
-                    <a class="settings-footerNavLink_1_color settings-footerNavLinkHover_1_color" href="{% unless link.link_type == 'no_link' %}{{ link.page_url }}{% else %}javascript:void(0);{% endunless %}"
- {%if link.target_type == 1%} target="_blank" {% endif %}>{{ link.title }}</a>
-                </dt>
-                {% if link.links.size > 0 %}
-                  {% for sub_link in link.links %}
-                  <dd class="footer-nav-list-each">
-                    <a class="footer-nav-list-each-link settings-footerNavLink_2_color settings-footerNavLinkHover_2_color" href="{% unless sub_link.link_type == 'no_link' %}{{ sub_link.page_url }}{% else %}javascript:void(0);{% endunless %}" {%if sub_link.target_type == 1%} target="_blank" {% endif %}>{{ sub_link.title }}</a>
-                  </dd>
-                  {% endfor %}
-                {% endif %}
-              </dl>{% endfor %}
-            </div>
-          </div>
-        </div>
-       
-    </div>
-      <div class="footer--bar settings-footerBar2_background settings-footerBar_color">
-         <div class="footer--bar-cont">
-          <div class="footer-cop_pay clearfix">
-            <div class="footer-copyright settings-footerSimpleNavCop_color">
-              {{ settings.footer_text }}
-            </div>
-            {% if !settings.footer_payment_wechat or !settings.footer_payment_alipay or !settings.footer_payment_baifubao or !settings.footer_payment_tenpay or !settings.footer_payment_99bill or !settings.footer_payment_offline or !settings.footer_payment_card %}
-              <div class="footer-payment settings-footerSimpleNavPay_color">
-                {% if settings.footer_payment_wechat %}
-                  <i class="footer-payment-icon yhsd-iconfont yhsd-iconfont-wechat_pay" title="微信支付"></i>
-                {% endif %}
-                {% if settings.footer_payment_alipay %}
-                  <i class="footer-payment-icon yhsd-iconfont yhsd-iconfont-alipay" title="支付宝"></i>
-                {% endif %}
-                {% if settings.footer_payment_baifubao %}
-                  <i class="footer-payment-icon yhsd-iconfont yhsd-iconfont-baifubao" title="百度钱包"></i>
-                {% endif %}
-                {% if settings.footer_payment_tenpay %}
-                  <i class="footer-payment-icon yhsd-iconfont yhsd-iconfont-tenpay" title="财付通"></i>
-                {% endif %}
-                {% if settings.footer_payment_99bill %}
-                  <i class="footer-payment-icon yhsd-iconfont yhsd-iconfont-99bill" title="快钱"></i>
-                {% endif %}
-                {% if settings.footer_payment_offline %}
-                  <i class="footer-payment-icon yhsd-iconfont yhsd-iconfont-offline_pay" title="货到付款"></i>
-                {% endif %}
-                {% if settings.footer_payment_card %}
-                  <i class="footer-payment-icon yhsd-iconfont yhsd-iconfont-card_pay" title="银行卡"></i>
-                {% endif %}
-              </div>
-            {% endif %}
-          </div>
-          {% if settings.icp_link_show %}
-          <div class="footer-icp">
-            <ul id="icp-icon" class="icp-icon">
-                <li><a class="icp-icon-3 settings-footerSimpleNavCop_color" href="{{ settings.icp_link_3 }}" target="_blank">可信联盟<br>身份验证</a></li>
-                <li><a class="icp-icon-2 settings-footerSimpleNavCop_color" href="{{ settings.icp_link_2 }}" target="_blank">工商网监<br>电子标识</a></li>
-                <li><a class="icp-icon-1 settings-footerSimpleNavCop_color" href="{{ settings.icp_link_1 }}" target="_blank">安全联盟<br>实名验证</a></li>
-            </ul>
-          </div>
-          {% endif %}
-         </div>
-      </div>
-</div>
-</div>
+<div class="boshi-footer-wrapper settings_footer_background">
+	<div class="footer-top">
+		{% if settings.footer_user_logo %}
+		<a
+		href="{{ settings.footer_logo_link }}"
+		target="{% if settings.footer_logo_linktype == 1 %}_blank{% else %}_self{% endif %}"
+		>
+			<img src="{{'footer-logo' | asset_url }}" alt="">
+		</a>
+		{% endif %}
+		<div class="footer-nav">
+			<ul>
+				{% for link in linklists.footer.links%}
+				<li>
+					<div class="item-wrapper">
+						<a
+						class="settings-footerNavLink_1_color"
+						href="{% unless link.link_type == 'no_link' %}{{ link.page_url }}{% else %}javascript:void(0);{% endunless %}"
+						target="{% if link.target_type == 1 %}_blank{% else %}_self{% endif %}"
+						>{{ link.title }}</a>
+						{% if link.links.size > 0 %}
+						<div class="sub-link-wrapper">
+							<ul>
+								{% for sub_link in link.links %}
+								<li>
+									<a
+									class="settings-footerNavLink_color"
+									href="{% unless sub_link.link_type == 'no_link' %}{{ sub_link.page_url }}{% else %}javascript:void(0);{% endunless %}"
+									target="{% if link.target_type == 1 %}_blank{% else %}_self{% endif %}"
+									>{{ sub_link.title }}</a>
+								</li>
+								{% endfor %}
+							</ul>
+						</div>
+						{% endif %}
+					</div>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="footer-address">
+			<div class="address settings_footer_phone_address_color">{{settings.footer_address}}</div>
+			<div class="phone-number settings_footer_phone_address_color">{{settings.footer_phone_number}}</div>
+		</div>
+	</div>
+	<div class="footer-line settings_footer_line_color"></div>
+	<div class="footer-info">
+		<a class="left settings_footer_copy_right_color"
+		href="{{ settings.footer_item1_link }}"
+		target="{% if settings.footer_item1_linktype == 1 %}_blank{% else %}_self{% endif %}"
+		>{{settings.footer_item1_text}} | {{settings.footer_item2_text}}</a>
+		<a class="right settings_footer_item_color"
+		href="{{ settings.footer_item1_link }}"
+		target="{% if settings.footer_item1_linktype == 1 %}_blank{% else %}_self{% endif %}"
+		>{{settings.footer_copy_right}}</a>
+	</div>
 </div>

@@ -1053,35 +1053,149 @@
     {
         "name" : "底部",
         "type" : "title"
-    },
-    {
-        "name": "底部导航",
-        "settings": [
-            {
-                "title": "底部导航模版选择",
-                "options": [
-                    {
-                        "group": [
-                            {
-                                "type": "navigation",
-                                "text": "选择模板",
-                                "tips": "出于美观考虑，只显示模板中的前三个菜单<br>可在后台-<a href=\"/center/main/#/navigation\" target=\"blank\" style=\"color:#da5d5d\">导航管理</a>中设置内容和跳转链接",
-                                "data": "footer_nav_id"
-                            }
-                        ]     
-                    }
-                ]
-            },
-            {
-                "title": "底部导航上半部分颜色设置",
+	},
+	{ 
+		"name": "底部设置",
+		"settings": [
+			{
+                "title": "背景颜色",
                 "options": [
                     {
                         "group": [
                             {
                                 "type": "color",
-                                "label": "上半部背景颜色",
-                                "data": "footerBar_background"
+                                "label": "底部背景颜色",
+                                "data": "footer_background"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "底部 Logo",
+                "tips": "推荐尺寸 250 * 90 px",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "footer-logo"
                             },
+                            {
+                                "type": "checkbox",
+                                "label": "显示Logo",
+                                "data": "footer_user_logo"
+							},
+							{
+								"type": "link",
+                                "label": "logo跳转地址",
+                                "data": "footer_logo_link,footer_logo_linktype"
+							}
+                        ]
+                    }
+                ]
+			},
+			{
+                "title": "地址信息",
+                "options": [
+                    {
+                        "group": [
+							{
+                                "type": "textarea",
+                                "text": "地址信息",
+                                "data": "footer_address"
+							},
+							{
+								"type": "input",
+								"text":"电话号码",
+								"data": "footer_phone_number"
+							},
+							{
+								"type": "color",
+								"label": "字体颜色",
+								"data": "footer_phone_address_color"
+							}
+                        ]
+                    }
+                ]
+			},
+			{
+                "title": "分割线",
+                "options": [
+                    {
+                        "group": [
+							{
+								"type": "color",
+								"label": "分割线颜色",
+								"data": "footer_line_color"
+							}
+                        ]
+                    }
+                ]
+			},
+			{
+                "title": "版权信息",
+                "options": [
+                    {
+                        "group": [
+							{
+								"type": "textarea",
+								"text":"版权信息",
+								"data": "footer_copy_right"
+							}, 
+							{
+								"type": "color",
+								"label": "字体颜色",
+								"data": "footer_copy_right_color"
+							}
+                        ]
+                    }
+                ]
+			},
+			{
+                "title": "其他",
+                "options": [
+                    {
+                        "group": [
+							{
+								"type": "input",
+								"text": "链接一",
+								"data": "footer_item1_text"
+							},
+							{
+                                "type": "link",
+                                "text": "链接一跳转地址",
+                                "data": "footer_item1_link,footer_item1_linktype"
+							},
+							{
+								"type": "input",
+								"text": "链接二",
+								"data": "footer_item2_text"
+							},
+							{
+                                "type": "link",
+                                "text": "链接二跳转地址",
+                                "data": "footer_item2_link,footer_item2_linktype"
+							},
+							{
+								"type": "color",
+								"label": "字体颜色",
+								"data": "footer_item_color"
+							}
+                        ]
+                    }
+                ]
+			}
+		]
+	},
+    {
+        "name": "底部导航",
+        "settings": [
+            {
+                "title": "底部导航颜色配置",
+                "options": [
+                    {
+                        "group": [
                             {
                                 "type": "color",
                                 "label": "一级导航文字颜色",
@@ -1089,167 +1203,8 @@
                             },
                             {
                                 "type": "color",
-                                "label": "一级导航鼠标经过颜色",
-                                "data": "footerNavLinkHover_1_color"
-                            },
-                            {
-                                "type": "color",
                                 "label": "二级导航文字颜色",
                                 "data": "footerNavLink_color"
-                            },
-                            {
-                                "type": "color",
-                                "label": "二级导航鼠标经过颜色",
-                                "data": "footerNavLinkHover_color"
-                            }
-
-                        ]     
-                    }
-                ]
-            },
-            {
-                "title": "二维码设置",
-                "options": [
-                    {
-                        "group": [
-                            {
-                                "type": "checkbox",
-                                "text": "是否显示二维码",
-                                "label": "显示",
-                                "data": "use_QRCodes"
-                            },
-                            {
-                                "type": "image",
-                                "tips": "推荐尺寸 140x140px 保存后生效",
-                                "data": "footerImgShow_2"
-                            },
-                            {
-                                "type": "input",
-                                "text": "二维码说明1",
-                                "data": "footerImgTextShow_1"
-                            },
-                            {
-                                "type": "image",
-                                "tips": "推荐尺寸 140x140px 保存后生效",
-                                "data": "footerImgShow_1"
-                            },
-                            {
-                                "type": "input",
-                                "text": "二维码说明2",
-                                "data": "footerImgTextShow_2"
-                            }
-                        ]     
-                    }
-                ]
-            },
-            {
-                "title": "底部导航下半部分设置",
-                "options": [
-                    {
-                        "group": [
-                            {
-                                "type": "color",
-                                "label": "下半部背景颜色",
-                                "data": "footerBar2_background"
-                            }
-
-                        ]     
-                    }
-                ]
-            }, 
-            {
-                "title": "版权信息",
-                "options": [
-                    {
-                        "group": [
-                            {
-                                "type": "textarea",
-                                "text": "版权信息",
-                                "data": "footer_text"
-                            },
-                            {
-                                "type": "color",
-                                "label": "版权信息文字颜色",
-                                "data": "footerSimpleNavCop_color"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "title": "支付图标",
-                "options": [
-                    {
-                        "group": [
-                            {
-                                "type": "color",
-                                "label": "支付图标颜色",
-                                "data": "footerSimpleNavPay_color"
-                            },
-                            {
-                                "type": "checkbox",
-                                "label": "显示微信支付",
-                                "data": "footer_payment_wechat"
-                            },
-                            {
-                                "type": "checkbox",
-                                "label": "显示支付宝支付",
-                                "data": "footer_payment_alipay"
-                            },
-                            {
-                                "type": "checkbox",
-                                "label": "显示百度钱包支付",
-                                "data": "footer_payment_baifubao"
-                            },
-                            {
-                                "type": "checkbox",
-                                "label": "显示财付通支付",
-                                "data": "footer_payment_tenpay"
-                            },
-                            {
-                                "type": "checkbox",
-                                "label": "显示快钱支付",
-                                "data": "footer_payment_99bill"
-                            },
-                            {
-                                "type": "checkbox",
-                                "label": "显示货到付款",
-                                "data": "footer_payment_offline"
-                            },
-                            {
-                                "type": "checkbox",
-                                "label": "显示银行卡支付",
-                                "data": "footer_payment_card"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "title": "安全认证",
-                "options": [
-                    {
-                        "group": [
-                            {
-                                "type": "checkbox",
-                                "text": "显示安全认证",
-                                "label": "显示",
-                                "data": "icp_link_show"
-                            },
-                            {
-                                "type": "input",
-                                "text": "认证链接-左",
-                                "data": "icp_link_1"
-                            },
-                            {
-                                "type": "input",
-                                "text": "认证链接-中",
-                                "data": "icp_link_2"
-                            },
-                            {
-                                "type": "input",
-                                "text": "认证链接-右",
-                                "data": "icp_link_3"
                             }
                         ]
                     }
