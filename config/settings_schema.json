@@ -382,6 +382,167 @@
         ]
     },
     {
+        "name": "园所特色",
+        "settings": [
+            {
+                "title": "园所介绍",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "input",
+                                "text": "标题",
+                                "data": "index_garden_title"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "内容",
+                                "data": "index_garden_desc"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "园所特色1",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "teach"
+                            },
+                            {
+                                "type": "input",
+                                "text": "标题",
+                                "data": "index_character_title"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "内容",
+                                "data": "index_character_desc"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "园所特色2",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "personal"
+                            },
+                            {
+                                "type": "input",
+                                "text": "标题",
+                                "data": "index_character_title_2"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "内容",
+                                "data": "index_character_desc_2"
+                            }
+                        ]
+                    }
+                ]
+            },{
+                "title": "园所特色3",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "education"
+                            },
+                            {
+                                "type": "input",
+                                "text": "标题",
+                                "data": "index_character_title_3"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "内容",
+                                "data": "index_character_desc_3"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "园所特色4",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "play"
+                            },
+                            {
+                                "type": "input",
+                                "text": "标题",
+                                "data": "index_character_title_4"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "内容",
+                                "data": "index_character_desc_4"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "园所特色5",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "students"
+                            },
+                            {
+                                "type": "input",
+                                "text": "标题",
+                                "data": "index_character_title_5"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "内容",
+                                "data": "index_character_desc_5"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "园所特色6",
+                "options": [
+                    {
+                        "group": [
+                            {
+                                "type": "image",
+                                "data": "class"
+                            },
+                            {
+                                "type": "input",
+                                "text": "标题",
+                                "data": "index_character_title_6"
+                            },
+                            {
+                                "type": "textarea",
+                                "text": "内容",
+                                "data": "index_character_desc_6"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "name": "加入我们",
         "settings": [
 

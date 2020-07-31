@@ -51,44 +51,42 @@
   <div class="wrapper-content">
     <div class="gardenCharacter-top">
     <div class="intro">
-      <h4 class="title">园所特色</h4>
-      <p class="desc">在博石长大的孩子们会拥有面对未来的勇气和面对多元文化的自信，<br>
-        这将成为他们拥有全球胜任力的起点，<br>实现我们“有备的当下，从容的未来”的目标。
-    </p>
+      <h4 class="title">{{ settings.index_garden_title }}</h4>
+      <p class="desc">{{ settings.index_garden_desc }}</p>
     </div>
     <div class="top-box">
       <div class="gardenCharacter-bottom-box">
         <img src="{{ 'teach' | asset_url }}" alt="">
-        <h5>自然教育</h5>
-        <p>探究和认知真实的自然环境，汲取个性化的有机英语</p>
+        <h5>{{ settings.index_character_title }}</h5>
+        <p>{{ settings.index_character_desc }}</p>
       </div>
       <div class="gardenCharacter-bottom-box">
         <img src="{{ 'personal' | asset_url }}" alt="">
-        <h5>自然教育</h5>
-        <p>探究和认知真实的自然环境，汲取个性化的有机英语</p>
+        <h5>{{ settings.index_character_title_2 }}</h5>
+        <p>{{ settings.index_character_desc_2 }}</p>
       </div>
     </div>
   </div>
   <div class="gardenCharacter-bottom">
     <div class="gardenCharacter-bottom-box">
       <img src="{{ 'education' | asset_url }}" alt="">
-      <h5>自然教育</h5>
-      <p>探究和认知真实的自然环境，汲取个性化的有机英语</p>
+      <h5>{{ settings.index_character_title_3 }}</h5>
+      <p>{{ settings.index_character_desc_3 }}</p>
     </div>
     <div class="gardenCharacter-bottom-box">
       <img src="{{ 'play' | asset_url }}" alt="">
-      <h5>自然教育</h5>
-      <p>探究和认知真实的自然环境，汲取个性化的有机英语</p>
+      <h5>{{ settings.index_character_title_4 }}</h5>
+      <p>{{ settings.index_character_desc_4 }}</p>
     </div>
     <div class="gardenCharacter-bottom-box">
       <img src="{{ 'students' | asset_url }}" alt="">
-      <h5>自然教育</h5>
-      <p>探究和认知真实的自然环境，汲取个性化的有机英语</p>
+      <h5>{{ settings.index_character_title_5 }}</h5>
+      <p>{{ settings.index_character_desc_5 }}</p>
     </div>
     <div class="gardenCharacter-bottom-box">
       <img src="{{ 'class' | asset_url }}" alt="">
-      <h5>自然教育</h5>
-      <p>探究和认知真实的自然环境，汲取个性化的有机英语</p>
+      <h5>{{ settings.index_character_title_6 }}</h5>
+      <p>{{ settings.index_character_desc_6 }}</p>
     </div>
   </div>
   </div>
@@ -137,8 +135,12 @@
 
 <!-- 师资团队 -->
 <div class="wrapper index-team">
+  <div class="index-team-text">
+    <h4>师资团队</h4>
+    <p></p>
+  </div>
   <div class="index-teacher-pic">
-    
+    <img src="{{ 'teacher' | asset_url }}" alt="">
   </div>
   <div class="index-teacher-intro">
     <div class="text">
@@ -155,7 +157,7 @@
   <div class="index-join-cont">
     <h5>{{ settings.index_join_title }}</h5>
     <p>{{ settings.index_join_desc }}</p>
-    <a href="{{ settings.index_join_link }}" class="more">了解更多招生信息</a>
+    <a href="{{ settings.index_join_link }}" class="more" {%if settings.index_join_link_linktype == 1%} target="_blank" {% endif %}>了解更多招生信息</a>
   </div>
 </div>
 
