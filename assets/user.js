@@ -10,9 +10,10 @@
 
 $(document).ready(function(){
 	var oRouteCustom = {};
-	
+
 	oRouteCustom['all'] = function (path) {
-		// tranlate
+		// tranlate start
+
 		if (!Jssdk.util.getCookie("front_custom_variable")) {
 			Jssdk.util.setCookie("front_custom_variable", 'zh-cn', false);
 			location.reload();
@@ -31,6 +32,68 @@ $(document).ready(function(){
 			}
 			location.reload();
 		})
+
+		// tranlate end
+		
+		// mainNav start
+
+		if (location.pathname === '/') sessionStorage.removeItem("main-nav-active");
+
+		const mainNavItems = $('a.main-nav-item');
+		const mainNavItemActive = sessionStorage.getItem("main-nav-active");
+
+		if (mainNavItemActive) {
+			for (let i = 0; i < mainNavItems.length; i++) {
+				const element = mainNavItems[i];
+				const index = element.getAttribute("data-active");
+				if (index === mainNavItemActive) {
+					element.classList.add('active');
+				}
+			}
+		}
+
+		for (let i = 0; i < mainNavItems.length; i++) {
+			const element = mainNavItems[i];
+			mainNavItems[i].addEventListener('click', () => {
+				if (element.getAttribute('data-about-us') === 'about-us') {
+
+					sessionStorage.setItem("about-us-nav-active", 1);
+				} else {
+					sessionStorage.removeItem("about-us-nav-active");
+				}
+				const activIndex = mainNavItems[i].getAttribute('data-active');
+				sessionStorage.setItem('main-nav-active', activIndex);
+			})
+		}
+
+		// mainNav end
+
+		// about-us start
+
+		if (location.pathname === '/') sessionStorage.removeItem("about-us-nav-active");
+
+		const aboutUsNavItems = $('.about-us-nav .nav-item > a');
+		const aboutUsNavItemActive = sessionStorage.getItem("about-us-nav-active");
+
+		if (aboutUsNavItemActive) {
+			for (let i = 0; i < aboutUsNavItems.length; i++) {
+				const element = aboutUsNavItems[i];
+				const index = element.getAttribute("data-active");
+				if (index === aboutUsNavItemActive) {
+					element.classList.add("active");
+				}
+			}
+		}
+
+		for (let i = 0; i < aboutUsNavItems.length; i++) {
+			const element = aboutUsNavItems[i];
+			const activeIndex = element.getAttribute("data-active");
+			element.addEventListener("click", () => {
+				sessionStorage.setItem("about-us-nav-active", activeIndex);
+			})
+		}
+
+		// about-us end
 	};
 	$yhsd.route.init(oRouteCustom);
   });
