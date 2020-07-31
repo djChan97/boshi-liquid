@@ -100,7 +100,9 @@
 					<ul>
 						{% for link in linklists.main.links%}
 						<li>
-							<a class="settings-navLink_color"
+							<a class="settings-navLink_color main-nav-item"
+								data-active="{{forloop.index}}"
+								{% if link.page_url == '/pages/about-us'%}data-about-us="about-us"{% endif %}
 								href="{% unless link.link_type == 'no_link' %}{{ link.page_url }}{% else %}javascript:void(0);{% endunless %}"
 								target="{% if link.target_type == 1 %}_blank{% else %}_self{% endif %}">{{ link.title }}</a>
 						</li>
