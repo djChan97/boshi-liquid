@@ -1,3 +1,5 @@
+{{'about-us-custom.css' | asset_url | css_tag }}
+
 <div class="about-us-common">
 	<div class="about-us-img-wrapper">
 		<img src="{{'about-us' | asset_url }}" alt="">
@@ -22,3 +24,239 @@
 		</ul>
 	</div>
 </div>
+
+<div class="about-us-three">
+	<div class="part-one">
+		<h3 class="part-one-title">教育团队</h3>
+		<p class="content">我们从来自全球众多优秀的教师应聘者中严格筛选出认同博石教育理念的教师团队，他们不仅具备丰富的国际课程教学经验，更拥有多元的跨文化工作经验。</p>
+	</div>
+	<div class="part-two">
+		<div class="img">
+
+		</div>
+		<div class="pager">
+			<div class="leftButton" data-item="leftButton">
+				<svg t="1596253044276" data-item="leftButton" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8508" width="200" height="200"><path data-item="leftButton" d="M414.56000001 509.6l332.63999999 329.75999999-66.72000001 65.76000001-398.87999999-395.52 398.87999999-395.52L747.2 180.32l-332.63999999 329.28z" fill="" p-id="8509"></path></svg>
+			</div>
+			<div class="middle"></div>
+			<div class="rightButton" data-item="rightButton">
+				<svg t="1596253071840" data-item="rightButton" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="992" width="200" height="200"><path data-item="leftButton" d="M609.43999999 514.4l-332.63999999-329.75999999 66.72000001-65.76000001 398.87999999 395.52-398.87999999 395.52L276.8 843.68l332.63999999-329.28z" fill="" p-id="993"></path></svg>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+yhsd.ready(Jssdk => {
+	const lang = Jssdk.util.getCookie('front_custom_variable');
+	const author = lang === 'zh-cn' ? '教育团队-中文' : '教育团队-英文';
+	const promise = new Promise((resolve, reject) => {
+		Jssdk.blog.get({ author }, (res) => {
+			if(res.res.code === 200) {
+				resolve(res.res);
+			} else {
+				reject('bad quest');
+			}
+		})
+	})
+
+	promise
+	.then(res => {
+		let pageNum = 12;
+		const blogs = res.blogs;
+		const pageCount = Math.ceil(blogs.length / pageNum);
+		let currentIndex = 1;
+		let pageArray = [];
+		if(pageCount === 0) return;
+		int();
+
+		// helper
+
+		function int() {
+			for(let i = 0; i < pageCount; i++) {
+				pageArray[i] = blogs.splice(0 ,pageNum);
+			}
+			genertorDomStruture(pageArray[0]);
+			generatorPager(pageArray);
+			addClickEventToPager();
+			if(pageCount === 1) setRightButton('add');
+			setLeftButton('add');
+			activeCurrentItem(1);
+		}
+
+		function genertorDomStruture(array) {
+			const wrapper = $('.part-two > .img');
+			const bodyWrapper = $(".education-team-modal");
+			for(let i = 0; i < array.length; i++) {
+				const div = $(`<div class='img-wrapper'></div>`);
+				const introduce = $(`<div class='introduce'></div>`);
+				const title = $(`<h4 class='introduce-title'></h4>`);
+				const content = $(`<p class='introduce-content'></p>`);
+				const rightArrow = $('<img class="right-arrow" />');
+				const img = $(`<img/>`);
+
+				const modelOuterWrapper = $('<div class="model-outer-wrapper"></div>');
+				const modelWrapper = $('<div class="model-wrapper"></div>');
+				const positionWrapper = $('<div class="model-position-wrapper"></div>');
+				const modelLeft = $('<div class="model-left"></div>');
+				const modelRight = $('<div class="model-right"></div>');
+				const modelTitle = $('<h4 class="model-title"></h4>');
+				const modelJob = $('<p class="model-job"></p>');
+				const modelDes = $('<p class="model-des"></p>');
+				const modelImg = $('<img class="model-img" />');
+				const leftArrow = $('<img class="left-arrow" />');
+
+				leftArrow.attr('src', "{{'about-us-left' | asset_url }}");
+				modelImg.attr('src', array[i].share_image.src);
+				modelTitle.text(array[i].title);
+				modelJob.text(array[i].page_title);
+				modelDes.html(array[i].content_html);
+				modelOuterWrapper.attr('data-item', i + 1);
+				modelLeft.append(leftArrow);
+				modelLeft.append(modelTitle);
+				modelLeft.append(modelJob);
+				modelLeft.append(modelDes);
+				modelRight.append(modelImg);
+				modelWrapper.append(modelLeft);
+				modelWrapper.append(modelRight);
+				positionWrapper.append(modelWrapper);
+				modelOuterWrapper.append(positionWrapper);
+				bodyWrapper.append(modelOuterWrapper);
+				
+				rightArrow.attr('src', "{{'about-us-right' | asset_url }}");
+				rightArrow.attr('data-item', i + 1);
+				rightArrow.on('click', handleLeftArrow);
+				img.attr('src', array[i].share_image.src);
+				content.text(array[i].page_title);
+				title.text(array[i].title);
+				introduce.append(title);
+				introduce.append(content);
+				introduce.append(rightArrow);
+				div.append(img);
+				div.append(introduce);
+				wrapper.append(div);
+			}
+		}
+
+		function generatorPager(array) {
+			const wrapper = $('.pager > .middle');
+			for(let i = 0; i < array.length; i++) {
+				const div = $(`<div class='page-num'></div>`);
+				div.attr('data-item', i+1);
+				div.text(i+1);
+				wrapper.append(div);
+			}
+		}
+		function addClickEventToPager() {
+			const leftButton = $('.pager > .leftButton');
+			const rightButton = $('.pager > .rightButton');
+			const pageItem = $(".middle > .page-num");
+			leftButton.on('click', handleEvent);
+			rightButton.on('click', handleEvent);
+			pageItem.on('click',handleEvent);
+		}
+		function handleEvent(event) {
+			const dataItem = event.target.getAttribute('data-item');
+			if(dataItem === 'leftButton') {
+				if(currentIndex === 1) return;
+				goPage('left');
+			} else if(dataItem === 'rightButton') {
+				if(currentIndex === pageCount) return;
+				goPage('right');
+			} else {
+				goPage(parseInt(dataItem));
+			}
+		}
+		function handleLeftArrow(event) {
+			const dataItem = event.target.getAttribute('data-item');
+			const models = $("body > .education-team-modal > .model-outer-wrapper");
+			for(let i = 0; i < models.length; i++) {
+				const item = models[i].getAttribute('data-item');
+				if(item === dataItem) {
+					const leftArrow = models[i].getElementsByClassName('left-arrow')[0];
+					const modelWrapper = models[i].getElementsByClassName('model-wrapper')[0];
+					const handle = (e) => {
+						if(e.target === models[i] || e.target === leftArrow) {
+							models[i].classList.remove('active');
+							modelWrapper.classList.remove("active");
+							models[i].classList.add('close');
+							modelWrapper.classList.add("close");
+							models[i].removeEventListener('click', handle);
+						}
+					}
+					models[i].addEventListener('click', handle);
+					models[i].classList.remove("close");
+					modelWrapper.classList.remove("close");
+					models[i].classList.add("active");
+					modelWrapper.classList.add("active");
+					break;
+				}
+			}
+		};
+
+		function goPage(index) {
+			if(index === currentIndex) return;
+			if(index === 'left') {
+				currentIndex = currentIndex - 1;
+				if(currentIndex === 1) setLeftButton('add');
+				setRightButton('remove');
+			} else if(index === 'right') {
+				currentIndex = currentIndex + 1;
+				if(currentIndex === pageCount) setRightButton('add');
+				setLeftButton('remove');
+			} else {
+				currentIndex = index;
+				if(index === 1) {
+					setLeftButton('add');
+					setRightButton('remove');
+				} else if(index === pageCount) {
+					setRightButton('add');
+					setLeftButton('remove');
+				} else {
+					setRightButton('remove');
+					setLeftButton('remove');
+				}
+			}
+			activeCurrentItem(currentIndex);
+			activeCurrentPage(currentIndex - 1);
+		}
+		function activeCurrentPage(index) {
+			clearAllChild('.part-two > .img');
+			clearAllChild('body > .education-team-modal');
+			genertorDomStruture(pageArray[index]);
+		}
+
+		function setLeftButton(option) {
+			const leftButton = $('.pager > .leftButton')[0];
+			if(option === 'add') {
+				leftButton.classList.add('disabled');
+			} else {
+				leftButton.classList.remove('disabled');
+			}
+		}
+		function setRightButton(option) {
+			const rightButton = $('.pager > .rightButton')[0];
+			if(option === 'add') {
+				rightButton.classList.add('disabled');
+			} else {
+				rightButton.classList.remove('disabled');
+			}
+		}
+		function activeCurrentItem(index) {
+			const pageItem = $(".middle > .page-num");
+			for(let i = 0; i < pageItem.length; i++) {
+				const dataItem = parseInt(pageItem[i].getAttribute("data-item"));
+				if(dataItem === index) {
+					pageItem[i].classList.add('active');
+				} else {
+					pageItem[i].classList.remove('active');
+				}
+			}
+		}
+		function clearAllChild(selector) {
+			$(selector).empty()
+		}
+	})
+	.catch(err => {throw new Error(err)});
+})
+</script>
