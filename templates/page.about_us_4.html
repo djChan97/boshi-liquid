@@ -1,3 +1,6 @@
+{{'pagination.js' | asset_url | js_tag }}
+{{'about-us-custom.css' | asset_url | css_tag }}
+
 <div class="about-us-common">
 	<div class="about-us-img-wrapper">
 		<img src="{{'about-us' | asset_url }}" alt="">
@@ -21,4 +24,111 @@
 			{% endfor %}
 		</ul>
 	</div>
+	<div class="about-us-four">
+		<div class="title-wrapper">
+			<h3>常见问题</h3>
+		</div>
+		<ul class="question-wrapper">
+		</ul>
+		<div class="pagination-wrapper">
+		</div>
+	</div>
 </div>
+
+<script>
+yhsd.ready(Jssdk => {
+const lang = Jssdk.util.getCookie('front_custom_variable');
+const author = lang === 'zh-cn' ? '常见问题-中文' : '常见问题-英文';
+const promise = new Promise((resolve, reject) => {
+	Jssdk.blog.get({ author }, (res) => {
+		if(res.res.code === 200) {
+			resolve(res.res);
+		} else {
+			reject('bad quest');
+		}
+	})
+})
+
+promise
+.then(res => {
+	let pageNum = 8;
+	const blogs = res.blogs;
+	const pageCount = Math.ceil(blogs.length / pageNum);
+	const slp = new SimplePagination(pageCount);
+	const wrapper = $(".about-us-four > .question-wrapper");
+	const pageArray = [];
+
+	init();
+
+	function init() {
+		for(let i = 0; i < pageCount; i++) {
+			pageArray[i] = blogs.splice(0, pageNum);
+		}
+		renderDom(pageArray[0]);
+		addEventToSvg()
+	}
+
+	function renderDom(array) {
+		for(let i = 0; i < array.length; i++) {
+			const dom = $(`
+				<div class='question-item'>
+					<div class='top-wrapper'>
+						<div class='left'>
+							<img src="{{'question-icon-1' | asset_url }}" />
+							<h4>${array[i].title}</h4>
+						</div>
+						<div class='right'>
+							<svg t="1596426057613" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2581" width="200" height="200"><path d="M699.712 512l-256 256L384 708.288 580.28799999 512 384 315.712l59.712-59.712z" p-id="2582"></path></svg>
+						</div>
+					</div>
+					<div class="question-content">
+						<div class='inner-wrapper'>
+							<img src="{{'question-icon-2' | asset_url }}" />
+							${array[i].content_html}
+						</div>
+					</div>
+				</div>
+			`);
+		wrapper.append(dom);
+		}
+	}
+
+	function addEventToSvg() {
+		const svgs = wrapper.find('.right > svg');
+		svgs.on('click', handleToggleContent);
+	}
+
+
+	function handleToggleContent() {
+		this.classList.toggle('active');
+		const content = this.parentElement.parentElement.nextElementSibling;
+		if (content.style.maxHeight){
+			content.style.maxHeight = null;
+		} else {
+			content.style.maxHeight = content.scrollHeight + "px";
+		}
+	}
+
+	function handlePageItem(state) {
+		for(let i = 0; i < pageArray.length; i++) {
+			if((i+1) === state.pageNumber) {
+				clearAllChild('.about-us-four > .question-wrapper');
+				renderDom(pageArray[i]);
+				addEventToSvg();
+			}
+		}
+	}
+
+	function clearAllChild(selector) {
+			$(selector).empty()
+	}
+
+	slp.init({
+		container: '.about-us-four > .pagination-wrapper',
+		maxShowBtnCount: 2,
+		onPageChange: state => handlePageItem(state)
+	});
+})
+.catch(err => {throw new Error(err)});
+});
+</script>
