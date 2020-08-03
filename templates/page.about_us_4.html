@@ -51,7 +51,7 @@ const promise = new Promise((resolve, reject) => {
 
 promise
 .then(res => {
-	let pageNum = 8;
+	let pageNum = 2;
 	const blogs = res.blogs;
 	const pageCount = Math.ceil(blogs.length / pageNum);
 	const slp = new SimplePagination(pageCount);
