@@ -858,12 +858,138 @@ body .model-outer-wrapper > .model-position-wrapper > .model-wrapper > .model-ri
   color: #002a58;
   font-weight: 600;
 }
-.about-us-six > .contact-wrapper > .inner-wrapper > div > p:not(.special) {
-  width: 220px;
-  text-align: center;
+.about-us-six > .contact-wrapper > .inner-wrapper > div > p {
   color: #666666;
   font-size: 14px;
 }
+.about-us-six > .contact-wrapper > .inner-wrapper > div > p:not(.special) {
+  width: 220px;
+  text-align: center;
+}
 .about-us-six > .contact-wrapper > .inner-wrapper > div.public-transit, .about-us-six > .contact-wrapper > .inner-wrapper > div.contact-information {
   margin-bottom: 250px;
+}
+.about-us-six > .info-map-wrapper {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-us-six > .info-map-wrapper > .map-wrapper {
+  position: relative;
+}
+.about-us-six > .info-map-wrapper > .map-wrapper > #map-container {
+  transform: translateY(-140px);
+  width: 1200px;
+  height: 500px;
+}
+.about-us-six > .info-map-wrapper > .map-wrapper > .map-address {
+  width: 150px;
+  top: -120px;
+  left: 20px;
+  z-index: 99;
+  position: absolute;
+}
+.about-us-six > .info-map-wrapper > .map-wrapper > .map-address > .toggle-wrapper {
+  color: white;
+  padding-left: 5px;
+  font-size: 16px;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 40px;
+  background-color: RGBA(56, 56, 56, 1);
+}
+.about-us-six > .info-map-wrapper > .map-wrapper > .map-address > .toggle-wrapper > .icon {
+  margin-left: 10px;
+  height: 25px;
+  fill: white;
+  width: 25px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.about-us-six > .info-map-wrapper > .map-wrapper > .map-address > .toggle-wrapper > .icon.active {
+  transform: rotate(90deg);
+}
+.about-us-six > .info-map-wrapper > .map-wrapper > .map-address > .content {
+  width: 150px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  user-select: none;
+}
+.about-us-six > .info-map-wrapper > .map-wrapper > .map-address > .content > div {
+  font-size: 14px;
+  height: 40px;
+  display: flex;
+  padding-left: 28px;
+  align-items: center;
+  cursor: pointer;
+  color: #666666;
+  background-color: white;
+}
+.about-us-six > .info-map-wrapper > .map-wrapper > .map-address > .content > div:not(:first-child) {
+  border-top: 1px solid RGBA(226, 226, 226, 1);
+}
+.about-us-six > .info-map-wrapper > .info-wrapper {
+  width: 1200px;
+  display: flex;
+  margin-bottom: 90px;
+  justify-content: space-between;
+}
+.about-us-six > .info-map-wrapper > .info-wrapper > .left {
+  width: 550px;
+}
+.about-us-six > .info-map-wrapper > .info-wrapper > .left > .notice {
+  font-size: 24px;
+  color: #f7465a;
+}
+.about-us-six > .info-map-wrapper > .info-wrapper > .left > .phone-number {
+  margin: 40px 0;
+  font-size: 14px;
+  color: RGBA(102, 102, 102, 1);
+}
+.about-us-six > .info-map-wrapper > .info-wrapper > .left > .phone-number > span {
+  font-size: 15px;
+  color: RGBA(0, 42, 88, 1);
+  font-weight: 600;
+}
+.about-us-six > .info-map-wrapper > .info-wrapper > .left > .query-site {
+  font-size: 14px;
+  color: RGBA(102, 102, 102, 1);
+}
+.about-us-six > .info-map-wrapper > .info-wrapper > .left > .query-site > span {
+  font-size: 15px;
+  color: RGBA(0, 42, 88, 1);
+  font-weight: 600;
+}
+.about-us-six > .info-map-wrapper > .info-wrapper > .left > .email {
+  margin-top: 10px;
+  font-size: 14px;
+  color: RGBA(102, 102, 102, 1);
+}
+.about-us-six > .info-map-wrapper > .info-wrapper > .left > .email > span {
+  font-size: 15px;
+  color: RGBA(0, 42, 88, 1);
+  font-weight: 600;
+}
+.about-us-six > .info-map-wrapper > .info-wrapper > .right {
+  display: flex;
+}
+.about-us-six > .info-map-wrapper > .info-wrapper > .right > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-us-six > .info-map-wrapper > .info-wrapper > .right > div > img {
+  width: 170px;
+}
+.about-us-six > .info-map-wrapper > .info-wrapper > .right > div.wrapper-one {
+  margin-right: 20px;
+}
+.about-us-six > .info-map-wrapper > .info-wrapper > .right > div > span {
+  font-size: 13px;
+  color: #666666;
 }
