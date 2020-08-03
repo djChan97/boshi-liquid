@@ -1,0 +1,154 @@
+.boshi-main-nav {
+  height: 90px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.boshi-main-nav > .nav-left {
+  height: 100%;
+  display: flex;
+  margin-left: 100px;
+}
+.boshi-main-nav > .nav-left a {
+  width: 325px;
+  height: 100%;
+}
+.boshi-main-nav > .nav-left a img {
+  width: 325px;
+  height: 100%;
+  vertical-align: top;
+}
+.boshi-main-nav > .nav-left > .boshi-nav-menu {
+  height: 100%;
+  width: 70px;
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.boshi-main-nav > .nav-left > .boshi-nav-menu > span {
+  width: 32px;
+  height: 3px;
+  border-radius: 5px;
+}
+.boshi-main-nav > .nav-left > .boshi-nav-menu > span:not(:last-child) {
+  margin-bottom: 4px;
+}
+.boshi-main-nav > .nav-left > .boshi-nav-menu > .menu-item {
+  display: none;
+  z-index: 1;
+  width: 170px;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  left: 0;
+}
+.boshi-main-nav > .nav-left > .boshi-nav-menu > .menu-item ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.boshi-main-nav > .nav-left > .boshi-nav-menu > .menu-item ul li {
+  line-height: 32px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+.boshi-main-nav > .nav-left > .boshi-nav-menu > .menu-item ul li a {
+  padding-left: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  color: #032b5b;
+}
+.boshi-main-nav > .nav-left > .boshi-nav-menu > .menu-item ul li:hover {
+  /* background-color: {{ settings.menu_navLink_hover_background }}; */
+}
+.boshi-main-nav > .nav-left > .boshi-nav-menu:hover .menu-item {
+  display: block;
+}
+.boshi-main-nav > .nav-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  margin-right: 100px;
+}
+.boshi-main-nav > .nav-right > .top-part {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+.boshi-main-nav > .nav-right > .top-part > .left {
+  width: 150px;
+  display: flex;
+  margin-right: 60px;
+  justify-content: center;
+  align-items: center;
+}
+.boshi-main-nav > .nav-right > .top-part > .left > .search-icon > .icon {
+  width: 18px;
+  cursor: pointer;
+}
+.boshi-main-nav > .nav-right > .top-part > .left > .middle-line {
+  width: 1px;
+  height: 45%;
+  margin: 0 32px;
+  background-color: #b6b9b6;
+}
+.boshi-main-nav > .nav-right > .top-part > .left > .lang {
+  cursor: pointer;
+  font-size: 20px;
+}
+.boshi-main-nav > .nav-right > .top-part > .right {
+  display: flex;
+}
+.boshi-main-nav > .nav-right > .top-part > .right a {
+  height: 30px;
+  width: 4em;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 15px;
+}
+.boshi-main-nav > .nav-right > .top-part > .right > .btn2 {
+  margin-left: 15px;
+}
+.boshi-main-nav > .nav-right > .bottom-part {
+  height: 28px;
+}
+.boshi-main-nav > .nav-right > .bottom-part > ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+.boshi-main-nav > .nav-right > .bottom-part > ul > li:not(:last-child) {
+  margin-right: 75px;
+}
+.boshi-main-nav > .nav-right > .bottom-part > ul > li a {
+  font-weight: 600;
+  font-size: 15px;
+  position: relative;
+}
+.boshi-main-nav > .nav-right > .bottom-part > ul > li a::after {
+  content: "";
+  display: none;
+  position: absolute;
+  width: 100%;
+  bottom: -9px;
+  height: 2px;
+  /* background-color: {{ settings.navLink_active_color }}; */
+}
+.boshi-main-nav > .nav-right > .bottom-part > ul > li a.active {
+  /* color: {{ settings.navLink_active_color }}; */
+}
+.boshi-main-nav > .nav-right > .bottom-part > ul > li a.active::after {
+  display: block;
+}

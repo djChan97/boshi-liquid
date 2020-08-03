@@ -1,3 +1,5 @@
+{{'about-us-custom.css' | asset_url | css_tag }}
+
 <div class="about-us-common">
 	<div class="about-us-img-wrapper">
 		<img src="{{'about-us' | asset_url }}" alt="">
@@ -20,5 +22,45 @@
 			</li>
 			{% endfor %}
 		</ul>
+	</div>
+</div>
+
+<div class="about-us-six">
+	<div class="title-wrapper">
+		<h3>联系我们</h3>
+	</div>
+	<div class="contact-wrapper">
+	<div class="inner-wrapper">
+		<div class="campus-address">
+			<div class="img-wrapper">
+				<img src="{{'contact-icon-1' | asset_url }}" alt="">
+			</div>
+			<span>校区地址</span>
+			<p>深圳市宝安区华侨城欢乐港湾海府生态大厦G栋2座（海天路与宝华路交汇处）</p>
+		</div>
+		<div class="driving-route">
+			<div class="img-wrapper">
+				<img src="{{'contact-icon-2' | asset_url }}" alt="">
+			</div>
+			<span>行车线路</span>
+			<p>地图导航定位请搜索 “博石幼儿园”</p>
+		</div>
+		<div class="public-transit">
+			<div class="img-wrapper">
+				<img src="{{'contact-icon-3' | asset_url }}" alt="">
+			</div>
+			<span>公共交通</span>
+			<p class="special">地铁5号线临海站A出口（全程约477米）</p>
+			<p class="sepcial">宝华站A出口（全程约645米）</p>
+		</div>
+		<div class="contact-information">
+			<div class="img-wrapper">
+				<img src="{{'contact-icon-4' | asset_url }}" alt="">
+			</div>
+			<span>联系信息</span>
+			<p class="special">官网邮箱：kidsclub@broadstone.com</p>
+			<p class="special">电话：（+86）755 2683 0454</p>
+		</div>
+	</div>
 	</div>
 </div>
