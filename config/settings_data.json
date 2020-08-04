@@ -234,7 +234,7 @@
     "treatyTips": "",
     "top_menu_background": "#012959",
     "top_menu_item_color": "#ffffff",
-    "menu_navLink_background": "#ffffff",
+    "menu_navLink_background": "#f7f7f7",
     "menu_navLink_color": "#012959",
     "index_join_title": "期待您的加入！",
     "index_join_desc": "我们诚挚的邀请您来参加我们的活动或参观我们的校园，请报名。",
@@ -264,6 +264,13 @@
     "index_character_title_2": "自然教育",
     "index_character_title_3": "自然教育",
     "index_character_title_4": "自然教育",
-    "index_character_title_6": "自然教育"
+    "index_character_title_6": "自然教育",
+    "top_item2_background": "#f24659",
+    "top_item1_background": "#002b57",
+    "top_item1_color": "#ffffff",
+    "top_item2_color": "#ffffff",
+    "top_search_lang_color": "#6d706d",
+    "menu_navLink_hover_background": "#ffffff",
+    "navLink_active_color": "#cc4646"
   }
 }

@@ -1,0 +1,91 @@
+{{'admission.css' | asset_url | css_tag }}
+<div class="admission-common">
+    <div class="admission-banner">
+        <img src="{{'admission_banner' | asset_url }}" alt="">
+    </div>
+
+    <div class="admission-nav">
+        <ul>
+            <li class="home-icon">
+                <svg t="1596102709574" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="4006">
+                    <path
+                        d="M763.349333 426.666667L507.306667 170.624 251.264 426.666667h0.042667v426.666666h512V426.666667h0.042666z m85.290667 85.290666V853.333333a85.333333 85.333333 0 0 1-85.333333 85.333334h-512a85.333333 85.333333 0 0 1-85.333334-85.333334v-341.376l-63.018666 62.976L42.666667 514.645333l404.352-404.352c33.28-33.28 87.296-33.28 120.576 0l404.352 404.352-60.288 60.288L848.64 512z"
+                        p-id="4007"></path>
+                </svg>
+                <span class="line"></span>
+            </li>
+            {% for link in linklists['n000006'].links%}
+            <li class="nav-item">
+                <a data-active="{{forloop.index}}"
+                    href="{% unless link.link_type == 'no_link' %}{{ link.page_url }}{% else %}javascript:void(0);{% endunless %}"
+                    target="{% if link.target_type == 1 %}_blank{% else %}_self{% endif %}">{{ link.title }}</a>
+                {% unless forloop.last %}
+                <span class="line"></span>
+                {% endunless %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="admission_text_first">
+        <h4>招生政策</h4>
+        <div class="right">
+            <p>博石幼儿园致力于为2-6岁的中外籍儿童提供个性化学习、双文化共育、自然教育的机会，并实行全年滚动招生政策。</p>
+            <p>欢迎所有了解并认同博石幼儿园教育使命与方式的家庭及学生加入我们，携手开启一段充满好奇心和探究欲的童年时光，共同打造一个在玩中学、在多元文化中滋养生命、在自主体验中绽放创造力的成长社区。</p>
+        </div>
+    </div>
+    <div class="admission_pic">
+        <img src="{{'admission_1' | asset_url }}" alt="">
+    </div>
+
+    <div class="admission_text_second">
+        <div class="left">
+            <h4>2021-2022学年报名</h4>
+            <div class="bottom">
+                <h5>招生对象和时间</h5>
+                <p>博石幼儿园计划于2021年3月份开学，自2020年底接受报名。<br>
+                    2021-2022学年首开小小班、小班两个年级，班级包括半天班和全天班，我们将根据每个儿童的年龄和实际发展水平安排到适合的年级。截至2021年2月28日 (含)
+                    满2岁到3岁的中外籍儿童，均可申请入学。</p>
+            </div>
+        </div>
+        <div class="right">
+            <img src="{{'admission_2' | asset_url }}" alt="">
+        </div>
+    </div>
+
+    <div class="admission_text_forth_wrap">
+    <div class="admission_text_forth">
+        <div class="admission_pic_2">
+            <img src="{{'admission_3' | asset_url }}" alt="">
+        </div>
+        <div class="top">
+            <h4>申请</h4>
+            <p>我们建议意向家长在提交入学申请之前亲临园舍参观或参加体验课，以对我们的教学获得更直观的了解，并与学校教学管理团队进行面对面交流。请通过“博石前海园”微信公众号填写报名表进行预约。
+                申请入学的家长，请点击文章下方“申请”填写申请表，另可通过添加招生老师微信（18145838196）或致电博石幼儿园招生部(+86) 755 2683 0454获取更详细的信息。</p>
+            <a href="" class="apply-btn">申请</a>
+        </div>
+        <div class="bottom">
+            <h4>录取</h4>
+            <p>为孩子选择优质的早期教育，需要了解孩子在身体、智力、情感、社交、语言等方面的特质和需要。博石幼儿园希望通过教学和招生团队与意向家庭的互动，帮助家长更深入地了解自己的孩子从而更科学地规划早期教育。
+                同时，选择一所学校，也意味着选择一种教育方式和价值观，因此，我们也充分尊重家长对博石幼儿园是否适合自己孩子身心发展和符合自身教育展望所作出的自主选择。我们热切期待与认同博石幼儿园教育理念的家长携手开创一段激动人心的学前教育旅程。
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="admission_bottom_wrap">
+<div class="admission_bottom">
+    <div class="left">
+        <h5>如在申请过程中需要帮助，<br>请随时联系招生闻老师获取更多信息： </h5>  
+        <p><span class="text">闻老师微信号/手机号：</span><span class="info"> 181 4583 8196</span></p>
+        <p><span class="text">招生邮箱： </span><span class="info">kidsclub@broadstone.cn </span></p>
+        <p><span class="text">招生办公室电话：</span><span class="info"> (+86) 755 2683 0454 </span></p>
+    </div>
+    <div class="right">
+        <img src="{{'admission_qrcode' | asset_url }}" alt="">
+    </div>
+</div>
+</div>
+
+</div>
