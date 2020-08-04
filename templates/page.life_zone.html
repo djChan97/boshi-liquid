@@ -1,0 +1,63 @@
+
+{{'life.css' | asset_url | css_tag }}
+
+<div class="life-common">
+<div class="garden-banner">
+    <img src="{{'zone' | asset_url }}" alt="">
+</div>
+
+<div class="life-nav">
+    <ul>
+        <li class="home-icon">
+            <svg t="1596102709574" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4006"><path d="M763.349333 426.666667L507.306667 170.624 251.264 426.666667h0.042667v426.666666h512V426.666667h0.042666z m85.290667 85.290666V853.333333a85.333333 85.333333 0 0 1-85.333333 85.333334h-512a85.333333 85.333333 0 0 1-85.333334-85.333334v-341.376l-63.018666 62.976L42.666667 514.645333l404.352-404.352c33.28-33.28 87.296-33.28 120.576 0l404.352 404.352-60.288 60.288L848.64 512z" p-id="4007"></path></svg>
+            <span class="line"></span>
+        </li>
+        {% for link in linklists['n000004'].links%}
+        <li class="nav-item">
+            <a
+                data-active="{{forloop.index}}"
+                href="{% unless link.link_type == 'no_link' %}{{ link.page_url }}{% else %}javascript:void(0);{% endunless %}"
+                target="{% if link.target_type == 1 %}_blank{% else %}_self{% endif %}">{{ link.title }}</a>
+                {% unless forloop.last %}
+                <span class="line"></span>
+                {% endunless %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="life-zone">
+    <h4>筑梦空间</h4>
+    <h5>博石幼儿园位于深圳欢乐港湾，地处宝安中心区与前海湾交汇处。</h5>
+    <p>欢乐港湾是华侨城集团打造的集滨海休闲、文化旅游、艺术体验、商业办公、国际酒店等复合功能为一体的综合体项目，包括滨海超级文化公园、深圳之光（摩天轮）、深圳之声（演艺中心）等，其景观设计荣获2017年度美国ASLA景观规划设计类大奖。</p>
+    
+</div>
+
+<div class="zone-first">
+    <img src="{{'zone_1' | asset_url }}" alt="">
+</div>
+
+<div class="zone-second">
+    <h4>我们深知空间对塑造儿童成长体验的深刻影响。</h4>
+    <p>为匹配孩子们享用的这一得天独厚的深圳国际化滨海生活环境，博石幼儿园也邀请了具备国际水准的著名建筑设计师莫平先生为孩子们打造一个放飞梦想的教育空间。</p>
+</div>
+
+<div class="zone-third">
+    <img src="{{'zone_2' | asset_url }}" alt="">
+    <p>莫平先生毕业于哈佛大学建筑学院，曾就职于美国波士顿GRAHAM GUND ARCHITECTS 事务所、担任贝聿铭建筑事务所亚洲部总经理及北京分公司总监，其后于北京创建了莫平建筑设计事务所（MO Atelier Szeto）。新古典现代语言与中国传统建筑设计元素的完美融合造就了莫平作品独特的空间情态和风格。
+    </p>
+</div>
+
+
+<div class="life-pic">
+    <img src="{{'zone_3' | asset_url }}" alt="">
+</div>
+
+<div class="zone-text">
+    <p>他的优秀作品涵盖高校、重点文化公共建筑重建、大型综合体功能商业楼、企业总部等建筑及室内设计，包括：澳大利亚国立大学中华全球研究中心、北京大学斯坦福中心和燕京学院、United World College中国常熟分校、北京故宫博物院中正殿藏传佛教展厅及研究中心等。</p>
+    <p>我们拭目以待，这个由设计师精心打磨的、盛放着博石教育愿景、充盈着孩子们的欢声笑语的容器，与欢乐港湾这片海洋与绿地共生，一起走向一段关于星辰大海的征途。</p>
+</div>
+<div class="zone-bottom">
+    <img src="{{'zone_bottom' | asset_url }}" alt="">
+</div>
+</div>

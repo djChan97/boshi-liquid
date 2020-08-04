@@ -1,0 +1,194 @@
+.garden-banner{
+    width: 100%;
+    height: 571px;
+}
+.garden-banner>img{
+    width: 100;
+    height: 100%;
+    display: block;
+}
+.life-common{
+  background-color: #fff;
+}
+.life-common > .life-nav {
+    margin-top: 70px;
+  }
+  .life-common > .life-nav > ul {
+    display: flex;
+    justify-content: flex-end;
+    width: 1350px;
+    margin: 0 auto;
+  }
+  .life-common > .life-nav > ul > li {
+    position: relative;
+  }
+  .life-common > .life-nav > ul > li > span {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 15px;
+    width: 2px;
+    background-color: #ADAAAB;
+  }
+  .life-common > .life-nav > ul > .home-icon {
+    margin-right: 20px;
+  }
+  .life-common > .life-nav > ul > .home-icon a {
+    display: flex;
+  }
+  .life-common > .life-nav > ul > .home-icon .icon {
+    width: 30px;
+    height: 30px;
+    fill: #EF952F;
+  }
+  .life-common > .life-nav > ul > .nav-item:not(:last-child) {
+    margin: 0 20px;
+  }
+  .life-common > .life-nav > ul > .nav-item:last-child {
+    margin-left: 20px;
+  }
+  .life-common > .life-nav > ul > .nav-item > a {
+    height: 100%;
+    display: flex;
+    color: #ADAAAB;
+    align-items: center;
+    position: relative;
+  }
+  .life-common > .life-nav > ul > .nav-item > a.active {
+    color: #E36671;
+    font-weight: 600;
+  }
+  .life-common > .life-nav > ul > .nav-item > a.active::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1.5px;
+    background-color: #E36671;
+    bottom: 3px;
+    position: absolute;
+  }
+  .life-health{
+    margin: 136px 256px 200px;
+  }
+  .life-health h4,.life-zone h4{
+    font-size:40px;
+    font-family:PingFangSC;
+    font-weight:400;
+    color:rgba(247,70,90,1);
+    position: relative;
+  }
+  .life-health h4::after,.life-zone h4::after{
+    content: '';
+    position: absolute;
+    display: block;
+    background-color: #F7465A;
+    left: 0;
+    bottom: -35px;
+    width: 20px;
+    border-radius: 2px;
+    height: 3px;
+  }
+  .life-health p{
+    font-size:18px;
+    font-family:SourceHanSansCN;
+    font-weight:300;
+    color:rgba(102,102,102,1);
+    line-height:38px;
+    width: 784px;
+    margin-top: 126px;
+  }
+.life-common .life-pic{
+  width: 100%;
+  height: 534px;
+}
+.life-common .life-pic>img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.life-common .life-zone h5{
+  font-size:26px;
+  font-family:SourceHanSansCN;
+  font-weight:300;
+  color:rgba(0,42,88,1);
+  line-height:38px;
+  margin: 126px 0 30px;
+}
+.life-common .life-zone>p{
+  width: 1033px;
+  font-size:18px;
+  font-family:SourceHanSansCN;
+  font-weight:300;
+  color:rgba(102,102,102,1);
+  line-height:38px;
+}
+.life-common .life-zone{
+  margin: 136px 256px 0;
+}
+.life-common .zone-first{
+  margin-top: 50px;
+  padding-left: 256px;
+}
+.life-common .zone-first>img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.life-common .zone-second{
+  margin: 75px 267px 95px 889px;
+}
+.life-common .zone-second h4{
+  font-size:26px;
+  font-family:SourceHanSansCN;
+  font-weight:300;
+  color:rgba(0,42,88,1);
+  line-height:38px;
+  margin-bottom: 15px;
+}
+.life-common .zone-second p{
+  width: 775px;
+  font-size:18px;
+  font-family:SourceHanSansCN;
+  font-weight:300;
+  color:rgba(102,102,102,1);
+  line-height:38px;
+}
+.life-common .zone-third{
+  margin: 0 260px;
+}
+.life-common .zone-third>img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.life-common .zone-third>p{
+  font-size:18px;
+  font-family:SourceHanSansCN;
+  font-weight:300;
+  color:rgba(102,102,102,1);
+  line-height:38px;
+  margin: 65px 0 75px;
+}
+.life-common .zone-bottom{
+  width: 100%;
+  height: 265px;
+}
+.life-common .zone-bottom>img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.life-common .zone-text{
+  width: 1190px;
+  height: auto;
+  margin: 55px 256px 72px 256px;
+}
+.life-common .zone-text>p{
+  font-size:18px;
+  font-family:SourceHanSansCN;
+  font-weight:300;
+  color:rgba(102,102,102,1);
+  line-height:38px;
+  margin-bottom: 20px;
+}
