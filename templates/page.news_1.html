@@ -1,0 +1,187 @@
+{{'pagination.js' | asset_url | js_tag }}
+{{'news-custom.css' | asset_url | css_tag }}
+
+<div class="news-common">
+	<div class="news-img-wrapper">
+		<img src="{{'news-common-bg' | asset_url }}" alt="">
+	</div>
+	<div class="news-nav">
+		<ul>
+			<li class="home-icon">
+				<a href="/">
+				<svg t="1596102709574" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4006"><path d="M763.349333 426.666667L507.306667 170.624 251.264 426.666667h0.042667v426.666666h512V426.666667h0.042666z m85.290667 85.290666V853.333333a85.333333 85.333333 0 0 1-85.333333 85.333334h-512a85.333333 85.333333 0 0 1-85.333334-85.333334v-341.376l-63.018666 62.976L42.666667 514.645333l404.352-404.352c33.28-33.28 87.296-33.28 120.576 0l404.352 404.352-60.288 60.288L848.64 512z" p-id="4007"></path></svg>
+				</a>
+			<span class="line"></span>
+			</li>
+			{% for link in linklists['n000005'].links%}
+			<li class="nav-item">
+				<a
+					data-active="{{forloop.index}}"
+					href="{% unless link.link_type == 'no_link' %}{{ link.page_url }}{% else %}javascript:void(0);{% endunless %}"
+					target="{% if link.target_type == 1 %}_blank{% else %}_self{% endif %}">{{ link.title }}</a>
+					{% unless forloop.last %}
+					<span class="line"></span>
+					{% endunless %}
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+
+<div class="garden-news">
+	<div class="article-wrapper">
+		<div class="top-article-wrapper">
+		</div>
+		<div class="normal-article-wrapper">
+		</div>
+	</div>
+	<div class="pagination-wrapper"></div>
+</div>
+
+<script>
+yhsd.ready(Jssdk => {
+const lang = Jssdk.util.getCookie('front_custom_variable');
+const author = lang === 'zh-cn' ? '园所新闻-中文' : '园所新闻-英文';
+const promise = new Promise((resolve, reject) => {
+	Jssdk.blog.get({ author }, (res) => {
+		if(res.res.code === 200) {
+			resolve(res.res);
+		} else {
+			reject('bad quest');
+		}
+	})
+})
+
+promise
+.then(res => {
+	let topArticle = [];
+	let normalArticle = [];
+	let pageItems = [];
+	let pageCount;
+	let pageNum = 6;
+
+	initOption(res);
+
+	// helper
+
+	function initOption(res) {
+		if(!res.blogs.length) return;
+		filterArticle(res.blogs);
+		pageCount = Math.ceil(normalArticle.length / pageNum);
+		generatorPageItems();
+		renderTopArticleDom(topArticle);
+		renderNormalArticleDom(pageItems[0]);
+		new SimplePagination(pageCount).init({
+			container: '.pagination-wrapper',
+			maxShowBtnCount: 2,
+			onPageChange:handlePageItem
+		})
+	}
+
+	function generatorPageItems() {
+		for(let i = 0; i < pageCount; i++) {
+			pageItems[i] = normalArticle.splice(0, pageNum);
+		}
+	}
+
+	function filterArticle(blogs) {
+		for(let i = 0; i < blogs.length; i++) {
+			const blog = blogs[i];
+			if(blog.top) topArticle.push(blog)
+			else normalArticle.push(blog);
+		}
+	}
+
+	function parseDate(dateString) {
+		let obj ={};
+		const dateObj = new Date(dateString);
+		const year = String(dateObj.getUTCFullYear());
+		const month = String(dateObj.getUTCMonth() + 1);
+		const day = String(dateObj.getUTCDate());
+		obj[0] = year;
+		if(month.length === 1) {
+			obj[1] = '0'+ month;
+		} else {
+			obj[1] = month;
+		}
+
+		if(day.length === 1) {
+			obj[2] = '0'+ day;
+		} else {
+			obj[2] = day;
+		}
+		return obj;
+	}
+
+	function renderNormalArticleDom(array) {
+		const wrapper = $('.article-wrapper > .normal-article-wrapper');
+		for(let i = 0; i < array.length; i++) {
+			const dateObj = parseDate(array[i].post_at);
+			const dom = $(`
+			<div class="item-wrapper">
+				<a href="${array[i].page_url}">
+					<img src="${array[i].share_image.src}" alt="">
+					<div class="detail-wrapper">
+						<div class="left">
+							<h4>${array[i].title}</h4>
+							<div class="introduce">${array[i].page_desc}</div>
+						</div>
+						<div class="right">
+							<div>${dateObj[0] + '.' + dateObj[1]}</div>
+							<div>${dateObj[2]}</div>
+						</div>
+					</div>
+					<div class="link-wrapper">
+						<span>查看详情</span>
+						<img src="{{'news-arrow-right' | asset_url }}" alt="">
+					</div>
+				</a>
+			</div>
+			`);
+			wrapper.append(dom);
+		}
+	}
+
+	function renderTopArticleDom(array) {
+		const wrapper = $('.article-wrapper > .top-article-wrapper');
+		console.log(array)
+		for(let i = 0; i < array.length; i++) {
+			const dateObj = parseDate(array[i].post_at);
+			const dom = $(`
+			<img src="${array[i].share_image.src}" alt="">
+			<div class="info-wrapper">
+				<div class="data-wrapper">
+					<div class="one">${dateObj[0] + '.' + dateObj[1]}</div>
+					<div class="two">${dateObj[2]}</div>
+				</div>
+				<h4 class="title">${array[i].title}</h4>
+				<div class="click-wrapper">
+					<a href="${array[i].page_url}">
+						<span>查看详情</span>
+						<img src="{{'news-arrow-right-w' | asset_url }}" alt="">
+					</a>
+				</div>
+			</div>
+			`);
+			wrapper.append(dom);
+		}
+	}
+
+	function clearAllChild(selector) {
+			$(selector).empty()
+	}
+
+	function handlePageItem(state) {
+		for(let i = 0; i < pageItems.length; i++) {
+			if(state.pageNumber === i + 1) {
+				clearAllChild('.article-wrapper > .normal-article-wrapper');
+				renderNormalArticleDom(pageItems[i]);
+				return;
+			}
+		}
+	}
+	
+})
+.catch(err => {throw new Error(err)});
+});
+</script>

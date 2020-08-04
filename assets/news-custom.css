@@ -1,0 +1,331 @@
+.news-common {
+  background-color: white;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+.news-common > .news-img-wrapper {
+  width: 100%;
+  max-height: 572px;
+  overflow: hidden;
+}
+.news-common > .news-img-wrapper > img {
+  vertical-align: top;
+  width: 100%;
+}
+.news-common > .news-nav {
+  margin-top: 70px;
+}
+.news-common > .news-nav > ul {
+  display: flex;
+  justify-content: flex-end;
+  width: 1350px;
+  margin: 0 auto;
+}
+.news-common > .news-nav > ul > li {
+  position: relative;
+}
+.news-common > .news-nav > ul > li > span {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 15px;
+  width: 2px;
+  background-color: #ADAAAB;
+}
+.news-common > .news-nav > ul > .home-icon {
+  margin-right: 20px;
+}
+.news-common > .news-nav > ul > .home-icon a {
+  display: flex;
+}
+.news-common > .news-nav > ul > .home-icon .icon {
+  width: 30px;
+  height: 30px;
+  fill: #EF952F;
+}
+.news-common > .news-nav > ul > .nav-item:not(:last-child) {
+  margin: 0 20px;
+}
+.news-common > .news-nav > ul > .nav-item:last-child {
+  margin-left: 20px;
+}
+.news-common > .news-nav > ul > .nav-item > a {
+  height: 100%;
+  display: flex;
+  color: #ADAAAB;
+  align-items: center;
+  position: relative;
+}
+.news-common > .news-nav > ul > .nav-item > a.active {
+  color: #E36671;
+  font-weight: 600;
+}
+.news-common > .news-nav > ul > .nav-item > a.active::after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 1.5px;
+  background-color: #E36671;
+  bottom: 3px;
+  position: absolute;
+}
+
+.social-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+.social-media > .part-one {
+  margin-top: 120px;
+  display: flex;
+  justify-content: space-between;
+  width: 1350px;
+}
+.social-media > .part-one > .part-one-title {
+  font-weight: 500;
+  font-size: 24px;
+  color: #f6465a;
+  margin-bottom: 80px;
+  position: relative;
+}
+.social-media > .part-one > .part-one-title::after {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: #f6465a;
+  bottom: -40px;
+  width: 20px;
+  border-radius: 2px;
+  height: 2px;
+}
+.social-media > .part-one > .content {
+  width: 650px;
+  color: #666666;
+  font-size: 14px;
+  line-height: 28px;
+}
+.social-media > .part-two {
+  width: 1350px;
+  height: 450px;
+  background-color: RGBA(243, 243, 245, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 140px;
+}
+.social-media > .part-two > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.social-media > .part-two > div > img {
+  width: 200px;
+  max-height: 210px;
+}
+.social-media > .part-two > div > span {
+  font-size: 14px;
+  color: #666666;
+  margin-top: 40px;
+}
+.social-media > .part-two > div:nth-child(1) {
+  margin-right: 100px;
+}
+.social-media > .part-two > div:nth-child(2) {
+  margin-left: 100px;
+}
+
+.garden-news {
+  padding-top: 60px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.garden-news > .article-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.garden-news > .article-wrapper > .top-article-wrapper {
+  width: 1350px;
+  max-height: 633px;
+  position: relative;
+  overflow: hidden;
+}
+.garden-news > .article-wrapper > .top-article-wrapper > img {
+  width: 100%;
+  vertical-align: top;
+}
+.garden-news > .article-wrapper > .top-article-wrapper > .info-wrapper {
+  color: white;
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+}
+.garden-news > .article-wrapper > .top-article-wrapper > .info-wrapper > .data-wrapper > .one {
+  font-size: 13px;
+}
+.garden-news > .article-wrapper > .top-article-wrapper > .info-wrapper > .data-wrapper > .two {
+  line-height: 36px;
+  font-size: 40px;
+  font-weight: 800;
+}
+.garden-news > .article-wrapper > .top-article-wrapper > .info-wrapper > .title {
+  font-size: 20px;
+  margin-bottom: 44px;
+  margin-top: 65px;
+}
+.garden-news > .article-wrapper > .top-article-wrapper > .info-wrapper > .click-wrapper {
+  width: 135px;
+  height: 33px;
+  border: 1px solid;
+}
+.garden-news > .article-wrapper > .top-article-wrapper > .info-wrapper > .click-wrapper > a {
+  color: white;
+  justify-content: center;
+  border-radius: 4px;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.garden-news > .article-wrapper > .top-article-wrapper > .info-wrapper > .click-wrapper > a > span {
+  margin-right: 10px;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper {
+  margin: 75px 0;
+  width: 1350px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper {
+  width: 400px;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper:not(:nth-child(3n+3)) {
+  margin-right: 75px;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper:nth-child(n+4) {
+  margin-top: 50px;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper > a {
+  display: block;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper > a > img {
+  width: 100%;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper > a > .detail-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  border-bottom: 2px solid RGBA(240, 240, 240, 1);
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper > a > .detail-wrapper > .left {
+  width: 300px;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper > a > .detail-wrapper > .left > h4 {
+  margin-top: 10px;
+  font-size: 17px;
+  color: gray;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper > a > .detail-wrapper > .left > h4:hover {
+  color: #f6465a;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper > a > .detail-wrapper > .left > .introduce {
+  margin-top: 15px;
+  font-size: 13px;
+  color: gray;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper > a > .detail-wrapper > .right {
+  margin-top: 10px;
+  color: #989898;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper > a > .detail-wrapper > .right > div:nth-child(1) {
+  font-size: 13px;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper > a > .detail-wrapper > .right > div:nth-child(2) {
+  line-height: 36px;
+  font-size: 38px;
+  font-weight: 700;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper > a > .link-wrapper {
+  display: flex;
+  align-items: center;
+  color: gray;
+  justify-content: flex-start;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.garden-news > .article-wrapper > .normal-article-wrapper > .item-wrapper > a > .link-wrapper > span {
+  margin-right: 10px;
+}
+.garden-news > .pagination-wrapper {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+.garden-news > .pagination-wrapper > ul {
+  display: inline-flex;
+}
+.garden-news > .pagination-wrapper > ul > li {
+  user-select: none;
+}
+.garden-news > .pagination-wrapper > ul > li:not(.number-ellipsis) {
+  width: 35px;
+  height: 35px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  border: 1px solid #CFCFCF;
+  color: RGBA(127, 127, 127, 1);
+  justify-content: center;
+  align-items: center;
+}
+.garden-news > .pagination-wrapper > ul > li.number-ellipsis {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #CFCFCF;
+  border-radius: 50%;
+  display: flex;
+  color: gray;
+  justify-content: center;
+  align-items: center;
+}
+.garden-news > .pagination-wrapper > ul > li.page-number {
+  margin: 0 7px;
+}
+.garden-news > .pagination-wrapper > ul > li.page-number.page-active {
+  background-color: #F7465A;
+  color: white;
+  border: 1px solid #F7465A;
+}
+.garden-news > .pagination-wrapper > ul > li.page-next > .icon, .garden-news > .pagination-wrapper > ul li.page-prev > .icon {
+  fill: RGBA(127, 127, 127, 1);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+.garden-news > .pagination-wrapper > ul > li.page-next.no-prev, .garden-news > .pagination-wrapper > ul > li.page-next.no-next, .garden-news > .pagination-wrapper > ul li.page-prev.no-prev, .garden-news > .pagination-wrapper > ul li.page-prev.no-next {
+  cursor: not-allowed;
+  border: 1px solid #e8e8e8;
+}
+.garden-news > .pagination-wrapper > ul > li.page-next.no-prev > .icon, .garden-news > .pagination-wrapper > ul > li.page-next.no-next > .icon, .garden-news > .pagination-wrapper > ul li.page-prev.no-prev > .icon, .garden-news > .pagination-wrapper > ul li.page-prev.no-next > .icon {
+  fill: rgba(0, 0, 0, 0.25);
+}
