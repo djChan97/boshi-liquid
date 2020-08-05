@@ -1,0 +1,508 @@
+.admission-banner{
+    width: 100%;
+    height: 571px;
+}
+.admission-banner>img{
+    width: 100;
+    height: 100%;
+    display: block;
+}
+.admission-common{
+  background-color: #fff;
+}
+.admission-common > .admission-nav {
+    margin-top: 70px;
+  }
+  .admission-common > .admission-nav > ul {
+    display: flex;
+    justify-content: flex-end;
+    width: 1350px;
+    margin: 0 auto;
+  }
+  .admission-common > .admission-nav > ul > li {
+    position: relative;
+  }
+  .admission-common > .admission-nav > ul > li > span {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 15px;
+    width: 2px;
+    background-color: #ADAAAB;
+  }
+  .admission-common > .admission-nav > ul > .home-icon {
+    margin-right: 20px;
+  }
+  .admission-common > .admission-nav > ul > .home-icon a {
+    display: flex;
+  }
+  .admission-common > .admission-nav > ul > .home-icon .icon {
+    width: 30px;
+    height: 30px;
+    fill: #EF952F;
+  }
+  .admission-common > .admission-nav > ul > .nav-item:not(:last-child) {
+    margin: 0 20px;
+  }
+  .admission-common > .admission-nav > ul > .nav-item:last-child {
+    margin-left: 20px;
+  }
+  .admission-common > .admission-nav > ul > .nav-item > a {
+    height: 100%;
+    display: flex;
+    color: #ADAAAB;
+    align-items: center;
+    position: relative;
+  }
+  .admission-common > .admission-nav > ul > .nav-item > a.active {
+    color: #E36671;
+    font-weight: 600;
+  }
+  .admission-common > .admission-nav > ul > .nav-item > a.active::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1.5px;
+    background-color: #E36671;
+    bottom: 3px;
+    position: absolute;
+  }
+    /* 招生政策 */
+  .admission-common .admission_text_first{
+      width: 1400px;
+      margin: 136px auto;
+      display: flex;
+      justify-content: space-between;
+  }
+  .admission-common .admission_text_first>h4{
+    height: 38px;
+    font-size:40px;
+    font-family:SourceHanSansCN;
+    font-weight:500;
+    color:rgba(0,42,88,1);
+    position: relative;
+  }
+  .admission-common .admission_text_first>h4::after{
+    content: '';
+    position: absolute;
+    display: block;
+    background-color:rgba(0,42,88,1);
+    left: 0;
+    bottom: -60px;
+    width: 20px;
+    border-radius: 2px;
+    height: 3px;
+  }
+  .admission-common .admission_text_first .right{
+      width: 755px;
+  }
+  .admission-common .admission_text_first .right>p{
+    font-size:18px;
+    font-family:SourceHanSansCN;
+    font-weight:300;
+    color:rgba(102,102,102,1);
+    line-height:38px;
+  }
+  .admission-common .admission_pic{
+      width: 100%;
+      height: 534px;
+  }
+  .admission-common .admission_pic>img{
+      width: 100%;
+      height: 100%;
+      display: block;
+  }
+  .admission-common .admission_text_second{
+      display: flex;
+      justify-content: space-between;
+      width: 1400px;
+      margin: 0 auto;
+      padding: 192px 0 494px 0;
+  }
+  .admission-common .admission_text_second .left{
+      width: 653px;
+  }
+  .admission-common .admission_text_second .left>h4{
+    height:38px;
+    font-size:40px;
+    font-family:SourceHanSansCN;
+    font-weight:500;
+    color:rgba(247,70,90,1);
+    margin-top: 23px;
+    position: relative;
+  }
+  .admission-common .admission_text_second .left>h4::after{
+    content: '';
+    position: absolute;
+    display: block;
+    background-color:rgba(247,70,90,1);
+    left: 0;
+    bottom: -60px;
+    width: 20px;
+    border-radius: 2px;
+    height: 3px;
+  }
+  .admission-common .admission_text_second .left .bottom>h5{
+    font-size:26px;
+    font-family:SourceHanSansCN;
+    font-weight:500;
+    color:rgba(0,42,88,1);
+    margin: 329px 0 31px;
+  }
+  .admission-common .admission_text_second .left .bottom>p{
+    font-size:18px;
+    font-family:SourceHanSansCN;
+    font-weight:300;
+    color:rgba(102,102,102,1);
+    line-height:38px;
+  }
+  .admission-common .admission_text_second .right{
+      width: 667px;
+      height: 651px;
+  }
+  .admission-common .admission_text_second .right>img{
+      width: 100%;
+      height: 100%;
+      display: block;
+  }
+  .admission_wrap{
+      position: relative;
+  }
+  .admission-common .admission_text_forth_wrap{
+    width: 100%;
+    background-color: #f4f4f6;
+  }
+  .admission-common .admission_text_forth{
+      width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      padding-bottom: 132px;
+  }
+  .admission-common .admission_pic_2{
+    width: 1400px;
+    height: 544px;
+    margin: -297px auto 0;
+    position: absolute;
+}
+.admission-common .admission_pic_2>img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+  .admission-common .admission_text_forth .top{
+      padding-top: 375px;
+      margin-bottom: 42px;
+  }
+  .admission-common .admission_text_forth .top>h4{
+    font-size:26px;
+    font-family:SourceHanSansCN;
+    font-weight:500;
+    color:rgba(0,42,88,1);
+  }
+  .admission-common .admission_text_forth .top>p{
+    font-size:18px;
+    font-family:SourceHanSansCN;
+    font-weight:300;
+    color:rgba(102,102,102,1);
+    line-height:38px;
+  }
+  .admission-common .admission_text_forth .top .apply-btn{
+      width: 149px;
+      height: 35px;
+      line-height: 35px;
+      color: #fff;
+      text-align: center;
+      background-color: #f7465a;
+      margin: 41px 0 69px;
+      display: block;
+  }
+  .admission-common .admission_text_forth .bottom>h4{
+    font-size:26px;
+    font-family:SourceHanSansCN;
+    font-weight:500;
+    color:rgba(0,42,88,1);
+    margin-bottom: 42px;
+  }
+  .admission-common .admission_text_forth .bottom>p{
+    font-size:18px;
+    font-family:SourceHanSansCN;
+    font-weight:300;
+    color:rgba(102,102,102,1);
+    line-height:38px;
+    /* margin-bottom: 132px; */
+  }
+  .admission-common .admission_bottom_wrap{
+    width: 100%;
+    height: 566px;
+    background-color: #fff;
+  }
+  .admission-common .admission_bottom{
+    width: 1400px;
+    height: 566px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .admission-common .admission_bottom .left>h5{
+    font-size:36px;
+    font-family:SourceHanSansCN;
+    font-weight:400;
+    color:rgba(247,70,90,1);
+    line-height:47px;
+    margin-bottom: 77px;
+  }
+  .admission-common .admission_bottom .left>p{
+      margin-bottom: 15px;
+  }
+  .admission_bottom .left .text{
+      color: #a0a0a0;
+      font-size: 18px;
+  }
+  .admission_bottom .left .info{
+      color: #002a58;
+      font-size: 18px;
+  }
+  /* 招生政策 end */
+
+
+  /* 预约参观 */
+  .admission-visit{
+    width: 1400px;
+    margin: 136px auto 132px;
+  }
+.admission-visit>h4{
+    font-size:40px;
+    font-family:SourceHanSansCN;
+    font-weight:500;
+    color:rgba(0,42,88,1);
+    position: relative;
+}
+.admission-visit>h4::after{
+    content: '';
+    position: absolute;
+    display: block;
+    background-color:rgba(0,42,88,1);
+    left: 0;
+    bottom: -60px;
+    width: 20px;
+    border-radius: 2px;
+    height: 3px;
+}
+.admission-visit>p{
+    width: 742px;
+    font-size:18px;
+    font-family:SourceHanSansCN;
+    font-weight:300;
+    color:rgba(102,102,102,1);
+    line-height:38px;
+    margin: 136px 0 60px;
+}
+.admission-visit .visit-btn{
+    width: 149px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background-color: #002a58;
+    display: block;
+    color: #fff;
+}
+.admission-visit-pic{
+    width: 100%;
+    height: 533px;
+}
+.admission-visit-pic>img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+  /* 预约参观 end */
+
+
+  /* 活动报名 */
+  .admission-common .sign_up{
+    width: 1400px;
+    margin: 136px auto;
+  }
+   .admission-common .sign_up>h4{
+        font-size:40px;
+        font-family:SourceHanSansCN;
+        font-weight:500;
+        color:rgba(0,42,88,1);
+        position: relative;
+  }
+  .admission-common .sign_up>h4::after{
+    content: '';
+    position: absolute;
+    display: block;
+    background-color:rgba(0,42,88,1);
+    left: 0;
+    bottom: -60px;
+    width: 20px;
+    border-radius: 2px;
+    height: 3px;
+  }
+  .admission-common .sign_up>p{
+    font-size:18px;
+    font-family:SourceHanSansCN;
+    font-weight:300;
+    color:rgba(102,102,102,1);
+    line-height:38px;
+    margin: 136px 0 108px;
+  }
+  .sign_up_btn{
+      width: 149px;
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+      color: #fff;
+      background-color: #f7465a;
+      display: block;
+  }
+  .sign_up_list_wrap{
+      width: 1400px;
+      margin: 0 auto;
+  }
+  .sign_up_list{
+      width: 100%;
+      height: 326px;
+      background-color: #f4f4f6;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 55px;
+  }
+  .sign_up_list .left{
+      width: 633px;
+      height: 100%;
+  }
+  .sign_up_list>img{
+      width: 100%;
+      height: 100%;
+      display: block;
+  }
+  .sign_up_list .right{
+      width: calc(1400px - 633px);
+      padding: 47px 55px 30px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  .sign_up_list .right>h4{
+    font-size:26px;
+    font-family:SourceHanSansCN;
+    font-weight:500;
+    color:rgba(0,42,88,1);
+  }
+  .sign_up_list .right>p{
+    font-size:16px;
+    font-family:SourceHanSansCN;
+    font-weight:300;
+    color:rgba(102,102,102,1);
+    line-height:32px;
+    margin: 70px 0 0;
+  }
+  .sign_up_bottom{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  .sign_up_bottom>h4{
+    font-size:36px;
+    font-family:SourceHanSansCN;
+    font-weight:400;
+    color:rgba(247,70,90,1);
+    margin-bottom: 54px;
+    margin-top: 143px;
+    text-align: center;
+  }
+  .sign_up_bottom>img{
+      width: 272px;
+      height: 272px;
+      display: block;
+      margin-bottom: 121px;
+  }
+  /* 活动报名 end */
+
+  /* 申请 */
+  .admission-common .application{
+    width: 1400px;
+    margin: 136px auto 0;
+    padding-bottom: 168px;
+  }
+  .admission-common .application>h4{
+    font-size:40px;
+    font-family:SourceHanSansCN;
+    font-weight:500;
+    color:rgba(0,42,88,1);
+    position: relative;
+    margin-bottom: 150px;
+  }
+  .admission-common .application>h4::after{
+    content: '';
+    position: absolute;
+    display: block;
+    background-color:rgba(0,42,88,1);
+    left: 0;
+    bottom: -60px;
+    width: 20px;
+    border-radius: 2px;
+    height: 3px;
+  }
+  .application_top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 135px;
+  }
+  .application_top img{
+    width: 667px;
+    height: 651px;
+    display: block;
+  }
+  .application_top .right>p{
+    width: 627px;
+    font-size:18px;
+    font-family:SourceHanSansCN;
+    font-weight:300;
+    color:rgba(102,102,102,1);
+    line-height:38px;
+    margin-top: 43px;
+  }
+  .application-btn{
+    width: 149px;
+    height: 35px;
+    background-color: #002a58;
+    color: #fff;
+    line-height: 35px;
+    text-align: center;
+    display: block;
+    margin-top: 115px;
+  }
+  .admission-common .application_bottom{
+    width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .admission-common .application_bottom .left>h5{
+    font-size:36px;
+    font-family:SourceHanSansCN;
+    font-weight:400;
+    color:rgba(247,70,90,1);
+    line-height:47px;
+    margin-bottom: 77px;
+  }
+  .admission-common .application_bottom .left>p{
+      margin-bottom: 15px;
+  }
+  .application_bottom .left .text{
+      color: #a0a0a0;
+      font-size: 18px;
+  }
+  .application_bottom .left .info{
+      color: #002a58;
+      font-size: 18px;
+  }
+  /* 申请 end */

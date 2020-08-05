@@ -1,5 +1,4 @@
 {{'about-us-custom.css' | asset_url | css_tag }}
-<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=f8b93c0a64a54441e273f1925de4613a"></script>
 
 <div class="about-us-common">
 	<div class="about-us-img-wrapper">
@@ -100,40 +99,3 @@
 		</div>
 	</div>
 </div>
-
-
-<script>
-	const address = {
-		addrOne: [113.886327,22.544053],
-		addrTwo: [113.417066,23.173985],
-		addrThree: [113.385642,22.935482]
-	};
-	function initMap(positionArray) {
-		var map = new AMap.Map('map-container', {
-			zoom:16,//级别
-			center: positionArray,//中心点坐标
-			viewMode:'3D'//使用3D视图
-		});
-		var marker = new AMap.Marker({
-			position:positionArray
-		})
-		map.add(marker);
-	}
-	initMap(location.addrOne);
-
-	const addressEle = $('.map-address > .content > div');
-	addressEle.on('click', function() {
-		initMap(address[this.getAttribute('data-item')]);
-	});
-
-	const toggleWrapper = $('.map-address > .toggle-wrapper');
-	toggleWrapper.on('click', function() {
-		const content = this.nextElementSibling;
-		this.getElementsByClassName('icon')[0].classList.toggle('active');
-		if (content.style.maxHeight){
-			content.style.maxHeight = null;
-		} else {
-			content.style.maxHeight = content.scrollHeight + "px";
-		}
-	})
-</script>
