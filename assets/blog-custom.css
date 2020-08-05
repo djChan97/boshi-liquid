@@ -1,4 +1,5 @@
 .blog-wrapper {
+  position: relative;
   box-shadow: inset 0px 55px 20px -50px rgba(10, 1, 3, 0.13);
   max-width: 1920px;
   margin: 0 auto;
@@ -6,6 +7,23 @@
   flex-direction: column;
   background-color: white;
   align-items: center;
+}
+.blog-wrapper > .bg1 {
+  position: absolute;
+  left: 0;
+  width: 200px;
+  top: 0;
+}
+.blog-wrapper > .bg2 {
+  position: absolute;
+  width: 270px;
+  bottom: 0;
+  right: 0;
+}
+@media screen and (max-width: 768px) {
+  .blog-wrapper > .bg1, .blog-wrapper > .bg2 {
+    display: none;
+  }
 }
 .blog-wrapper > .content-body {
   width: 1350px;
@@ -89,31 +107,51 @@
   justify-content: space-between;
   align-items: center;
   background-color: RGBA(243, 243, 245, 1);
+  position: relative;
 }
-.blog-wrapper > .content-body > .page-wrapper > a {
+.blog-wrapper > .content-body > .page-wrapper > .prev {
   display: flex;
   align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
   color: #666666;
+  left: 20px;
+  transform: translateY(-50%);
 }
-.blog-wrapper > .content-body > .page-wrapper > a > .prev {
-  margin-left: 10px;
-}
-.blog-wrapper > .content-body > .page-wrapper > a > .next {
-  margin-right: 10px;
-}
-.blog-wrapper > .content-body > .page-wrapper > a > .icon {
+.blog-wrapper > .content-body > .page-wrapper > .prev > .icon {
   fill: #666666;
   width: 25px;
   height: 25px;
 }
-.blog-wrapper > .content-body > .page-wrapper > a:nth-child(2) > .icon {
+.blog-wrapper > .content-body > .page-wrapper > .next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  color: #666666;
+  right: 20px;
+  transform: translateY(-50%);
+}
+.blog-wrapper > .content-body > .page-wrapper > .next > .icon {
+  fill: #666666;
+  width: 25px;
+  height: 25px;
+}
+.blog-wrapper > .content-body > .page-wrapper > .middle {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  color: #666666;
+  transform: translate(-50%, -50%);
+}
+.blog-wrapper > .content-body > .page-wrapper > .middle > .icon {
+  fill: #666666;
   margin-right: 5px;
   width: 18px;
   height: 18px;
-}
-.blog-wrapper > .content-body > .page-wrapper > a:first-child {
-  margin-left: 20px;
-}
-.blog-wrapper > .content-body > .page-wrapper > a:last-child {
-  margin-right: 20px;
 }
