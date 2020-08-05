@@ -8,6 +8,29 @@
 // 为了优化和提升页面性能，可以使用全局的 JS 路由功能，选择性的在不同页面运行所需的 JS 代码。
 // https://docs.youhaosuda.com/development/s/5743d23a02282e2d0300001c
 
+// $('.calendar-year-select').click(function(e){
+// 	e.stopPropagation();
+//             $(".dropdown-month").removeClass("open");
+//             $(".dropdown-year").toggleClass("open");
+//             //创建下拉数据
+//             var yearText = opts.newDate.getFullYear();
+//             var s = '';
+//             for (var i = 0; i < 21; i++) {
+//                 if (i == 10) {
+//                     s += '<li class="year-item active">'
+//                 }
+//                 else {
+//                     s += '<li class="year-item">'
+//                 }
+//                 s += '<span class="year-check">' + (yearText - 10 + i) + '</span>'
+//                 s += '<span >年</span>'
+//                 s += '</li>'
+//             }
+//             me.el.find(".dropdown-year").html(s);
+// })
+
+
+
 $(document).ready(function(){
 	var oRouteCustom = {};
 
