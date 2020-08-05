@@ -424,3 +424,85 @@
       margin-bottom: 121px;
   }
   /* 活动报名 end */
+
+  /* 申请 */
+  .admission-common .application{
+    width: 1400px;
+    margin: 136px auto 0;
+    padding-bottom: 168px;
+  }
+  .admission-common .application>h4{
+    font-size:40px;
+    font-family:SourceHanSansCN;
+    font-weight:500;
+    color:rgba(0,42,88,1);
+    position: relative;
+    margin-bottom: 150px;
+  }
+  .admission-common .application>h4::after{
+    content: '';
+    position: absolute;
+    display: block;
+    background-color:rgba(0,42,88,1);
+    left: 0;
+    bottom: -60px;
+    width: 20px;
+    border-radius: 2px;
+    height: 3px;
+  }
+  .application_top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 135px;
+  }
+  .application_top img{
+    width: 667px;
+    height: 651px;
+    display: block;
+  }
+  .application_top .right>p{
+    width: 627px;
+    font-size:18px;
+    font-family:SourceHanSansCN;
+    font-weight:300;
+    color:rgba(102,102,102,1);
+    line-height:38px;
+    margin-top: 43px;
+  }
+  .application-btn{
+    width: 149px;
+    height: 35px;
+    background-color: #002a58;
+    color: #fff;
+    line-height: 35px;
+    text-align: center;
+    display: block;
+    margin-top: 115px;
+  }
+  .admission-common .application_bottom{
+    width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .admission-common .application_bottom .left>h5{
+    font-size:36px;
+    font-family:SourceHanSansCN;
+    font-weight:400;
+    color:rgba(247,70,90,1);
+    line-height:47px;
+    margin-bottom: 77px;
+  }
+  .admission-common .application_bottom .left>p{
+      margin-bottom: 15px;
+  }
+  .application_bottom .left .text{
+      color: #a0a0a0;
+      font-size: 18px;
+  }
+  .application_bottom .left .info{
+      color: #002a58;
+      font-size: 18px;
+  }
+  /* 申请 end */
